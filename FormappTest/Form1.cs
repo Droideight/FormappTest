@@ -17,14 +17,5 @@ namespace FormappTest
             InitializeComponent();
         }
 
-        private void INPCT_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TitleCQ_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
