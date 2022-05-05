@@ -53,10 +53,10 @@
             this.Can1Votes = new System.Windows.Forms.Label();
             this.livevotechart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.DistrictButton = new System.Windows.Forms.Button();
+            this.RaceTitleButton = new System.Windows.Forms.Button();
+            this.RaceTitleBox = new System.Windows.Forms.TextBox();
+            this.DistrictBox = new System.Windows.Forms.TextBox();
             this.DistrictTitle = new System.Windows.Forms.TextBox();
             this.RaceTitle = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -72,6 +72,12 @@
             this.titleED = new System.Windows.Forms.TextBox();
             this.TitleRandom = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Can1Title = new System.Windows.Forms.TextBox();
+            this.Can2Title = new System.Windows.Forms.TextBox();
+            this.Can1Box = new System.Windows.Forms.TextBox();
+            this.Can1Button = new System.Windows.Forms.Button();
+            this.Can2Box = new System.Windows.Forms.TextBox();
+            this.CAN2Button = new System.Windows.Forms.Button();
             this.Tab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -149,6 +155,7 @@
             this.StartSimSetup.TabIndex = 13;
             this.StartSimSetup.Text = "Start";
             this.StartSimSetup.UseVisualStyleBackColor = false;
+            this.StartSimSetup.Click += new System.EventHandler(this.StartSimSetup_Click);
             // 
             // RunConditionBox
             // 
@@ -156,16 +163,16 @@
             this.RunConditionBox.Multiline = true;
             this.RunConditionBox.Name = "RunConditionBox";
             this.RunConditionBox.ReadOnly = true;
-            this.RunConditionBox.Size = new System.Drawing.Size(474, 184);
+            this.RunConditionBox.Size = new System.Drawing.Size(474, 229);
             this.RunConditionBox.TabIndex = 12;
             // 
             // MassSIMBox
             // 
-            this.MassSIMBox.Location = new System.Drawing.Point(666, 273);
+            this.MassSIMBox.Location = new System.Drawing.Point(666, 311);
             this.MassSIMBox.Multiline = true;
             this.MassSIMBox.Name = "MassSIMBox";
             this.MassSIMBox.ReadOnly = true;
-            this.MassSIMBox.Size = new System.Drawing.Size(474, 230);
+            this.MassSIMBox.Size = new System.Drawing.Size(474, 192);
             this.MassSIMBox.TabIndex = 11;
             // 
             // INPCT
@@ -181,7 +188,7 @@
             // MassSimLabel
             // 
             this.MassSimLabel.Font = new System.Drawing.Font("Cambria", 18F);
-            this.MassSimLabel.Location = new System.Drawing.Point(739, 233);
+            this.MassSimLabel.Location = new System.Drawing.Point(748, 278);
             this.MassSimLabel.Name = "MassSimLabel";
             this.MassSimLabel.Size = new System.Drawing.Size(339, 30);
             this.MassSimLabel.TabIndex = 8;
@@ -346,10 +353,16 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.textBox9);
-            this.tabPage2.Controls.Add(this.textBox8);
+            this.tabPage2.Controls.Add(this.CAN2Button);
+            this.tabPage2.Controls.Add(this.Can2Box);
+            this.tabPage2.Controls.Add(this.Can1Button);
+            this.tabPage2.Controls.Add(this.Can1Box);
+            this.tabPage2.Controls.Add(this.Can2Title);
+            this.tabPage2.Controls.Add(this.Can1Title);
+            this.tabPage2.Controls.Add(this.DistrictButton);
+            this.tabPage2.Controls.Add(this.RaceTitleButton);
+            this.tabPage2.Controls.Add(this.RaceTitleBox);
+            this.tabPage2.Controls.Add(this.DistrictBox);
             this.tabPage2.Controls.Add(this.DistrictTitle);
             this.tabPage2.Controls.Add(this.RaceTitle);
             this.tabPage2.Controls.Add(this.tableLayoutPanel4);
@@ -361,45 +374,46 @@
             this.tabPage2.Text = "Set Up";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // DistrictButton
             // 
-            this.button4.Location = new System.Drawing.Point(958, 35);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 34);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Enter";
-            this.button4.UseVisualStyleBackColor = true;
+            this.DistrictButton.Location = new System.Drawing.Point(1055, 32);
+            this.DistrictButton.Name = "DistrictButton";
+            this.DistrictButton.Size = new System.Drawing.Size(82, 34);
+            this.DistrictButton.TabIndex = 6;
+            this.DistrictButton.Text = "Enter";
+            this.DistrictButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // RaceTitleButton
             // 
-            this.button3.Location = new System.Drawing.Point(513, 32);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 34);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Enter";
-            this.button3.UseVisualStyleBackColor = true;
+            this.RaceTitleButton.Location = new System.Drawing.Point(513, 32);
+            this.RaceTitleButton.Name = "RaceTitleButton";
+            this.RaceTitleButton.Size = new System.Drawing.Size(82, 34);
+            this.RaceTitleButton.TabIndex = 5;
+            this.RaceTitleButton.Text = "Enter";
+            this.RaceTitleButton.UseVisualStyleBackColor = true;
             // 
-            // textBox9
+            // RaceTitleBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(156, 32);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(350, 31);
-            this.textBox9.TabIndex = 4;
+            this.RaceTitleBox.Location = new System.Drawing.Point(245, 32);
+            this.RaceTitleBox.Name = "RaceTitleBox";
+            this.RaceTitleBox.Size = new System.Drawing.Size(261, 31);
+            this.RaceTitleBox.TabIndex = 4;
+            this.RaceTitleBox.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
-            // textBox8
+            // DistrictBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(868, 35);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(83, 31);
-            this.textBox8.TabIndex = 3;
+            this.DistrictBox.Location = new System.Drawing.Point(824, 32);
+            this.DistrictBox.Name = "DistrictBox";
+            this.DistrictBox.Size = new System.Drawing.Size(225, 31);
+            this.DistrictBox.TabIndex = 3;
             // 
             // DistrictTitle
             // 
             this.DistrictTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DistrictTitle.Location = new System.Drawing.Point(690, 32);
+            this.DistrictTitle.Location = new System.Drawing.Point(601, 32);
             this.DistrictTitle.Multiline = true;
             this.DistrictTitle.Name = "DistrictTitle";
-            this.DistrictTitle.Size = new System.Drawing.Size(172, 34);
+            this.DistrictTitle.Size = new System.Drawing.Size(217, 34);
             this.DistrictTitle.TabIndex = 2;
             this.DistrictTitle.Text = "Districts:";
             this.DistrictTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -410,7 +424,7 @@
             this.RaceTitle.Location = new System.Drawing.Point(22, 32);
             this.RaceTitle.Multiline = true;
             this.RaceTitle.Name = "RaceTitle";
-            this.RaceTitle.Size = new System.Drawing.Size(128, 34);
+            this.RaceTitle.Size = new System.Drawing.Size(217, 34);
             this.RaceTitle.TabIndex = 1;
             this.RaceTitle.Text = "Race Title:";
             this.RaceTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -444,19 +458,19 @@
             this.tableLayoutPanel4.Controls.Add(this.titleED, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.TitleRandom, 11, 0);
             this.tableLayoutPanel4.Controls.Add(this.textBox4, 9, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(19, 92);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(19, 135);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.89593F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.10407F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1118, 521);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1118, 478);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // textBox5
             // 
             this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox5.Font = new System.Drawing.Font("Cambria", 8F);
-            this.textBox5.Location = new System.Drawing.Point(938, 8);
+            this.textBox5.Location = new System.Drawing.Point(938, 5);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -469,7 +483,7 @@
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox3.Font = new System.Drawing.Font("Cambria", 8F);
-            this.textBox3.Location = new System.Drawing.Point(760, 8);
+            this.textBox3.Location = new System.Drawing.Point(760, 5);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -482,7 +496,7 @@
             // 
             this.TitleEn2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TitleEn2.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleEn2.Location = new System.Drawing.Point(671, 8);
+            this.TitleEn2.Location = new System.Drawing.Point(671, 5);
             this.TitleEn2.Multiline = true;
             this.TitleEn2.Name = "TitleEn2";
             this.TitleEn2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -495,7 +509,7 @@
             // 
             this.TitleEn1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TitleEn1.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleEn1.Location = new System.Drawing.Point(582, 8);
+            this.TitleEn1.Location = new System.Drawing.Point(582, 5);
             this.TitleEn1.Multiline = true;
             this.TitleEn1.Name = "TitleEn1";
             this.TitleEn1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -508,7 +522,7 @@
             // 
             this.TitleIV2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TitleIV2.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleIV2.Location = new System.Drawing.Point(493, 8);
+            this.TitleIV2.Location = new System.Drawing.Point(493, 5);
             this.TitleIV2.Multiline = true;
             this.TitleIV2.Name = "TitleIV2";
             this.TitleIV2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -521,7 +535,7 @@
             // 
             this.TitleIV1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TitleIV1.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleIV1.Location = new System.Drawing.Point(404, 8);
+            this.TitleIV1.Location = new System.Drawing.Point(404, 5);
             this.TitleIV1.Multiline = true;
             this.TitleIV1.Name = "TitleIV1";
             this.TitleIV1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -534,7 +548,7 @@
             // 
             this.titleCQ2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titleCQ2.Font = new System.Drawing.Font("Cambria", 8F);
-            this.titleCQ2.Location = new System.Drawing.Point(315, 8);
+            this.titleCQ2.Location = new System.Drawing.Point(315, 5);
             this.titleCQ2.Multiline = true;
             this.titleCQ2.Name = "titleCQ2";
             this.titleCQ2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -547,7 +561,7 @@
             // 
             this.TitleCQ1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TitleCQ1.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleCQ1.Location = new System.Drawing.Point(226, 8);
+            this.TitleCQ1.Location = new System.Drawing.Point(226, 5);
             this.TitleCQ1.Multiline = true;
             this.TitleCQ1.Name = "TitleCQ1";
             this.TitleCQ1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -560,7 +574,7 @@
             // 
             this.TitlePVI.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TitlePVI.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitlePVI.Location = new System.Drawing.Point(137, 8);
+            this.TitlePVI.Location = new System.Drawing.Point(137, 5);
             this.TitlePVI.Multiline = true;
             this.TitlePVI.Name = "TitlePVI";
             this.TitlePVI.Size = new System.Drawing.Size(83, 51);
@@ -571,7 +585,7 @@
             // titleED
             // 
             this.titleED.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.titleED.Location = new System.Drawing.Point(3, 8);
+            this.titleED.Location = new System.Drawing.Point(3, 5);
             this.titleED.Multiline = true;
             this.titleED.Name = "titleED";
             this.titleED.Size = new System.Drawing.Size(128, 51);
@@ -583,7 +597,7 @@
             // 
             this.TitleRandom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TitleRandom.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleRandom.Location = new System.Drawing.Point(1027, 8);
+            this.TitleRandom.Location = new System.Drawing.Point(1027, 5);
             this.TitleRandom.Multiline = true;
             this.TitleRandom.Name = "TitleRandom";
             this.TitleRandom.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -596,7 +610,7 @@
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox4.Font = new System.Drawing.Font("Cambria", 8F);
-            this.textBox4.Location = new System.Drawing.Point(849, 8);
+            this.textBox4.Location = new System.Drawing.Point(849, 5);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -604,6 +618,60 @@
             this.textBox4.TabIndex = 9;
             this.textBox4.Text = "Batch Speed";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Can1Title
+            // 
+            this.Can1Title.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Can1Title.Location = new System.Drawing.Point(22, 82);
+            this.Can1Title.Multiline = true;
+            this.Can1Title.Name = "Can1Title";
+            this.Can1Title.Size = new System.Drawing.Size(217, 34);
+            this.Can1Title.TabIndex = 7;
+            this.Can1Title.Text = "Candidate 1 Name:";
+            this.Can1Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Can2Title
+            // 
+            this.Can2Title.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Can2Title.Location = new System.Drawing.Point(601, 82);
+            this.Can2Title.Multiline = true;
+            this.Can2Title.Name = "Can2Title";
+            this.Can2Title.Size = new System.Drawing.Size(217, 34);
+            this.Can2Title.TabIndex = 8;
+            this.Can2Title.Text = "Candidate 2 Name:";
+            this.Can2Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Can1Box
+            // 
+            this.Can1Box.Location = new System.Drawing.Point(245, 82);
+            this.Can1Box.Name = "Can1Box";
+            this.Can1Box.Size = new System.Drawing.Size(261, 31);
+            this.Can1Box.TabIndex = 9;
+            // 
+            // Can1Button
+            // 
+            this.Can1Button.Location = new System.Drawing.Point(512, 82);
+            this.Can1Button.Name = "Can1Button";
+            this.Can1Button.Size = new System.Drawing.Size(82, 34);
+            this.Can1Button.TabIndex = 10;
+            this.Can1Button.Text = "Enter";
+            this.Can1Button.UseVisualStyleBackColor = true;
+            // 
+            // Can2Box
+            // 
+            this.Can2Box.Location = new System.Drawing.Point(824, 82);
+            this.Can2Box.Name = "Can2Box";
+            this.Can2Box.Size = new System.Drawing.Size(225, 31);
+            this.Can2Box.TabIndex = 11;
+            // 
+            // CAN2Button
+            // 
+            this.CAN2Button.Location = new System.Drawing.Point(1055, 82);
+            this.CAN2Button.Name = "CAN2Button";
+            this.CAN2Button.Size = new System.Drawing.Size(82, 34);
+            this.CAN2Button.TabIndex = 12;
+            this.CAN2Button.Text = "Enter";
+            this.CAN2Button.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -613,6 +681,7 @@
             this.Controls.Add(this.Tab);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Tab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -664,13 +733,19 @@
         private System.Windows.Forms.TextBox TitleRandom;
         private System.Windows.Forms.TextBox RaceTitle;
         private System.Windows.Forms.TextBox DistrictTitle;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox RaceTitleBox;
+        private System.Windows.Forms.TextBox DistrictBox;
         private System.Windows.Forms.Label ElectionTime;
         private System.Windows.Forms.Button ResetSimup;
         private System.Windows.Forms.Button StartSimSetup;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button DistrictButton;
+        private System.Windows.Forms.Button RaceTitleButton;
+        private System.Windows.Forms.Button Can1Button;
+        private System.Windows.Forms.TextBox Can1Box;
+        private System.Windows.Forms.TextBox Can2Title;
+        private System.Windows.Forms.TextBox Can1Title;
+        private System.Windows.Forms.Button CAN2Button;
+        private System.Windows.Forms.TextBox Can2Box;
     }
 }
 
