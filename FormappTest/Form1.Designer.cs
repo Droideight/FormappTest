@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ElectionTime = new System.Windows.Forms.Label();
@@ -53,31 +53,31 @@
             this.Can1Votes = new System.Windows.Forms.Label();
             this.livevotechart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.CAN2Button = new System.Windows.Forms.Button();
+            this.Can2Box = new System.Windows.Forms.TextBox();
+            this.Can1Button = new System.Windows.Forms.Button();
+            this.Can1Box = new System.Windows.Forms.TextBox();
+            this.Can2Title = new System.Windows.Forms.TextBox();
+            this.Can1Title = new System.Windows.Forms.TextBox();
             this.DistrictButton = new System.Windows.Forms.Button();
             this.RaceTitleButton = new System.Windows.Forms.Button();
             this.RaceTitleBox = new System.Windows.Forms.TextBox();
             this.DistrictBox = new System.Windows.Forms.TextBox();
             this.DistrictTitle = new System.Windows.Forms.TextBox();
             this.RaceTitle = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.TitleEn2 = new System.Windows.Forms.TextBox();
-            this.TitleEn1 = new System.Windows.Forms.TextBox();
-            this.TitleIV2 = new System.Windows.Forms.TextBox();
-            this.TitleIV1 = new System.Windows.Forms.TextBox();
-            this.titleCQ2 = new System.Windows.Forms.TextBox();
-            this.TitleCQ1 = new System.Windows.Forms.TextBox();
-            this.TitlePVI = new System.Windows.Forms.TextBox();
-            this.titleED = new System.Windows.Forms.TextBox();
-            this.TitleRandom = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.Can1Title = new System.Windows.Forms.TextBox();
-            this.Can2Title = new System.Windows.Forms.TextBox();
-            this.Can1Box = new System.Windows.Forms.TextBox();
-            this.Can1Button = new System.Windows.Forms.Button();
-            this.Can2Box = new System.Windows.Forms.TextBox();
-            this.CAN2Button = new System.Windows.Forms.Button();
+            this.SetupTable = new System.Windows.Forms.TableLayoutPanel();
+            this.EDT = new System.Windows.Forms.Label();
+            this.PVIT = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.Tab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -85,7 +85,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.livevotechart)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
+            this.SetupTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tab
@@ -337,16 +337,16 @@
             // 
             // livevotechart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.livevotechart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.livevotechart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.livevotechart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.livevotechart.Legends.Add(legend1);
             this.livevotechart.Location = new System.Drawing.Point(12, 273);
             this.livevotechart.Name = "livevotechart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.livevotechart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.livevotechart.Series.Add(series1);
             this.livevotechart.Size = new System.Drawing.Size(608, 326);
             this.livevotechart.TabIndex = 3;
             this.livevotechart.Text = "chart1";
@@ -365,7 +365,7 @@
             this.tabPage2.Controls.Add(this.DistrictBox);
             this.tabPage2.Controls.Add(this.DistrictTitle);
             this.tabPage2.Controls.Add(this.RaceTitle);
-            this.tabPage2.Controls.Add(this.tableLayoutPanel4);
+            this.tabPage2.Controls.Add(this.SetupTable);
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -373,6 +373,62 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Set Up";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // CAN2Button
+            // 
+            this.CAN2Button.Location = new System.Drawing.Point(1055, 82);
+            this.CAN2Button.Name = "CAN2Button";
+            this.CAN2Button.Size = new System.Drawing.Size(82, 34);
+            this.CAN2Button.TabIndex = 12;
+            this.CAN2Button.Text = "Enter";
+            this.CAN2Button.UseVisualStyleBackColor = true;
+            // 
+            // Can2Box
+            // 
+            this.Can2Box.Location = new System.Drawing.Point(824, 82);
+            this.Can2Box.Name = "Can2Box";
+            this.Can2Box.Size = new System.Drawing.Size(225, 31);
+            this.Can2Box.TabIndex = 11;
+            // 
+            // Can1Button
+            // 
+            this.Can1Button.Location = new System.Drawing.Point(512, 82);
+            this.Can1Button.Name = "Can1Button";
+            this.Can1Button.Size = new System.Drawing.Size(82, 34);
+            this.Can1Button.TabIndex = 10;
+            this.Can1Button.Text = "Enter";
+            this.Can1Button.UseVisualStyleBackColor = true;
+            // 
+            // Can1Box
+            // 
+            this.Can1Box.Location = new System.Drawing.Point(245, 82);
+            this.Can1Box.Name = "Can1Box";
+            this.Can1Box.Size = new System.Drawing.Size(261, 31);
+            this.Can1Box.TabIndex = 9;
+            // 
+            // Can2Title
+            // 
+            this.Can2Title.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Can2Title.Enabled = false;
+            this.Can2Title.Location = new System.Drawing.Point(601, 82);
+            this.Can2Title.Multiline = true;
+            this.Can2Title.Name = "Can2Title";
+            this.Can2Title.Size = new System.Drawing.Size(217, 34);
+            this.Can2Title.TabIndex = 8;
+            this.Can2Title.Text = "Candidate 2 Name:";
+            this.Can2Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Can1Title
+            // 
+            this.Can1Title.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Can1Title.Enabled = false;
+            this.Can1Title.Location = new System.Drawing.Point(22, 82);
+            this.Can1Title.Multiline = true;
+            this.Can1Title.Name = "Can1Title";
+            this.Can1Title.Size = new System.Drawing.Size(217, 34);
+            this.Can1Title.TabIndex = 7;
+            this.Can1Title.Text = "Candidate 1 Name:";
+            this.Can1Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DistrictButton
             // 
@@ -398,7 +454,6 @@
             this.RaceTitleBox.Name = "RaceTitleBox";
             this.RaceTitleBox.Size = new System.Drawing.Size(261, 31);
             this.RaceTitleBox.TabIndex = 4;
-            this.RaceTitleBox.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // DistrictBox
             // 
@@ -410,6 +465,7 @@
             // DistrictTitle
             // 
             this.DistrictTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DistrictTitle.Enabled = false;
             this.DistrictTitle.Location = new System.Drawing.Point(601, 32);
             this.DistrictTitle.Multiline = true;
             this.DistrictTitle.Name = "DistrictTitle";
@@ -421,6 +477,7 @@
             // RaceTitle
             // 
             this.RaceTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RaceTitle.Enabled = false;
             this.RaceTitle.Location = new System.Drawing.Point(22, 32);
             this.RaceTitle.Multiline = true;
             this.RaceTitle.Name = "RaceTitle";
@@ -429,249 +486,178 @@
             this.RaceTitle.Text = "Race Title:";
             this.RaceTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tableLayoutPanel4
+            // SetupTable
             // 
-            this.tableLayoutPanel4.AutoScroll = true;
-            this.tableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel4.ColumnCount = 12;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel4.Controls.Add(this.textBox5, 10, 0);
-            this.tableLayoutPanel4.Controls.Add(this.textBox3, 8, 0);
-            this.tableLayoutPanel4.Controls.Add(this.TitleEn2, 7, 0);
-            this.tableLayoutPanel4.Controls.Add(this.TitleEn1, 6, 0);
-            this.tableLayoutPanel4.Controls.Add(this.TitleIV2, 5, 0);
-            this.tableLayoutPanel4.Controls.Add(this.TitleIV1, 4, 0);
-            this.tableLayoutPanel4.Controls.Add(this.titleCQ2, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.TitleCQ1, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.TitlePVI, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.titleED, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.TitleRandom, 11, 0);
-            this.tableLayoutPanel4.Controls.Add(this.textBox4, 9, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(19, 135);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.89593F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.10407F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1118, 478);
-            this.tableLayoutPanel4.TabIndex = 0;
+            this.SetupTable.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SetupTable.AutoScroll = true;
+            this.SetupTable.AutoScrollMargin = new System.Drawing.Size(10, 10);
+            this.SetupTable.AutoScrollMinSize = new System.Drawing.Size(10, 10);
+            this.SetupTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SetupTable.BackColor = System.Drawing.Color.LightGray;
+            this.SetupTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.SetupTable.ColumnCount = 12;
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.SetupTable.Controls.Add(this.label10, 11, 0);
+            this.SetupTable.Controls.Add(this.label9, 10, 0);
+            this.SetupTable.Controls.Add(this.label8, 9, 0);
+            this.SetupTable.Controls.Add(this.label7, 8, 0);
+            this.SetupTable.Controls.Add(this.label6, 7, 0);
+            this.SetupTable.Controls.Add(this.label5, 6, 0);
+            this.SetupTable.Controls.Add(this.label4, 5, 0);
+            this.SetupTable.Controls.Add(this.label3, 4, 0);
+            this.SetupTable.Controls.Add(this.label2, 3, 0);
+            this.SetupTable.Controls.Add(this.label1, 2, 0);
+            this.SetupTable.Controls.Add(this.PVIT, 1, 0);
+            this.SetupTable.Controls.Add(this.EDT, 0, 0);
+            this.SetupTable.Location = new System.Drawing.Point(22, 134);
+            this.SetupTable.Name = "SetupTable";
+            this.SetupTable.RowCount = 4;
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SetupTable.Size = new System.Drawing.Size(1115, 471);
+            this.SetupTable.TabIndex = 0;
             // 
-            // textBox5
+            // EDT
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.Font = new System.Drawing.Font("Cambria", 8F);
-            this.textBox5.Location = new System.Drawing.Point(938, 5);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox5.Size = new System.Drawing.Size(83, 51);
-            this.textBox5.TabIndex = 10;
-            this.textBox5.Text = "Population";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.EDT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EDT.AutoSize = true;
+            this.EDT.Location = new System.Drawing.Point(21, 8);
+            this.EDT.Name = "EDT";
+            this.EDT.Size = new System.Drawing.Size(91, 46);
+            this.EDT.TabIndex = 0;
+            this.EDT.Text = "Electoral District";
             // 
-            // textBox3
+            // PVIT
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Font = new System.Drawing.Font("Cambria", 8F);
-            this.textBox3.Location = new System.Drawing.Point(760, 5);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox3.Size = new System.Drawing.Size(83, 51);
-            this.textBox3.TabIndex = 8;
-            this.textBox3.Text = "Batch Quant.";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PVIT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PVIT.AutoSize = true;
+            this.PVIT.Location = new System.Drawing.Point(158, 19);
+            this.PVIT.Name = "PVIT";
+            this.PVIT.Size = new System.Drawing.Size(39, 23);
+            this.PVIT.TabIndex = 1;
+            this.PVIT.Text = "PVI";
             // 
-            // TitleEn2
+            // label1
             // 
-            this.TitleEn2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TitleEn2.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleEn2.Location = new System.Drawing.Point(671, 5);
-            this.TitleEn2.Multiline = true;
-            this.TitleEn2.Name = "TitleEn2";
-            this.TitleEn2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.TitleEn2.Size = new System.Drawing.Size(83, 51);
-            this.TitleEn2.TabIndex = 7;
-            this.TitleEn2.Text = "Can2. Enthus.";
-            this.TitleEn2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(236, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 46);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Cand. Qua1";
             // 
-            // TitleEn1
+            // label2
             // 
-            this.TitleEn1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TitleEn1.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleEn1.Location = new System.Drawing.Point(582, 5);
-            this.TitleEn1.Multiline = true;
-            this.TitleEn1.Name = "TitleEn1";
-            this.TitleEn1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.TitleEn1.Size = new System.Drawing.Size(83, 51);
-            this.TitleEn1.TabIndex = 6;
-            this.TitleEn1.Text = "Can1. Enthus.";
-            this.TitleEn1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(325, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 46);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Cand. Qua2";
             // 
-            // TitleIV2
+            // label3
             // 
-            this.TitleIV2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TitleIV2.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleIV2.Location = new System.Drawing.Point(493, 5);
-            this.TitleIV2.Multiline = true;
-            this.TitleIV2.Name = "TitleIV2";
-            this.TitleIV2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.TitleIV2.Size = new System.Drawing.Size(83, 51);
-            this.TitleIV2.TabIndex = 5;
-            this.TitleIV2.Text = "Can2. Investmt";
-            this.TitleIV2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(414, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 46);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Cand. Inv1";
             // 
-            // TitleIV1
+            // label4
             // 
-            this.TitleIV1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TitleIV1.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleIV1.Location = new System.Drawing.Point(404, 5);
-            this.TitleIV1.Multiline = true;
-            this.TitleIV1.Name = "TitleIV1";
-            this.TitleIV1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.TitleIV1.Size = new System.Drawing.Size(83, 51);
-            this.TitleIV1.TabIndex = 4;
-            this.TitleIV1.Text = "Can1. Investmt";
-            this.TitleIV1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(503, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 46);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Cand. Inv2";
             // 
-            // titleCQ2
+            // label5
             // 
-            this.titleCQ2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.titleCQ2.Font = new System.Drawing.Font("Cambria", 8F);
-            this.titleCQ2.Location = new System.Drawing.Point(315, 5);
-            this.titleCQ2.Multiline = true;
-            this.titleCQ2.Name = "titleCQ2";
-            this.titleCQ2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.titleCQ2.Size = new System.Drawing.Size(83, 51);
-            this.titleCQ2.TabIndex = 3;
-            this.titleCQ2.Text = "Can2. Quality";
-            this.titleCQ2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(586, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 46);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Cand. Enthu1";
             // 
-            // TitleCQ1
+            // label6
             // 
-            this.TitleCQ1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TitleCQ1.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleCQ1.Location = new System.Drawing.Point(226, 5);
-            this.TitleCQ1.Multiline = true;
-            this.TitleCQ1.Name = "TitleCQ1";
-            this.TitleCQ1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.TitleCQ1.Size = new System.Drawing.Size(83, 51);
-            this.TitleCQ1.TabIndex = 2;
-            this.TitleCQ1.Text = "Can1. Quality";
-            this.TitleCQ1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(675, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 46);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Cand. Enthu2";
             // 
-            // TitlePVI
+            // label7
             // 
-            this.TitlePVI.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TitlePVI.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitlePVI.Location = new System.Drawing.Point(137, 5);
-            this.TitlePVI.Multiline = true;
-            this.TitlePVI.Name = "TitlePVI";
-            this.TitlePVI.Size = new System.Drawing.Size(83, 51);
-            this.TitlePVI.TabIndex = 1;
-            this.TitlePVI.Text = "PVI";
-            this.TitlePVI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(769, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 46);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Batch Qty";
             // 
-            // titleED
+            // label8
             // 
-            this.titleED.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.titleED.Location = new System.Drawing.Point(3, 5);
-            this.titleED.Multiline = true;
-            this.titleED.Name = "titleED";
-            this.titleED.Size = new System.Drawing.Size(128, 51);
-            this.titleED.TabIndex = 0;
-            this.titleED.Text = "Electoral District";
-            this.titleED.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(858, 8);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 46);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Batch Speed";
             // 
-            // TitleRandom
+            // label9
             // 
-            this.TitleRandom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TitleRandom.Font = new System.Drawing.Font("Cambria", 8F);
-            this.TitleRandom.Location = new System.Drawing.Point(1027, 5);
-            this.TitleRandom.Multiline = true;
-            this.TitleRandom.Name = "TitleRandom";
-            this.TitleRandom.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.TitleRandom.Size = new System.Drawing.Size(88, 51);
-            this.TitleRandom.TabIndex = 11;
-            this.TitleRandom.Text = "Random (MOE)";
-            this.TitleRandom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(946, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 23);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Voters";
             // 
-            // textBox4
+            // label10
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.Font = new System.Drawing.Font("Cambria", 8F);
-            this.textBox4.Location = new System.Drawing.Point(849, 5);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox4.Size = new System.Drawing.Size(83, 51);
-            this.textBox4.TabIndex = 9;
-            this.textBox4.Text = "Batch Speed";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Can1Title
-            // 
-            this.Can1Title.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Can1Title.Location = new System.Drawing.Point(22, 82);
-            this.Can1Title.Multiline = true;
-            this.Can1Title.Name = "Can1Title";
-            this.Can1Title.Size = new System.Drawing.Size(217, 34);
-            this.Can1Title.TabIndex = 7;
-            this.Can1Title.Text = "Candidate 1 Name:";
-            this.Can1Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Can2Title
-            // 
-            this.Can2Title.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Can2Title.Location = new System.Drawing.Point(601, 82);
-            this.Can2Title.Multiline = true;
-            this.Can2Title.Name = "Can2Title";
-            this.Can2Title.Size = new System.Drawing.Size(217, 34);
-            this.Can2Title.TabIndex = 8;
-            this.Can2Title.Text = "Candidate 2 Name:";
-            this.Can2Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Can1Box
-            // 
-            this.Can1Box.Location = new System.Drawing.Point(245, 82);
-            this.Can1Box.Name = "Can1Box";
-            this.Can1Box.Size = new System.Drawing.Size(261, 31);
-            this.Can1Box.TabIndex = 9;
-            // 
-            // Can1Button
-            // 
-            this.Can1Button.Location = new System.Drawing.Point(512, 82);
-            this.Can1Button.Name = "Can1Button";
-            this.Can1Button.Size = new System.Drawing.Size(82, 34);
-            this.Can1Button.TabIndex = 10;
-            this.Can1Button.Text = "Enter";
-            this.Can1Button.UseVisualStyleBackColor = true;
-            // 
-            // Can2Box
-            // 
-            this.Can2Box.Location = new System.Drawing.Point(824, 82);
-            this.Can2Box.Name = "Can2Box";
-            this.Can2Box.Size = new System.Drawing.Size(225, 31);
-            this.Can2Box.TabIndex = 11;
-            // 
-            // CAN2Button
-            // 
-            this.CAN2Button.Location = new System.Drawing.Point(1055, 82);
-            this.CAN2Button.Name = "CAN2Button";
-            this.CAN2Button.Size = new System.Drawing.Size(82, 34);
-            this.CAN2Button.TabIndex = 12;
-            this.CAN2Button.Text = "Enter";
-            this.CAN2Button.UseVisualStyleBackColor = true;
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1043, 19);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 23);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "MOE";
             // 
             // Form1
             // 
@@ -691,8 +677,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.livevotechart)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
+            this.SetupTable.ResumeLayout(false);
+            this.SetupTable.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -718,19 +704,7 @@
         private System.Windows.Forms.Label INPCT;
         private System.Windows.Forms.TextBox RunConditionBox;
         private System.Windows.Forms.TextBox MassSIMBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TextBox TitleCQ1;
-        private System.Windows.Forms.TextBox TitlePVI;
-        private System.Windows.Forms.TextBox titleED;
-        private System.Windows.Forms.TextBox titleCQ2;
-        private System.Windows.Forms.TextBox TitleEn2;
-        private System.Windows.Forms.TextBox TitleEn1;
-        private System.Windows.Forms.TextBox TitleIV2;
-        private System.Windows.Forms.TextBox TitleIV1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox TitleRandom;
+        private System.Windows.Forms.TableLayoutPanel SetupTable;
         private System.Windows.Forms.TextBox RaceTitle;
         private System.Windows.Forms.TextBox DistrictTitle;
         private System.Windows.Forms.TextBox RaceTitleBox;
@@ -746,6 +720,18 @@
         private System.Windows.Forms.TextBox Can1Title;
         private System.Windows.Forms.Button CAN2Button;
         private System.Windows.Forms.TextBox Can2Box;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label PVIT;
+        private System.Windows.Forms.Label EDT;
     }
 }
 

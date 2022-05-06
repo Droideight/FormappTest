@@ -29,17 +29,19 @@ namespace FormappTest
         double BatchS;
         double TotalPopulation;
         double AVGMOE;
-        double[] Can1Quality = { 70, 70, 70 };
-        double[] Can2Quality = { 70, 70, 70 };
-        double[] Can1Investment = { 70, 70, 70 };
-        double[] Can2Investment = { 70, 70, 70 };
-        double[] Can1Enthusiasm = { 70, 70, 70 };
-        double[] Can2Enthusiasm = { 70, 70, 70 };
-        double[] BatchQuantity = { 50, 90, 70 };
-        double[] BatchSpeed = { 90, 50, 70 };
-        double[] Population = { 350000, 350000, 350000 };
-        double[] MOE = { 3, 3, 3 };
-        
+        List<double> PVI = new List<double>();
+        List<double> CQ1 = new List<double>();
+        List<double> CQ2 = new List<double>();
+        List<double> CI1 = new List<double>();
+        List<double> E1 = new List<double>();
+        List<double> E2 = new List<double>();
+        List<double> CI2 = new List<double>();
+        List<double> BatchQI = new List<double>();
+        List<double> BatchSI = new List<double>();
+        List<double> PopulationI = new List<double>();
+        List<double> MOEI = new List<double>();
+
+
         public void ClearVar()
         {
             ED = 3;
@@ -52,27 +54,27 @@ namespace FormappTest
             ResetPopulation();
             ResetBatch();
             UpdateRuntimeCard();
+            SetupTableSize();
         }
 
         public void ResetPVI()
         {
-            List<double> PVI = new List<double>();
+            PVI.Clear();
             PVI.Add(5.0); PVI.Add(15.0); PVI.Add(-5.0);
             AVGPVI = 0;
             foreach (double PVIindi in PVI)
             { AVGPVI += PVIindi; }
             AVGPVI /= (double)PVI.Count;
-           
         }
         public void ResetCandidateQuality()
         {
-            List<double> CQ1 = new List<double>();
+            CQ1.Clear();
             CQ1.Add(70.0); CQ1.Add(70.0); CQ1.Add(70.0);
             AVGCQ1 = 0;
             foreach (double CQ1indi in CQ1)
             { AVGCQ1 += CQ1indi; }
             AVGCQ1 /= (double)CQ1.Count;
-            List<double> CQ2 = new List<double>();
+            CQ2.Clear();
             CQ2.Add(70.0); CQ2.Add(70.0); CQ2.Add(70.0);
             AVGCQ2 = 0;
             foreach (double CQ2indi in CQ2)
@@ -81,13 +83,13 @@ namespace FormappTest
         }
         public void ResetCandidateInvestment()
         {
-            List<double> CI1 = new List<double>();
+            CI1.Clear();
             CI1.Add(70.0); CI1.Add(70.0); CI1.Add(70.0);
             AVGCI1 = 0;
             foreach (double CI1indi in CI1)
             { AVGCI1 += CI1indi; }
             AVGCI1 /= (double)CI1.Count;
-            List<double> CI2 = new List<double>();
+            CI2.Clear();
             CI2.Add(70.0); CI2.Add(70.0); CI2.Add(70.0);
             AVGCI2 = 0;
             foreach (double CI2indi in CI2)
@@ -96,13 +98,13 @@ namespace FormappTest
         }
         public void ResetEnthusiasm()
         {
-            List<double> E1 = new List<double>();
+            E1.Clear();
             E1.Add(70.0); E1.Add(70.0); E1.Add(70.0);
             AVGE1 = 0;
             foreach (double E1indi in E1)
             { AVGE1 += E1indi; }
             AVGE1 /= (double)E1.Count;
-            List<double> E2 = new List<double>();
+            E2.Clear();
             E2.Add(70.0); E2.Add(70.0); E2.Add(70.0);
             AVGE2 = 0;
             foreach (double E2indi in E2)
@@ -111,63 +113,150 @@ namespace FormappTest
         }
         public void ResetBatch()
         {
-            List<double> BatchQI = new List<double>();
+            BatchQI.Clear();
             BatchQI.Add(1); BatchQI.Add(1); BatchQI.Add(1);
             BatchQ = 0;
             foreach (double BatchQindi in BatchQI)
             { BatchQ += BatchQindi; }
             BatchQ /= (double)BatchQI.Count;
-            UpdateRuntimeCard();
-            List<double> BatchSI = new List<double>();
+            BatchSI.Clear();
             BatchSI.Add(1); BatchSI.Add(1); BatchSI.Add(1);
             BatchS = 0;
             foreach (double BatchSindi in BatchSI)
             { BatchS += BatchSindi; }
             BatchS /= (double)BatchSI.Count;
-            UpdateRuntimeCard();
 
         }
         public void ResetPopulation()
         {
-            List<double> PopulationI = new List<double>();
+            PopulationI.Clear();
             PopulationI.Add(350000); PopulationI.Add(350000); PopulationI.Add(350000);
             TotalPopulation = 0;
             foreach (double PopulationIndi in PopulationI)
             { TotalPopulation += PopulationIndi; }
-            UpdateRuntimeCard();
         }
         public void ResetMOE()
         {
-            List<double> MOEI = new List<double>();
+            MOEI.Clear();
             MOEI.Add(0.0); MOEI.Add(15.0); MOEI.Add(-15.0);
             AVGMOE = 0;
             foreach (double MOEindi in MOEI)
             { AVGMOE += MOEindi; }
             AVGMOE /= (double)MOEI.Count;
-            UpdateRuntimeCard();
         }
 
         public void UpdateRuntimeCard()
         {
-            RunConditionBox.Text = $"PVI:{AVGPVI}%\r\nCandidate Quality:{AVGCQ1}% - {AVGCQ2}%\r\nInvestment:{AVGCI1}% - {AVGCI2}%\r\n" +
-                $"Enthusiasm:{AVGE1}% - {AVGE2}%\r\nBatch Quantity:{BatchQ}\r\nBatch Speed:{BatchS}\r\n" +
-                $"Population:{TotalPopulation}\r\nMOE:{AVGMOE}%";
+            RunConditionBox.Text = $"PVI: {AVGPVI}%\r\nCandidate Quality: {AVGCQ1}% - {AVGCQ2}%\r\nInvestment: {AVGCI1}% - {AVGCI2}%\r\n" +
+                $"Enthusiasm: {AVGE1}% - {AVGE2}%\r\nBatch Quantity: {BatchQ}\r\nBatch Speed: {BatchS}\r\n" +
+                $"Population: {TotalPopulation}\r\nMOE: {AVGMOE}%";
             StartSimSetup.Text = "Start";
+        }
+
+        public void SetupTableSize()
+        {
+            SetupTable.RowCount = 1 + ED;
+            SetupTable.RowStyles[0] = new RowStyle(SizeType.Absolute, 60);
+            for (int i = 1; i<ED; i++)
+            {
+                SetupTable.RowStyles[i+1] = new RowStyle(SizeType.Absolute, 100);
+            }
+            for (int j = 12; j < (ED+1)*12; j++)
+            {
+                CloneTextBox(j);
+            }
+            for (int k = 12; k < (ED+1)*12; k++)
+            {
+                string textboxthing = "new";
+                switch (Math.IEEERemainder(k, 12))
+                {
+                    case 0:
+                        { break; }
+                    case 1:
+                        {
+                            textboxthing = PVI[Math.DivRem(k, 12, out int case1) - 1].ToString();
+                            break;
+                        }
+                    case 2:
+                        {
+                            textboxthing = CQ1[Math.DivRem(k, 12, out int case2) - 1].ToString();
+                            break;
+                        }
+                    case 3:
+                        {
+                            textboxthing = CQ2[Math.DivRem(k, 12, out int case3) - 1].ToString();
+                            break;
+                        }
+                    case 4:
+                        {
+                            textboxthing = CI1[Math.DivRem(k, 12, out int case4) - 1].ToString();
+                            break;
+                        }
+                    case 5:
+                        {
+                            textboxthing = CI2[Math.DivRem(k, 12, out int case5) - 1].ToString();
+                            break;
+                        }
+                    case 6:
+                        {
+                            textboxthing = E1[Math.DivRem(k, 12, out int case6) - 1].ToString();
+                            break;
+                        }
+                    case 7:
+                        {
+                            textboxthing = E2[Math.DivRem(k, 12, out int case7) - 1].ToString();
+                            break;
+                        }
+                    case 8:
+                        {
+                            textboxthing = BatchQI[Math.DivRem(k, 12, out int case8) - 1].ToString();
+                            break;
+                        }
+                    case 9:
+                        {
+                            textboxthing = BatchSI[Math.DivRem(k, 12, out int case9) - 1].ToString();
+                            break;
+                        }
+                    case 10:
+                        {
+                            textboxthing = PopulationI[Math.DivRem(k, 12, out int case10) - 1].ToString();
+                            break;
+                        }
+                    case 11:
+                        {
+                            textboxthing = MOEI[Math.DivRem(k, 12, out int case11) - 1].ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            textboxthing = k.ToString();
+                            break;
+                        }
+                }
+                SetupTable.Controls.Find(k.ToString(), true)[0].Text = textboxthing;
+            }
+        }
+
+        public TextBox CloneTextBox(int Textboxindex)
+        {
+          TextBox Textboxname = new TextBox();
+            Textboxname.TabIndex = Textboxindex;
+            Textboxname.Anchor = AnchorStyles.None;
+            Textboxname.Enabled = false;
+            Textboxname.Dock = DockStyle.None;
+            Textboxname.Name = Textboxindex.ToString();
+            SetupTable.Controls.Add(Textboxname);
+          return Textboxname;
         }
 
         private void StartSimSetup_Click(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             ClearVar();
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 
