@@ -168,7 +168,7 @@ namespace FormappTest
             for (int k = 12; k < (ED+1)*12; k++)
             {
                 string textboxthing = "new";
-                switch (Math.IEEERemainder(k, 12))
+                switch (k%12)
                 {
                     case 0:
                         { break; }
