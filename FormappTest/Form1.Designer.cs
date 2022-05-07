@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ElectionTime = new System.Windows.Forms.Label();
@@ -66,18 +66,19 @@
             this.DistrictTitle = new System.Windows.Forms.TextBox();
             this.RaceTitle = new System.Windows.Forms.TextBox();
             this.SetupTable = new System.Windows.Forms.TableLayoutPanel();
-            this.EDT = new System.Windows.Forms.Label();
-            this.PVIT = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PVIT = new System.Windows.Forms.Label();
+            this.EDT = new System.Windows.Forms.Label();
+            this.EditFormBTN = new System.Windows.Forms.Button();
             this.Tab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -337,22 +338,23 @@
             // 
             // livevotechart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.livevotechart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.livevotechart.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.livevotechart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.livevotechart.Legends.Add(legend4);
             this.livevotechart.Location = new System.Drawing.Point(12, 273);
             this.livevotechart.Name = "livevotechart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.livevotechart.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.livevotechart.Series.Add(series4);
             this.livevotechart.Size = new System.Drawing.Size(608, 326);
             this.livevotechart.TabIndex = 3;
             this.livevotechart.Text = "chart1";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.EditFormBTN);
             this.tabPage2.Controls.Add(this.CAN2Button);
             this.tabPage2.Controls.Add(this.Can2Box);
             this.tabPage2.Controls.Add(this.Can1Button);
@@ -376,7 +378,7 @@
             // 
             // CAN2Button
             // 
-            this.CAN2Button.Location = new System.Drawing.Point(1055, 82);
+            this.CAN2Button.Location = new System.Drawing.Point(877, 82);
             this.CAN2Button.Name = "CAN2Button";
             this.CAN2Button.Size = new System.Drawing.Size(82, 34);
             this.CAN2Button.TabIndex = 12;
@@ -385,14 +387,14 @@
             // 
             // Can2Box
             // 
-            this.Can2Box.Location = new System.Drawing.Point(824, 82);
+            this.Can2Box.Location = new System.Drawing.Point(689, 82);
             this.Can2Box.Name = "Can2Box";
-            this.Can2Box.Size = new System.Drawing.Size(225, 31);
+            this.Can2Box.Size = new System.Drawing.Size(182, 31);
             this.Can2Box.TabIndex = 11;
             // 
             // Can1Button
             // 
-            this.Can1Button.Location = new System.Drawing.Point(512, 82);
+            this.Can1Button.Location = new System.Drawing.Point(345, 82);
             this.Can1Button.Name = "Can1Button";
             this.Can1Button.Size = new System.Drawing.Size(82, 34);
             this.Can1Button.TabIndex = 10;
@@ -401,21 +403,21 @@
             // 
             // Can1Box
             // 
-            this.Can1Box.Location = new System.Drawing.Point(245, 82);
+            this.Can1Box.Location = new System.Drawing.Point(160, 82);
             this.Can1Box.Name = "Can1Box";
-            this.Can1Box.Size = new System.Drawing.Size(261, 31);
+            this.Can1Box.Size = new System.Drawing.Size(179, 31);
             this.Can1Box.TabIndex = 9;
             // 
             // Can2Title
             // 
             this.Can2Title.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Can2Title.Enabled = false;
-            this.Can2Title.Location = new System.Drawing.Point(601, 82);
+            this.Can2Title.Location = new System.Drawing.Point(513, 82);
             this.Can2Title.Multiline = true;
             this.Can2Title.Name = "Can2Title";
-            this.Can2Title.Size = new System.Drawing.Size(217, 34);
+            this.Can2Title.Size = new System.Drawing.Size(168, 34);
             this.Can2Title.TabIndex = 8;
-            this.Can2Title.Text = "Candidate 2 Name:";
+            this.Can2Title.Text = "Can. 2 Name:";
             this.Can2Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Can1Title
@@ -425,23 +427,24 @@
             this.Can1Title.Location = new System.Drawing.Point(22, 82);
             this.Can1Title.Multiline = true;
             this.Can1Title.Name = "Can1Title";
-            this.Can1Title.Size = new System.Drawing.Size(217, 34);
+            this.Can1Title.Size = new System.Drawing.Size(132, 34);
             this.Can1Title.TabIndex = 7;
-            this.Can1Title.Text = "Candidate 1 Name:";
+            this.Can1Title.Text = "Can. 1 Name:";
             this.Can1Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DistrictButton
             // 
-            this.DistrictButton.Location = new System.Drawing.Point(1055, 32);
+            this.DistrictButton.Location = new System.Drawing.Point(877, 32);
             this.DistrictButton.Name = "DistrictButton";
             this.DistrictButton.Size = new System.Drawing.Size(82, 34);
             this.DistrictButton.TabIndex = 6;
             this.DistrictButton.Text = "Enter";
             this.DistrictButton.UseVisualStyleBackColor = true;
+            this.DistrictButton.Click += new System.EventHandler(this.DistrictButton_Click);
             // 
             // RaceTitleButton
             // 
-            this.RaceTitleButton.Location = new System.Drawing.Point(513, 32);
+            this.RaceTitleButton.Location = new System.Drawing.Point(345, 32);
             this.RaceTitleButton.Name = "RaceTitleButton";
             this.RaceTitleButton.Size = new System.Drawing.Size(82, 34);
             this.RaceTitleButton.TabIndex = 5;
@@ -450,26 +453,26 @@
             // 
             // RaceTitleBox
             // 
-            this.RaceTitleBox.Location = new System.Drawing.Point(245, 32);
+            this.RaceTitleBox.Location = new System.Drawing.Point(160, 32);
             this.RaceTitleBox.Name = "RaceTitleBox";
-            this.RaceTitleBox.Size = new System.Drawing.Size(261, 31);
+            this.RaceTitleBox.Size = new System.Drawing.Size(179, 31);
             this.RaceTitleBox.TabIndex = 4;
             // 
             // DistrictBox
             // 
-            this.DistrictBox.Location = new System.Drawing.Point(824, 32);
+            this.DistrictBox.Location = new System.Drawing.Point(689, 32);
             this.DistrictBox.Name = "DistrictBox";
-            this.DistrictBox.Size = new System.Drawing.Size(225, 31);
+            this.DistrictBox.Size = new System.Drawing.Size(182, 31);
             this.DistrictBox.TabIndex = 3;
             // 
             // DistrictTitle
             // 
             this.DistrictTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DistrictTitle.Enabled = false;
-            this.DistrictTitle.Location = new System.Drawing.Point(601, 32);
+            this.DistrictTitle.Location = new System.Drawing.Point(513, 32);
             this.DistrictTitle.Multiline = true;
             this.DistrictTitle.Name = "DistrictTitle";
-            this.DistrictTitle.Size = new System.Drawing.Size(217, 34);
+            this.DistrictTitle.Size = new System.Drawing.Size(170, 34);
             this.DistrictTitle.TabIndex = 2;
             this.DistrictTitle.Text = "Districts:";
             this.DistrictTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -481,7 +484,7 @@
             this.RaceTitle.Location = new System.Drawing.Point(22, 32);
             this.RaceTitle.Multiline = true;
             this.RaceTitle.Name = "RaceTitle";
-            this.RaceTitle.Size = new System.Drawing.Size(217, 34);
+            this.RaceTitle.Size = new System.Drawing.Size(132, 34);
             this.RaceTitle.TabIndex = 1;
             this.RaceTitle.Text = "Race Title:";
             this.RaceTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -539,105 +542,15 @@
             this.SetupTable.Size = new System.Drawing.Size(1115, 471);
             this.SetupTable.TabIndex = 0;
             // 
-            // EDT
+            // label10
             // 
-            this.EDT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.EDT.AutoSize = true;
-            this.EDT.Location = new System.Drawing.Point(21, 8);
-            this.EDT.Name = "EDT";
-            this.EDT.Size = new System.Drawing.Size(91, 46);
-            this.EDT.TabIndex = 0;
-            this.EDT.Text = "Electoral District";
-            // 
-            // PVIT
-            // 
-            this.PVIT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PVIT.AutoSize = true;
-            this.PVIT.Location = new System.Drawing.Point(158, 19);
-            this.PVIT.Name = "PVIT";
-            this.PVIT.Size = new System.Drawing.Size(39, 23);
-            this.PVIT.TabIndex = 1;
-            this.PVIT.Text = "PVI";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(236, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 46);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Cand. Qua1";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(325, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 46);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Cand. Qua2";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(414, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 46);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Cand. Inv1";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(503, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 46);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Cand. Inv2";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(586, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 46);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Cand. Enthu1";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(675, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 46);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Cand. Enthu2";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(769, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 46);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Batch Qty";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(858, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 46);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Batch Speed";
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1043, 19);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 23);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "MOE";
             // 
             // label9
             // 
@@ -649,15 +562,116 @@
             this.label9.TabIndex = 10;
             this.label9.Text = "Voters";
             // 
-            // label10
+            // label8
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1043, 19);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 23);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "MOE";
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(858, 8);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 46);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Batch Speed";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(769, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 46);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Batch Qty";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(675, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 46);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Cand. Enthu2";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(586, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 46);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Cand. Enthu1";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(503, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 46);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Cand. Inv2";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(414, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 46);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Cand. Inv1";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(325, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 46);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Cand. Qua2";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(236, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 46);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Cand. Qua1";
+            // 
+            // PVIT
+            // 
+            this.PVIT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PVIT.AutoSize = true;
+            this.PVIT.Location = new System.Drawing.Point(158, 19);
+            this.PVIT.Name = "PVIT";
+            this.PVIT.Size = new System.Drawing.Size(39, 23);
+            this.PVIT.TabIndex = 1;
+            this.PVIT.Text = "PVI";
+            // 
+            // EDT
+            // 
+            this.EDT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EDT.AutoSize = true;
+            this.EDT.Location = new System.Drawing.Point(21, 8);
+            this.EDT.Name = "EDT";
+            this.EDT.Size = new System.Drawing.Size(91, 46);
+            this.EDT.TabIndex = 0;
+            this.EDT.Text = "Electoral District";
+            // 
+            // EditFormBTN
+            // 
+            this.EditFormBTN.Font = new System.Drawing.Font("Cambria", 24F);
+            this.EditFormBTN.Location = new System.Drawing.Point(972, 32);
+            this.EditFormBTN.Name = "EditFormBTN";
+            this.EditFormBTN.Size = new System.Drawing.Size(165, 84);
+            this.EditFormBTN.TabIndex = 99;
+            this.EditFormBTN.Text = "Edit";
+            this.EditFormBTN.UseVisualStyleBackColor = true;
+            this.EditFormBTN.Click += new System.EventHandler(this.EditFormBTN_Click);
             // 
             // Form1
             // 
@@ -732,6 +746,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label PVIT;
         private System.Windows.Forms.Label EDT;
+        private System.Windows.Forms.Button EditFormBTN;
     }
 }
 

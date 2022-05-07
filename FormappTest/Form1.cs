@@ -41,7 +41,6 @@ namespace FormappTest
         List<double> PopulationI = new List<double>();
         List<double> MOEI = new List<double>();
 
-
         public void ClearVar()
         {
             ED = 3;
@@ -60,7 +59,7 @@ namespace FormappTest
         public void ResetPVI()
         {
             PVI.Clear();
-            PVI.Add(5.0); PVI.Add(15.0); PVI.Add(-5.0);
+            PVI.Add(0.0); PVI.Add(0.0); PVI.Add(0.0);
             AVGPVI = 0;
             foreach (double PVIindi in PVI)
             { AVGPVI += PVIindi; }
@@ -138,7 +137,7 @@ namespace FormappTest
         public void ResetMOE()
         {
             MOEI.Clear();
-            MOEI.Add(0.0); MOEI.Add(15.0); MOEI.Add(-15.0);
+            MOEI.Add(2.0); MOEI.Add(2.0); MOEI.Add(2.0);
             AVGMOE = 0;
             foreach (double MOEindi in MOEI)
             { AVGMOE += MOEindi; }
@@ -155,11 +154,13 @@ namespace FormappTest
 
         public void SetupTableSize()
         {
+            for (int i = 12; i < SetupTable.Controls.Count; i++)
+            {SetupTable.Controls.RemoveAt(i); }
             SetupTable.RowCount = 1 + ED;
             SetupTable.RowStyles[0] = new RowStyle(SizeType.Absolute, 60);
             for (int i = 1; i<ED; i++)
             {
-                SetupTable.RowStyles[i+1] = new RowStyle(SizeType.Absolute, 100);
+                SetupTable.RowStyles[i] = new RowStyle(SizeType.Absolute, 100);
             }
             for (int j = 12; j < (ED+1)*12; j++)
             {
@@ -239,16 +240,21 @@ namespace FormappTest
 
         public TextBox CloneTextBox(int Textboxindex)
         {
-          TextBox Textboxname = new TextBox();
+            TextBox Textboxname = new TextBox();
             Textboxname.TabIndex = Textboxindex;
             Textboxname.Anchor = AnchorStyles.None;
             Textboxname.Enabled = false;
             Textboxname.Dock = DockStyle.None;
             Textboxname.Name = Textboxindex.ToString();
+            Textboxname.MouseClick += txb_Click;
             SetupTable.Controls.Add(Textboxname);
-          return Textboxname;
+            return Textboxname;
         }
-
+        private void txb_Click(object sender, EventArgs e)
+        {
+            TextBox Textboxname = sender as TextBox;
+            Textboxname.Enabled = true;
+        }
         private void StartSimSetup_Click(object sender, EventArgs e)
         {
             
@@ -257,6 +263,38 @@ namespace FormappTest
         private void Form1_Load(object sender, EventArgs e)
         {
             ClearVar();
+        }
+
+        private void EditFormBTN_Click(object sender, EventArgs e)
+        {
+            if (EditFormBTN.Text == "Edit") 
+            { 
+                EditFormBTN.Text = "Lock";
+                foreach (Control ctr in SetupTable.Controls) { ctr.Enabled = true; }
+            }
+            else if (EditFormBTN.Text == "Lock") 
+            { 
+                EditFormBTN.Text = "Edit";
+                foreach (Control ctr in SetupTable.Controls) { ctr.Enabled = false; }
+                SaveRuntimeConditions();
+            }
+        }
+
+        public void SaveRuntimeConditions()
+        {
+           
+        }
+
+        private void DistrictButton_Click(object sender, EventArgs e)
+        {
+            ED = Convert.ToInt32(DistrictBox.Text);
+            if (PVI.Count < ED) 
+                { for (int i = PVI.Count + 1; i <= ED; i++) 
+                    { PVI.Add(0.0); CQ1.Add(70.0); CQ2.Add(70.0); CI1.Add(70.0); CI2.Add(70.0); 
+                    E1.Add(70.0); E2.Add(70.0); BatchSI.Add(1.0); BatchQI.Add(1.0); 
+                    PopulationI.Add(350000); MOEI.Add(2.0); };
+            }
+            SetupTableSize();
         }
     }
 
