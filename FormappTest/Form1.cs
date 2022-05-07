@@ -166,7 +166,7 @@ namespace FormappTest
         {
             SetupTable.Controls.Clear();
             SetupTable.RowCount = 1 + ED;
-            SetupTable.RowStyles[0] = new RowStyle(SizeType.Absolute, 60);
+            SetupTable.RowStyles[0].Height = 50;
             for (int j = 0; j < 12; j++)
             {
                 CloneLabel(j);
