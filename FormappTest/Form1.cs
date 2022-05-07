@@ -18,6 +18,8 @@ namespace FormappTest
         }
         int ED;
         string RaceName;
+        string varCan1name;
+        string varCan2name;
         double AVGPVI;
         double AVGCQ1;
         double AVGCQ2;
@@ -29,6 +31,7 @@ namespace FormappTest
         double BatchS;
         double TotalPopulation;
         double AVGMOE;
+        List<string> DName = new List<string>();
         List<double> PVI = new List<double>();
         List<double> CQ1 = new List<double>();
         List<double> CQ2 = new List<double>();
@@ -45,6 +48,7 @@ namespace FormappTest
         {
             ED = 3;
             RaceName = "US Presidential Election 2024 in Nebraska";
+            ResetDName();
             ResetPVI();
             ResetCandidateQuality();
             ResetCandidateInvestment(); 
@@ -55,110 +59,119 @@ namespace FormappTest
             UpdateRuntimeCard();
             SetupTableSize();
         }
+        public void ResetDName()
+        {
+            DName.Clear();
+            DName.Add("District 1"); DName.Add("District 2"); DName.Add("District 3");
+        }
 
         public void ResetPVI()
         {
             PVI.Clear();
             PVI.Add(0.0); PVI.Add(0.0); PVI.Add(0.0);
-            AVGPVI = 0;
-            foreach (double PVIindi in PVI)
-            { AVGPVI += PVIindi; }
-            AVGPVI /= (double)PVI.Count;
         }
         public void ResetCandidateQuality()
         {
             CQ1.Clear();
             CQ1.Add(70.0); CQ1.Add(70.0); CQ1.Add(70.0);
-            AVGCQ1 = 0;
-            foreach (double CQ1indi in CQ1)
-            { AVGCQ1 += CQ1indi; }
-            AVGCQ1 /= (double)CQ1.Count;
             CQ2.Clear();
-            CQ2.Add(70.0); CQ2.Add(70.0); CQ2.Add(70.0);
-            AVGCQ2 = 0;
-            foreach (double CQ2indi in CQ2)
-            { AVGCQ2 += CQ2indi; }
-            AVGCQ2 /= (double)CQ2.Count;            
+            CQ2.Add(70.0); CQ2.Add(70.0); CQ2.Add(70.0);         
         }
         public void ResetCandidateInvestment()
         {
             CI1.Clear();
             CI1.Add(70.0); CI1.Add(70.0); CI1.Add(70.0);
-            AVGCI1 = 0;
-            foreach (double CI1indi in CI1)
-            { AVGCI1 += CI1indi; }
-            AVGCI1 /= (double)CI1.Count;
             CI2.Clear();
             CI2.Add(70.0); CI2.Add(70.0); CI2.Add(70.0);
-            AVGCI2 = 0;
-            foreach (double CI2indi in CI2)
-            { AVGCI2 += CI2indi; }
-            AVGCI2 /= (double)CI2.Count;
         }
         public void ResetEnthusiasm()
         {
             E1.Clear();
             E1.Add(70.0); E1.Add(70.0); E1.Add(70.0);
-            AVGE1 = 0;
-            foreach (double E1indi in E1)
-            { AVGE1 += E1indi; }
-            AVGE1 /= (double)E1.Count;
             E2.Clear();
             E2.Add(70.0); E2.Add(70.0); E2.Add(70.0);
-            AVGE2 = 0;
-            foreach (double E2indi in E2)
-            { AVGE2 += E2indi; }
-            AVGE2 /= (double)E2.Count;
         }
         public void ResetBatch()
         {
             BatchQI.Clear();
             BatchQI.Add(1); BatchQI.Add(1); BatchQI.Add(1);
-            BatchQ = 0;
-            foreach (double BatchQindi in BatchQI)
-            { BatchQ += BatchQindi; }
-            BatchQ /= (double)BatchQI.Count;
             BatchSI.Clear();
             BatchSI.Add(1); BatchSI.Add(1); BatchSI.Add(1);
-            BatchS = 0;
-            foreach (double BatchSindi in BatchSI)
-            { BatchS += BatchSindi; }
-            BatchS /= (double)BatchSI.Count;
-
         }
         public void ResetPopulation()
         {
             PopulationI.Clear();
             PopulationI.Add(350000); PopulationI.Add(350000); PopulationI.Add(350000);
-            TotalPopulation = 0;
-            foreach (double PopulationIndi in PopulationI)
-            { TotalPopulation += PopulationIndi; }
         }
         public void ResetMOE()
         {
             MOEI.Clear();
             MOEI.Add(2.0); MOEI.Add(2.0); MOEI.Add(2.0);
-            AVGMOE = 0;
-            foreach (double MOEindi in MOEI)
-            { AVGMOE += MOEindi; }
-            AVGMOE /= (double)MOEI.Count;
         }
 
         public void UpdateRuntimeCard()
         {
-            RunConditionBox.Text = $"PVI: {AVGPVI}%\r\nCandidate Quality: {AVGCQ1}% - {AVGCQ2}%\r\nInvestment: {AVGCI1}% - {AVGCI2}%\r\n" +
-                $"Enthusiasm: {AVGE1}% - {AVGE2}%\r\nBatch Quantity: {BatchQ}\r\nBatch Speed: {BatchS}\r\n" +
-                $"Population: {TotalPopulation}\r\nMOE: {AVGMOE}%";
+            AVGPVI = 0;
+            foreach (double PVIindi in PVI)
+            { AVGPVI += PVIindi; }
+            AVGPVI /= (double)PVI.Count;
+            AVGCQ1 = 0;
+            foreach (double CQ1indi in CQ1)
+            { AVGCQ1 += CQ1indi; }
+            AVGCQ1 /= (double)CQ1.Count;
+            AVGCQ2 = 0;
+            foreach (double CQ2indi in CQ2)
+            { AVGCQ2 += CQ2indi; }
+            AVGCQ2 /= (double)CQ2.Count;
+            AVGCI1 = 0;
+            foreach (double CI1indi in CI1)
+            { AVGCI1 += CI1indi; }
+            AVGCI1 /= (double)CI1.Count;
+            AVGCI2 = 0;
+            foreach (double CI2indi in CI2)
+            { AVGCI2 += CI2indi; }
+            AVGCI2 /= (double)CI2.Count;
+            AVGE1 = 0;
+            foreach (double E1indi in E1)
+            { AVGE1 += E1indi; }
+            AVGE1 /= (double)E1.Count;
+            AVGE2 = 0;
+            foreach (double E2indi in E2)
+            { AVGE2 += E2indi; }
+            AVGE2 /= (double)E2.Count;
+            BatchQ = 0;
+            foreach (double BatchQindi in BatchQI)
+            { BatchQ += BatchQindi; }
+            BatchQ /= (double)BatchQI.Count;
+            BatchS = 0;
+            foreach (double BatchSindi in BatchSI)
+            { BatchS += BatchSindi; }
+            BatchS /= (double)BatchSI.Count;
+            TotalPopulation = 0;
+            foreach (double PopulationIndi in PopulationI)
+            { TotalPopulation += PopulationIndi; }
+            AVGMOE = 0;
+            foreach (double MOEindi in MOEI)
+            { AVGMOE += MOEindi; }
+            AVGMOE /= (double)MOEI.Count;
+            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%\r\nCandidate Quality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
+                $"Investment: {Math.Round(AVGCI1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCI2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
+                $"Enthusiasm: {Math.Round(AVGE1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGE2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
+                $"Batch Quantity: {Math.Round(BatchQ, 2, MidpointRounding.AwayFromZero)}\r\nBatch Speed: {Math.Round(BatchS, 2, MidpointRounding.AwayFromZero)}\r\n" +
+                $"Population: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)}\r\nMOE: {Math.Round(AVGMOE, 2, MidpointRounding.AwayFromZero)}%";
             StartSimSetup.Text = "Start";
         }
 
         public void SetupTableSize()
         {
-            for (int i = 12; i < SetupTable.Controls.Count; i++)
-            {SetupTable.Controls.RemoveAt(i); }
+            SetupTable.Controls.Clear();
             SetupTable.RowCount = 1 + ED;
             SetupTable.RowStyles[0] = new RowStyle(SizeType.Absolute, 60);
-            for (int i = 1; i<ED; i++)
+            for (int j = 0; j < 12; j++)
+            {
+                CloneLabel(j);
+            }
+            for (int i = 1; i<=ED; i++)
             {
                 SetupTable.RowStyles[i] = new RowStyle(SizeType.Absolute, 100);
             }
@@ -166,13 +179,90 @@ namespace FormappTest
             {
                 CloneTextBox(j);
             }
-            for (int k = 12; k < (ED+1)*12; k++)
+            fillcontent();
+        }
+
+        public void fillcontent()
+        {
+            for (int k = 0; k <  12; k++)
             {
-                string textboxthing = "new";
-                switch (k%12)
+                switch (k)
                 {
                     case 0:
-                        { break; }
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "Electoral District";
+                            break; 
+                        }
+                    case 1:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "PVI";
+                            break;
+                        }
+                    case 2:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "Can. Qua1";
+                            break;
+                        }
+                    case 3:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "Can. Qua2";
+                            break;
+                        }
+                    case 4:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "Can. Inv1";
+                            break;
+                        }
+                    case 5:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "Can. Inv2";
+                            break;
+                        }
+                    case 6:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "Can. Enthu1";
+                            break;
+                        }
+                    case 7:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "Can. Enthu2";
+                            break;
+                        }
+                    case 8:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "Batch Qty";
+                            break;
+                        }
+                    case 9:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "Batch Speed";
+                            break;
+                        }
+                    case 10:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "Voters";
+                            break;
+                        }
+                    case 11:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = "MOE";
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+            }
+            for (int k = 12; k < (ED + 1) * 12; k++)
+            {
+                string textboxthing = "new";
+                switch (k % 12)
+                {
+                    case 0:
+                        {
+                            textboxthing = DName[Math.DivRem(k, 12, out int case0) - 1].ToString();
+                            break; }
                     case 1:
                         {
                             textboxthing = PVI[Math.DivRem(k, 12, out int case1) - 1].ToString();
@@ -237,23 +327,27 @@ namespace FormappTest
                 SetupTable.Controls.Find(k.ToString(), true)[0].Text = textboxthing;
             }
         }
-
         public TextBox CloneTextBox(int Textboxindex)
         {
             TextBox Textboxname = new TextBox();
             Textboxname.TabIndex = Textboxindex;
-            Textboxname.Anchor = AnchorStyles.None;
+            Textboxname.Anchor = AnchorStyles.Top;
             Textboxname.Enabled = false;
             Textboxname.Dock = DockStyle.None;
             Textboxname.Name = Textboxindex.ToString();
-            Textboxname.MouseClick += txb_Click;
             SetupTable.Controls.Add(Textboxname);
             return Textboxname;
         }
-        private void txb_Click(object sender, EventArgs e)
+        public Label CloneLabel(int Labelindex)
         {
-            TextBox Textboxname = sender as TextBox;
-            Textboxname.Enabled = true;
+            Label Labelname = new Label();
+            Labelname.TabIndex = Labelindex;
+            Labelname.Anchor = AnchorStyles.Top;
+            Labelname.Dock = DockStyle.Fill;
+            Labelname.Name = Labelindex.ToString();
+            Labelname.AutoSize = false;
+            SetupTable.Controls.Add(Labelname);
+            return Labelname;
         }
         private void StartSimSetup_Click(object sender, EventArgs e)
         {
@@ -277,24 +371,127 @@ namespace FormappTest
                 EditFormBTN.Text = "Edit";
                 foreach (Control ctr in SetupTable.Controls) { ctr.Enabled = false; }
                 SaveRuntimeConditions();
+                UpdateRuntimeCard();
             }
         }
-
-        public void SaveRuntimeConditions()
-        {
-           
-        }
-
         private void DistrictButton_Click(object sender, EventArgs e)
         {
             ED = Convert.ToInt32(DistrictBox.Text);
             if (PVI.Count < ED) 
                 { for (int i = PVI.Count + 1; i <= ED; i++) 
-                    { PVI.Add(0.0); CQ1.Add(70.0); CQ2.Add(70.0); CI1.Add(70.0); CI2.Add(70.0); 
+                    {
+                    DName.Add("District "+i.ToString()); PVI.Add(0.0); CQ1.Add(70.0); CQ2.Add(70.0); CI1.Add(70.0); CI2.Add(70.0); 
                     E1.Add(70.0); E2.Add(70.0); BatchSI.Add(1.0); BatchQI.Add(1.0); 
                     PopulationI.Add(350000); MOEI.Add(2.0); };
             }
+            if (PVI.Count > ED)
+            {
+                for (int i = PVI.Count - 1; i >= ED; i--)
+                {
+                    DName.RemoveAt(i); PVI.RemoveAt(i); CQ1.RemoveAt(i); CQ2.RemoveAt(i); CI1.RemoveAt(i); CI2.RemoveAt(i);
+                    E1.RemoveAt(i); E2.RemoveAt(i); BatchSI.RemoveAt(i); BatchQI.RemoveAt(i);
+                    PopulationI.RemoveAt(i); MOEI.RemoveAt(i);
+                };
+            }
             SetupTableSize();
+            UpdateRuntimeCard();
+        }
+        public void SaveRuntimeConditions()
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+            {
+                switch (k % 12)
+                {
+                    case 0:
+                        {
+                            DName[Math.DivRem(k, 12, out int case0) - 1] = SetupTable.Controls.Find(k.ToString(), true)[0].Text;
+                            break;
+                        }
+                    case 1:
+                        {
+                            PVI[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    case 2:
+                        {
+                            CQ1[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    case 3:
+                        {
+                            CQ2[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    case 4:
+                        {
+                            CI1[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    case 5:
+                        {
+                            CI2[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    case 6:
+                        {
+                            E1[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    case 7:
+                        {
+                            E2[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    case 8:
+                        {
+                            BatchQI[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    case 9:
+                        {
+                            BatchSI[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    case 10:
+                        {
+                            PopulationI[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    case 11:
+                        {
+                            MOEI[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+            }
+        }
+
+        private void ResetSetUp_Click(object sender, EventArgs e)
+        {
+            ClearVar();
+            DistrictBox.Text = "3";
+        }
+
+        private void RaceTitleButton_Click(object sender, EventArgs e)
+        {
+            RaceName = RaceTitleBox.Text;
+            ElectionTitle.Text = RaceName;
+        }
+
+        private void Can1Button_Click(object sender, EventArgs e)
+        {
+            varCan1name = Can1Box.Text;
+            Can1Name.Text = varCan1name;
+        }
+
+        private void CAN2Button_Click(object sender, EventArgs e)
+        {
+            varCan2name = Can2Box.Text;
+            Can2Name.Text = varCan2name;
         }
     }
 

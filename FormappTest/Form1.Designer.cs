@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ElectionTime = new System.Windows.Forms.Label();
@@ -53,32 +53,21 @@
             this.Can1Votes = new System.Windows.Forms.Label();
             this.livevotechart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.EditFormBTN = new System.Windows.Forms.Button();
             this.CAN2Button = new System.Windows.Forms.Button();
             this.Can2Box = new System.Windows.Forms.TextBox();
             this.Can1Button = new System.Windows.Forms.Button();
             this.Can1Box = new System.Windows.Forms.TextBox();
-            this.Can2Title = new System.Windows.Forms.TextBox();
-            this.Can1Title = new System.Windows.Forms.TextBox();
             this.DistrictButton = new System.Windows.Forms.Button();
             this.RaceTitleButton = new System.Windows.Forms.Button();
             this.RaceTitleBox = new System.Windows.Forms.TextBox();
             this.DistrictBox = new System.Windows.Forms.TextBox();
-            this.DistrictTitle = new System.Windows.Forms.TextBox();
-            this.RaceTitle = new System.Windows.Forms.TextBox();
             this.SetupTable = new System.Windows.Forms.TableLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PVIT = new System.Windows.Forms.Label();
-            this.EDT = new System.Windows.Forms.Label();
-            this.EditFormBTN = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.ResetSetUp = new System.Windows.Forms.Button();
             this.Tab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -86,7 +75,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.livevotechart)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.SetupTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tab
@@ -98,7 +86,7 @@
             this.Tab.Location = new System.Drawing.Point(12, 12);
             this.Tab.Name = "Tab";
             this.Tab.SelectedIndex = 0;
-            this.Tab.Size = new System.Drawing.Size(1163, 666);
+            this.Tab.Size = new System.Drawing.Size(1188, 684);
             this.Tab.TabIndex = 1;
             // 
             // tabPage1
@@ -117,7 +105,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1155, 630);
+            this.tabPage1.Size = new System.Drawing.Size(1180, 648);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Result";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -126,7 +114,7 @@
             // 
             this.ElectionTime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ElectionTime.AutoSize = true;
-            this.ElectionTime.Location = new System.Drawing.Point(1027, 510);
+            this.ElectionTime.Location = new System.Drawing.Point(1040, 519);
             this.ElectionTime.Name = "ElectionTime";
             this.ElectionTime.Size = new System.Drawing.Size(83, 23);
             this.ElectionTime.TabIndex = 15;
@@ -138,7 +126,7 @@
             this.ResetSimup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ResetSimup.BackColor = System.Drawing.Color.LightGray;
             this.ResetSimup.Font = new System.Drawing.Font("Cambria", 16F);
-            this.ResetSimup.Location = new System.Drawing.Point(999, 553);
+            this.ResetSimup.Location = new System.Drawing.Point(1012, 562);
             this.ResetSimup.Name = "ResetSimup";
             this.ResetSimup.Size = new System.Drawing.Size(141, 45);
             this.ResetSimup.TabIndex = 14;
@@ -150,7 +138,7 @@
             this.StartSimSetup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.StartSimSetup.BackColor = System.Drawing.Color.MistyRose;
             this.StartSimSetup.Font = new System.Drawing.Font("Cambria", 36F);
-            this.StartSimSetup.Location = new System.Drawing.Point(666, 510);
+            this.StartSimSetup.Location = new System.Drawing.Point(679, 519);
             this.StartSimSetup.Name = "StartSimSetup";
             this.StartSimSetup.Size = new System.Drawing.Size(327, 89);
             this.StartSimSetup.TabIndex = 13;
@@ -160,7 +148,7 @@
             // 
             // RunConditionBox
             // 
-            this.RunConditionBox.Location = new System.Drawing.Point(666, 46);
+            this.RunConditionBox.Location = new System.Drawing.Point(679, 46);
             this.RunConditionBox.Multiline = true;
             this.RunConditionBox.Name = "RunConditionBox";
             this.RunConditionBox.ReadOnly = true;
@@ -169,7 +157,7 @@
             // 
             // MassSIMBox
             // 
-            this.MassSIMBox.Location = new System.Drawing.Point(666, 311);
+            this.MassSIMBox.Location = new System.Drawing.Point(679, 311);
             this.MassSIMBox.Multiline = true;
             this.MassSIMBox.Name = "MassSIMBox";
             this.MassSIMBox.ReadOnly = true;
@@ -180,7 +168,7 @@
             // 
             this.INPCT.AutoSize = true;
             this.INPCT.Font = new System.Drawing.Font("Cambria", 10F);
-            this.INPCT.Location = new System.Drawing.Point(532, 233);
+            this.INPCT.Location = new System.Drawing.Point(532, 278);
             this.INPCT.Name = "INPCT";
             this.INPCT.Size = new System.Drawing.Size(77, 20);
             this.INPCT.TabIndex = 10;
@@ -189,7 +177,7 @@
             // MassSimLabel
             // 
             this.MassSimLabel.Font = new System.Drawing.Font("Cambria", 18F);
-            this.MassSimLabel.Location = new System.Drawing.Point(748, 278);
+            this.MassSimLabel.Location = new System.Drawing.Point(758, 278);
             this.MassSimLabel.Name = "MassSimLabel";
             this.MassSimLabel.Size = new System.Drawing.Size(339, 30);
             this.MassSimLabel.TabIndex = 8;
@@ -199,9 +187,9 @@
             // RunConditionBanner
             // 
             this.RunConditionBanner.Font = new System.Drawing.Font("Cambria", 18F);
-            this.RunConditionBanner.Location = new System.Drawing.Point(660, 13);
+            this.RunConditionBanner.Location = new System.Drawing.Point(673, 0);
             this.RunConditionBanner.Name = "RunConditionBanner";
-            this.RunConditionBanner.Size = new System.Drawing.Size(489, 30);
+            this.RunConditionBanner.Size = new System.Drawing.Size(489, 43);
             this.RunConditionBanner.TabIndex = 7;
             this.RunConditionBanner.Text = "Run Condition";
             this.RunConditionBanner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -209,9 +197,9 @@
             // ElectionTitle
             // 
             this.ElectionTitle.Font = new System.Drawing.Font("Cambria", 18F);
-            this.ElectionTitle.Location = new System.Drawing.Point(3, 13);
+            this.ElectionTitle.Location = new System.Drawing.Point(3, 0);
             this.ElectionTitle.Name = "ElectionTitle";
-            this.ElectionTitle.Size = new System.Drawing.Size(599, 30);
+            this.ElectionTitle.Size = new System.Drawing.Size(599, 43);
             this.ElectionTitle.TabIndex = 6;
             this.ElectionTitle.Text = "Live Result";
             this.ElectionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,7 +221,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(608, 184);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(608, 229);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // tableLayoutPanel3
@@ -242,19 +230,19 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.tableLayoutPanel3.Controls.Add(this.Can2PCT, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.Can2Votes, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(279, 96);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(279, 119);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.02469F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.97531F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(318, 81);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(318, 104);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // Can2PCT
             // 
             this.Can2PCT.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Can2PCT.Font = new System.Drawing.Font("Berlin Sans FB", 14F);
-            this.Can2PCT.Location = new System.Drawing.Point(11, 47);
+            this.Can2PCT.Location = new System.Drawing.Point(11, 60);
             this.Can2PCT.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can2PCT.Name = "Can2PCT";
             this.Can2PCT.Size = new System.Drawing.Size(293, 34);
@@ -278,7 +266,7 @@
             // 
             this.Can2Name.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Can2Name.Font = new System.Drawing.Font("Berlin Sans FB", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Can2Name.Location = new System.Drawing.Point(5, 93);
+            this.Can2Name.Location = new System.Drawing.Point(5, 127);
             this.Can2Name.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can2Name.Name = "Can2Name";
             this.Can2Name.Size = new System.Drawing.Size(263, 88);
@@ -290,7 +278,7 @@
             // 
             this.Can1Name.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Can1Name.Font = new System.Drawing.Font("Berlin Sans FB", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Can1Name.Location = new System.Drawing.Point(5, 3);
+            this.Can1Name.Location = new System.Drawing.Point(5, 14);
             this.Can1Name.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can1Name.Name = "Can1Name";
             this.Can1Name.Size = new System.Drawing.Size(263, 87);
@@ -309,14 +297,14 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.02469F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.97531F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(318, 81);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(318, 104);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // Can1PCT
             // 
             this.Can1PCT.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Can1PCT.Font = new System.Drawing.Font("Berlin Sans FB", 14F);
-            this.Can1PCT.Location = new System.Drawing.Point(11, 47);
+            this.Can1PCT.Location = new System.Drawing.Point(11, 60);
             this.Can1PCT.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can1PCT.Name = "Can1PCT";
             this.Can1PCT.Size = new System.Drawing.Size(293, 34);
@@ -338,56 +326,70 @@
             // 
             // livevotechart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.livevotechart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.livevotechart.Legends.Add(legend4);
-            this.livevotechart.Location = new System.Drawing.Point(12, 273);
+            chartArea5.Name = "ChartArea1";
+            this.livevotechart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.livevotechart.Legends.Add(legend5);
+            this.livevotechart.Location = new System.Drawing.Point(12, 311);
             this.livevotechart.Name = "livevotechart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.livevotechart.Series.Add(series4);
-            this.livevotechart.Size = new System.Drawing.Size(608, 326);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.livevotechart.Series.Add(series5);
+            this.livevotechart.Size = new System.Drawing.Size(608, 288);
             this.livevotechart.TabIndex = 3;
             this.livevotechart.Text = "chart1";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ResetSetUp);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.EditFormBTN);
             this.tabPage2.Controls.Add(this.CAN2Button);
             this.tabPage2.Controls.Add(this.Can2Box);
             this.tabPage2.Controls.Add(this.Can1Button);
             this.tabPage2.Controls.Add(this.Can1Box);
-            this.tabPage2.Controls.Add(this.Can2Title);
-            this.tabPage2.Controls.Add(this.Can1Title);
             this.tabPage2.Controls.Add(this.DistrictButton);
             this.tabPage2.Controls.Add(this.RaceTitleButton);
             this.tabPage2.Controls.Add(this.RaceTitleBox);
             this.tabPage2.Controls.Add(this.DistrictBox);
-            this.tabPage2.Controls.Add(this.DistrictTitle);
-            this.tabPage2.Controls.Add(this.RaceTitle);
             this.tabPage2.Controls.Add(this.SetupTable);
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1155, 630);
+            this.tabPage2.Size = new System.Drawing.Size(1180, 648);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Set Up";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // EditFormBTN
+            // 
+            this.EditFormBTN.BackColor = System.Drawing.Color.Honeydew;
+            this.EditFormBTN.Font = new System.Drawing.Font("Cambria", 24F);
+            this.EditFormBTN.Location = new System.Drawing.Point(884, 32);
+            this.EditFormBTN.Name = "EditFormBTN";
+            this.EditFormBTN.Size = new System.Drawing.Size(188, 84);
+            this.EditFormBTN.TabIndex = 99;
+            this.EditFormBTN.Text = "Edit";
+            this.EditFormBTN.UseVisualStyleBackColor = false;
+            this.EditFormBTN.Click += new System.EventHandler(this.EditFormBTN_Click);
+            // 
             // CAN2Button
             // 
-            this.CAN2Button.Location = new System.Drawing.Point(877, 82);
+            this.CAN2Button.Location = new System.Drawing.Point(789, 82);
             this.CAN2Button.Name = "CAN2Button";
             this.CAN2Button.Size = new System.Drawing.Size(82, 34);
             this.CAN2Button.TabIndex = 12;
             this.CAN2Button.Text = "Enter";
             this.CAN2Button.UseVisualStyleBackColor = true;
+            this.CAN2Button.Click += new System.EventHandler(this.CAN2Button_Click);
             // 
             // Can2Box
             // 
-            this.Can2Box.Location = new System.Drawing.Point(689, 82);
+            this.Can2Box.Location = new System.Drawing.Point(601, 82);
             this.Can2Box.Name = "Can2Box";
             this.Can2Box.Size = new System.Drawing.Size(182, 31);
             this.Can2Box.TabIndex = 11;
@@ -400,6 +402,7 @@
             this.Can1Button.TabIndex = 10;
             this.Can1Button.Text = "Enter";
             this.Can1Button.UseVisualStyleBackColor = true;
+            this.Can1Button.Click += new System.EventHandler(this.Can1Button_Click);
             // 
             // Can1Box
             // 
@@ -408,33 +411,9 @@
             this.Can1Box.Size = new System.Drawing.Size(179, 31);
             this.Can1Box.TabIndex = 9;
             // 
-            // Can2Title
-            // 
-            this.Can2Title.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Can2Title.Enabled = false;
-            this.Can2Title.Location = new System.Drawing.Point(513, 82);
-            this.Can2Title.Multiline = true;
-            this.Can2Title.Name = "Can2Title";
-            this.Can2Title.Size = new System.Drawing.Size(168, 34);
-            this.Can2Title.TabIndex = 8;
-            this.Can2Title.Text = "Can. 2 Name:";
-            this.Can2Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Can1Title
-            // 
-            this.Can1Title.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Can1Title.Enabled = false;
-            this.Can1Title.Location = new System.Drawing.Point(22, 82);
-            this.Can1Title.Multiline = true;
-            this.Can1Title.Name = "Can1Title";
-            this.Can1Title.Size = new System.Drawing.Size(132, 34);
-            this.Can1Title.TabIndex = 7;
-            this.Can1Title.Text = "Can. 1 Name:";
-            this.Can1Title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // DistrictButton
             // 
-            this.DistrictButton.Location = new System.Drawing.Point(877, 32);
+            this.DistrictButton.Location = new System.Drawing.Point(789, 32);
             this.DistrictButton.Name = "DistrictButton";
             this.DistrictButton.Size = new System.Drawing.Size(82, 34);
             this.DistrictButton.TabIndex = 6;
@@ -450,6 +429,7 @@
             this.RaceTitleButton.TabIndex = 5;
             this.RaceTitleButton.Text = "Enter";
             this.RaceTitleButton.UseVisualStyleBackColor = true;
+            this.RaceTitleButton.Click += new System.EventHandler(this.RaceTitleButton_Click);
             // 
             // RaceTitleBox
             // 
@@ -460,34 +440,10 @@
             // 
             // DistrictBox
             // 
-            this.DistrictBox.Location = new System.Drawing.Point(689, 32);
+            this.DistrictBox.Location = new System.Drawing.Point(601, 32);
             this.DistrictBox.Name = "DistrictBox";
             this.DistrictBox.Size = new System.Drawing.Size(182, 31);
             this.DistrictBox.TabIndex = 3;
-            // 
-            // DistrictTitle
-            // 
-            this.DistrictTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DistrictTitle.Enabled = false;
-            this.DistrictTitle.Location = new System.Drawing.Point(513, 32);
-            this.DistrictTitle.Multiline = true;
-            this.DistrictTitle.Name = "DistrictTitle";
-            this.DistrictTitle.Size = new System.Drawing.Size(170, 34);
-            this.DistrictTitle.TabIndex = 2;
-            this.DistrictTitle.Text = "Districts:";
-            this.DistrictTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // RaceTitle
-            // 
-            this.RaceTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RaceTitle.Enabled = false;
-            this.RaceTitle.Location = new System.Drawing.Point(22, 32);
-            this.RaceTitle.Multiline = true;
-            this.RaceTitle.Name = "RaceTitle";
-            this.RaceTitle.Size = new System.Drawing.Size(132, 34);
-            this.RaceTitle.TabIndex = 1;
-            this.RaceTitle.Text = "Race Title:";
-            this.RaceTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SetupTable
             // 
@@ -495,189 +451,87 @@
             this.SetupTable.AutoScroll = true;
             this.SetupTable.AutoScrollMargin = new System.Drawing.Size(10, 10);
             this.SetupTable.AutoScrollMinSize = new System.Drawing.Size(10, 10);
+            this.SetupTable.AutoSize = true;
             this.SetupTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SetupTable.BackColor = System.Drawing.Color.LightGray;
             this.SetupTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.SetupTable.ColumnCount = 12;
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.SetupTable.Controls.Add(this.label10, 11, 0);
-            this.SetupTable.Controls.Add(this.label9, 10, 0);
-            this.SetupTable.Controls.Add(this.label8, 9, 0);
-            this.SetupTable.Controls.Add(this.label7, 8, 0);
-            this.SetupTable.Controls.Add(this.label6, 7, 0);
-            this.SetupTable.Controls.Add(this.label5, 6, 0);
-            this.SetupTable.Controls.Add(this.label4, 5, 0);
-            this.SetupTable.Controls.Add(this.label3, 4, 0);
-            this.SetupTable.Controls.Add(this.label2, 3, 0);
-            this.SetupTable.Controls.Add(this.label1, 2, 0);
-            this.SetupTable.Controls.Add(this.PVIT, 1, 0);
-            this.SetupTable.Controls.Add(this.EDT, 0, 0);
-            this.SetupTable.Location = new System.Drawing.Point(22, 134);
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.2449F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.122449F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.163265F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.163265F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.163265F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.163265F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.163265F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.163265F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.163265F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.163265F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.20408F));
+            this.SetupTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.122449F));
+            this.SetupTable.Location = new System.Drawing.Point(15, 154);
+            this.SetupTable.MaximumSize = new System.Drawing.Size(1150, 450);
             this.SetupTable.Name = "SetupTable";
             this.SetupTable.RowCount = 4;
             this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SetupTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SetupTable.Size = new System.Drawing.Size(1115, 471);
+            this.SetupTable.Size = new System.Drawing.Size(17, 365);
             this.SetupTable.TabIndex = 0;
             // 
-            // label10
+            // label11
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1043, 19);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 23);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "MOE";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(26, 35);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 23);
+            this.label11.TabIndex = 100;
+            this.label11.Text = "Race Title:";
             // 
-            // label9
+            // label12
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(946, 19);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 23);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Voters";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(26, 82);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(121, 23);
+            this.label12.TabIndex = 101;
+            this.label12.Text = "Can. 1 Name:";
             // 
-            // label8
+            // label13
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(858, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 46);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Batch Speed";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(465, 82);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(121, 23);
+            this.label13.TabIndex = 102;
+            this.label13.Text = "Can. 2 Name:";
             // 
-            // label7
+            // label14
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(769, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 46);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Batch Qty";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(465, 35);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(89, 23);
+            this.label14.TabIndex = 103;
+            this.label14.Text = "Districts:";
             // 
-            // label6
+            // ResetSetUp
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(675, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 46);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Cand. Enthu2";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(586, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 46);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Cand. Enthu1";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(503, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 46);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Cand. Inv2";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(414, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 46);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Cand. Inv1";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(325, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 46);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Cand. Qua2";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(236, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 46);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Cand. Qua1";
-            // 
-            // PVIT
-            // 
-            this.PVIT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PVIT.AutoSize = true;
-            this.PVIT.Location = new System.Drawing.Point(158, 19);
-            this.PVIT.Name = "PVIT";
-            this.PVIT.Size = new System.Drawing.Size(39, 23);
-            this.PVIT.TabIndex = 1;
-            this.PVIT.Text = "PVI";
-            // 
-            // EDT
-            // 
-            this.EDT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.EDT.AutoSize = true;
-            this.EDT.Location = new System.Drawing.Point(21, 8);
-            this.EDT.Name = "EDT";
-            this.EDT.Size = new System.Drawing.Size(91, 46);
-            this.EDT.TabIndex = 0;
-            this.EDT.Text = "Electoral District";
-            // 
-            // EditFormBTN
-            // 
-            this.EditFormBTN.Font = new System.Drawing.Font("Cambria", 24F);
-            this.EditFormBTN.Location = new System.Drawing.Point(972, 32);
-            this.EditFormBTN.Name = "EditFormBTN";
-            this.EditFormBTN.Size = new System.Drawing.Size(165, 84);
-            this.EditFormBTN.TabIndex = 99;
-            this.EditFormBTN.Text = "Edit";
-            this.EditFormBTN.UseVisualStyleBackColor = true;
-            this.EditFormBTN.Click += new System.EventHandler(this.EditFormBTN_Click);
+            this.ResetSetUp.BackColor = System.Drawing.Color.MistyRose;
+            this.ResetSetUp.Font = new System.Drawing.Font("Cambria", 12F);
+            this.ResetSetUp.Location = new System.Drawing.Point(1078, 32);
+            this.ResetSetUp.Name = "ResetSetUp";
+            this.ResetSetUp.Size = new System.Drawing.Size(86, 84);
+            this.ResetSetUp.TabIndex = 104;
+            this.ResetSetUp.Text = "Reset";
+            this.ResetSetUp.UseVisualStyleBackColor = false;
+            this.ResetSetUp.Click += new System.EventHandler(this.ResetSetUp_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1187, 690);
+            this.ClientSize = new System.Drawing.Size(1212, 708);
             this.Controls.Add(this.Tab);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -691,8 +545,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.livevotechart)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.SetupTable.ResumeLayout(false);
-            this.SetupTable.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -719,8 +571,6 @@
         private System.Windows.Forms.TextBox RunConditionBox;
         private System.Windows.Forms.TextBox MassSIMBox;
         private System.Windows.Forms.TableLayoutPanel SetupTable;
-        private System.Windows.Forms.TextBox RaceTitle;
-        private System.Windows.Forms.TextBox DistrictTitle;
         private System.Windows.Forms.TextBox RaceTitleBox;
         private System.Windows.Forms.TextBox DistrictBox;
         private System.Windows.Forms.Label ElectionTime;
@@ -730,23 +580,14 @@
         private System.Windows.Forms.Button RaceTitleButton;
         private System.Windows.Forms.Button Can1Button;
         private System.Windows.Forms.TextBox Can1Box;
-        private System.Windows.Forms.TextBox Can2Title;
-        private System.Windows.Forms.TextBox Can1Title;
         private System.Windows.Forms.Button CAN2Button;
         private System.Windows.Forms.TextBox Can2Box;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label PVIT;
-        private System.Windows.Forms.Label EDT;
         private System.Windows.Forms.Button EditFormBTN;
+        private System.Windows.Forms.Button ResetSetUp;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }
 
