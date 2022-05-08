@@ -16,7 +16,7 @@ namespace FormappTest
         {
             InitializeComponent();            
         }
-        int ED;
+        public static int ED = 3;
         string RaceName;
         string varCan1name;
         string varCan2name;
@@ -351,7 +351,18 @@ namespace FormappTest
         }
         private void StartSimSetup_Click(object sender, EventArgs e)
         {
-            
+            if (StartSimSetup.Text == "Start")
+            {
+                StartSimSetup.Text = "Pause";
+                StartSimSetup.BackColor = Color.LightGray;
+                RunQuickSim();
+                MassSIMBox.Text = ($"{GetVote1(1).ToString()} to {GetVote2(1).ToString()}");
+            }
+            else if (StartSimSetup.Text == "Pause")
+            {
+                StartSimSetup.Text = "Start";
+                StartSimSetup.BackColor = Color.MistyRose;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -493,6 +504,88 @@ namespace FormappTest
             varCan2name = Can2Box.Text;
             Can2Name.Text = varCan2name;
         }
+        public double GetPVI(int District)
+        {
+            return PVI[District - 1];
+        }
+        public double GetCQ1(int District)
+        {
+            return CQ1[District - 1];
+        }
+        public double GetCQ2(int District)
+        {
+            return CQ2[District - 1];
+        }
+        public double GetCI1(int District)
+        {
+            return CI1[District - 1];
+        }
+        public double GetCI2(int District)
+        {
+            return CI2[District - 1];
+        }
+        public double GetE1(int District)
+        {
+            return E1[District - 1];
+        }
+        public double GetE2(int District)
+        {
+            return E2[District - 1];
+        }
+        public double GetMOE(int District)
+        {
+            return MOEI[District - 1];
+        }
+        public double GetVoters(int District)
+        {
+            return PopulationI[District - 1];
+        }
+        double[] quicksimarray = new double[10000];
+        Random rnd = new Random();
+        double[] C1PCT = new double[ED];
+        double[] C2PCT = new double[ED];
+        double[] thirdPCT = new double[ED];
+        double[] C1Vote = new double[ED];
+        double[] C2Vote = new double[ED];
+        public void RunQuickSim()
+        {
+            for (int i = 0; i < ED; i++)
+            {
+                double tempC1 = (50 + (GetPVI(i + 1)) / 2) * (Math.Pow(0.3 + (0.007 * GetCQ1(i + 1)), 1 / (0.3 + (0.007 * GetCI1(i + 1)))));
+                double tempC2 = (50 - (GetPVI(i + 1)) / 2) * (Math.Pow(0.3 + (0.007 * GetCQ2(i + 1)), 1 / (0.3 + (0.007 * GetCI2(i + 1)))));
+                double remainder = 100.0 - tempC1 - tempC2;
+                thirdPCT[i] = (remainder) * (1 - (0.015 * GetE1(i + 1) - 0.5)) * (1 - (0.015 * GetE2(i + 1) - 0.5));
+                double C1EntBonus = (remainder - thirdPCT[i]) * (GetE1(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
+                double C2EntBonus = (remainder - thirdPCT[i]) * (GetE2(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
+                tempC1 += C1EntBonus;
+                tempC2 += C2EntBonus;
+                double u1 = 1.0 - rnd.NextDouble();
+                double u2 = 1.0 - rnd.NextDouble();
+                double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
+                tempC1 += (GetMOE(i + 1) * randStdNormal);
+                u1 = 1.0 - rnd.NextDouble();
+                u2 = 1.0 - rnd.NextDouble();
+                randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2);
+                tempC2 += (GetMOE(i + 1) * randStdNormal);
+                C1PCT[i] = tempC1;
+                C2PCT[i] = tempC2;
+                //Total Vote
+                u1 = 1.0 - rnd.NextDouble();
+                u2 = 1.0 - rnd.NextDouble();
+                randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
+                double C1VOTE = C1PCT[i] * 0.01 * GetVoters(i + 1) * 0.01 * GetE1(i + 1) * 0.01 * GetE2(i + 1) * (0.9825 + (0.035 * randStdNormal));
+                double C2VOTE = C2PCT[i] * 0.01 * GetVoters(i + 1) * 0.01 * GetE1(i + 1) * 0.01 * GetE2(i + 1) * (0.9825 + (0.035 * randStdNormal));
+                C1Vote[i] = Math.Ceiling(C1VOTE);
+                C2Vote[i] = Math.Ceiling(C2VOTE);
+            }
+        }
+        public double GetVote1(int district)
+        {
+            return C1Vote[district - 1];
+        }
+        public double GetVote2(int district)
+        {
+            return C2Vote[district - 1];
+        }
     }
-
 }
