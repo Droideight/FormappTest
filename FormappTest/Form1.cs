@@ -33,6 +33,8 @@ namespace FormappTest
         decimal AVGMOE = 2M;
         decimal QIRatio = 0.6M;
         static decimal RUNTIME = 100000;
+        public decimal Stop = 500;
+        public decimal SetStop = 500;
         List<string> DName = new List<string>();
         List<decimal> PVI = new List<decimal>();
         List<decimal> CQ1 = new List<decimal>();
@@ -45,6 +47,15 @@ namespace FormappTest
         List<decimal> BatchSI = new List<decimal>();
         List<decimal> PopulationI = new List<decimal>();
         List<decimal> MOEI = new List<decimal>();
+        List<decimal> VOTEBATCH1 = new List<decimal>();
+        List<decimal> VOTEBATCH2 = new List<decimal>();
+        decimal[] inpct1 = new decimal[1000];
+        decimal[] inpct2 = new decimal[1000];
+        decimal[] inpct = new decimal[1000];
+        decimal[] invote1 = new decimal[1000];
+        decimal[] invote2 = new decimal[1000];
+        decimal[] votepct1 = new decimal[1000];
+        decimal[] votepct2 = new decimal[1000];
 
         public void ClearVar()
         {
@@ -178,10 +189,10 @@ namespace FormappTest
             {
                 AVGMOE += (MOEI[i] * PopulationI[i] / TotalPopulation);
             }
-            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%; Population: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)}\r\n\r\n===Ability===\r\nCan. Quality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%" +
+            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%\r\nPopulation: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)}\r\n\r\n===Ability===\r\nCan. Quality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%" +
                 $"\r\nInvestment: {Math.Round(AVGCI1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCI2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
                 $"Enthusiasm: {Math.Round(AVGE1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGE2, 2, MidpointRounding.AwayFromZero)}%\r\n\r\n===Vote Tally===\r\n" +
-                $"Batch Quantity: {Math.Round(BatchQ, 2, MidpointRounding.AwayFromZero)}; Speed: {Math.Round(BatchS, 2, MidpointRounding.AwayFromZero)}; MOE: {Math.Round(AVGMOE, 2, MidpointRounding.AwayFromZero)}%\r\n";
+                $"Batch Quantity: {Math.Round(BatchQ, 2, MidpointRounding.AwayFromZero)};\r\nSpeed: {Math.Round(BatchS, 2, MidpointRounding.AwayFromZero)};\r\nMOE: {Math.Round(AVGMOE, 2, MidpointRounding.AwayFromZero)}%\r\n";
              
             StartSimSetup.Text = "Start";
         }
@@ -224,10 +235,19 @@ namespace FormappTest
             decimal[] temparrayforquicksim = new decimal[Convert.ToInt32(RUNTIME)];
             temparrayforquicksim = Array.FindAll(differences, j => j > 0).ToArray();
             decimal newlength = temparrayforquicksim.Count();
-            decimal win = Decimal.Round(newlength / RUNTIME * 100, 4);
+            decimal win = Decimal.Round(newlength / RUNTIME * 100, 3);
             MassSIMBox.Text = $"====Average====\r\n{varCan1name}: {Decimal.Round(avg1, 2)}%\r\n{varCan2name}: {Decimal.Round(avg2, 2)}%\r\n\r\n" +
                 $"====Likely====\r\n{varCan1name}: {Decimal.Round(lsd1, 2)} ~ {Decimal.Round(hsd1, 2)}% ({l1}~{m1})\r\n{varCan2name}: {Decimal.Round(lsd2, 2)} ~ {Decimal.Round(hsd2, 2)}% ({l2}~{m2})" +
-                $"\r\n\r\n{varCan1name} wins {win}% of times (n= {Convert.ToInt32(RUNTIME)}).";
+                $"\r\n\r\n{varCan1name} wins {win}% of times (n= {Convert.ToInt32(RUNTIME)}). \r\n";
+            if (win > 97) {MassSIMBox.Text += $"Race Rating: Solid {varCan1name}"; }
+            else if (win > 90) {MassSIMBox.Text += $"Race Rating: Likely {varCan1name}"; }
+            else if (win > 80) { MassSIMBox.Text += $"Race Rating: Lean {varCan1name}"; }
+            else if (win > 60) { MassSIMBox.Text += $"Race Rating: Tilt {varCan1name}"; }
+            else if (win > 40) { MassSIMBox.Text += $"Race Rating: Toss Up"; }
+            else if (win > 20) { MassSIMBox.Text += $"Race Rating: Tilt {varCan2name}"; }
+            else if (win > 10) { MassSIMBox.Text += $"Race Rating: Lean {varCan2name}"; }
+            else if (win > 3) { MassSIMBox.Text += $"Race Rating: Likely {varCan2name}"; }
+            else { MassSIMBox.Text += $"Race Rating: Solid {varCan2name}"; }
         }
 
         public void SetupTableSize()
@@ -421,16 +441,17 @@ namespace FormappTest
         {
             if (StartSimSetup.Text == "Start")
             {
-                StartSimSetup.Text = "Pause";
-                StartSimSetup.BackColor = Color.LightGray;
-                RunQuickSim();
+                StartSimSetup.Text = "Tally";
+                StartSimSetup.BackColor = Color.LightGreen;
                 RunMassSim();
                 MassSimShow();
             }
-            else if (StartSimSetup.Text == "Pause")
+            else if (StartSimSetup.Text == "Tally")
             {
-                StartSimSetup.Text = "Start";
-                StartSimSetup.BackColor = Color.MistyRose;
+                RunQuickSim();
+                TallyVote();
+                StartSimSetup.Enabled = false;
+                StartSimSetup.BackColor = Color.LightGray;
             }
         }
 
@@ -701,11 +722,12 @@ namespace FormappTest
                 tempC2 += (GetMOE(i + 1) * (decimal)randStdNormal);
                 if (tempC1 + tempC2 > 100)
                 {
-                    tempC1 /= (tempC1 + tempC2);
-                    tempC1 *= 100;
-                    tempC2 /= (tempC1 + tempC2);
-                    tempC2 *= 100;
-                    thirdPCT[i] = 0;
+                    decimal originaltotal = tempC1 + tempC2;
+                    tempC1 /= originaltotal;
+                    tempC1 *= 100M;
+                    tempC2 /= originaltotal;
+                    tempC2 *= 100M;
+                    thirdPCT[i] = 0M;
                 }
                 C1PCT[i] = tempC1;
                 C2PCT[i] = tempC2;
@@ -726,6 +748,64 @@ namespace FormappTest
         public decimal GetVote2(int district)
         {
             return C2Vote[district - 1];
+        }
+        
+        public async void TallyVote()
+        {
+            int finished = 0;
+            do
+            {                
+                await Task.Delay((int)Stop);
+                for (int i = 0; i < ED; i++)
+                {
+                    if (inpct1[i] == 100M && inpct2[i] == 100M) { }
+                    else if (inpct1[i] >= 99.7M && inpct2[i] >= 99.7M) 
+                    {
+                        LiveUpdate((decimal)i + 1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]);
+                        finished++;
+                        inpct1[i] = 100.0M;
+                        inpct2[i] = 100.0M;
+                        inpct[i] = 100.0M;
+                    }
+                    else if (inpct1[i] >= 99.7M && inpct2[i] < 99.7M) { LiveUpdate((decimal)i +1M, 0.02M * BatchQI[i], 0.05M * BatchQI[i], 0.2M * BatchQI[i], 0.5M*BatchQI[i]); }
+                    else if (inpct1[i] < 99.7M && inpct2[i] >= 99.7M) { LiveUpdate((decimal)i +1M, 0.2M * BatchQI[i], 0.5M* BatchQI[i], 0.02M * BatchQI[i], 0.05M * BatchQI[i]); }
+                    else if (inpct1[i] >= 90.0M && inpct2[i] >= 90.0M) { LiveUpdate((decimal)i +1M, 0.1M * BatchQI[i], 0.25M*BatchQI[i], 0.1M * BatchQI[i], 0.25M*BatchQI[i]); }
+                    else if (inpct1[i] >= 90.0M && inpct2[i] < 90.0M) { LiveUpdate((decimal)i +1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.2M * BatchQI[i], 0.5M*BatchQI[i]); }
+                    else if (inpct1[i] < 90.0M && inpct2[i] >= 90.0M) { LiveUpdate((decimal)i +1M, 0.2M * BatchQI[i],0.5M*BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]); }
+                    else { LiveUpdate((decimal)i+1M, 0.2M * BatchQI[i], 0.5M*BatchQI[i], 0.2M * BatchQI[i], 0.5M*BatchQI[i]); }
+                }
+                Can1Votes.Text = String.Format("{0:n0}", invote1.Sum());
+                Can2Votes.Text = String.Format("{0:n0}", invote2.Sum());
+                Can1PCT.Text = String.Format("{0:0.00}", 100*(invote1.Sum() / (invote1.Sum() + invote2.Sum()))) + "%";
+                Can2PCT.Text = String.Format("{0:0.00}", 100*(invote2.Sum() / (invote1.Sum() + invote2.Sum()))) + "%";
+                decimal actualin = 0;
+                for (int i = 0; i<ED; i++)
+                {
+                    actualin += PopulationI[i] * inpct[i];
+                }
+                actualin /= PopulationI.Sum();
+                INPCT.Text = "In: " + String.Format("{0:0.00}", actualin) + "%";
+            } 
+            while (finished < ED);
+        }
+        public void LiveUpdate(decimal district, decimal lower1, decimal higher1, decimal lower2, decimal higher2)
+        {
+            Random LU = new Random();
+            double thisbatch1 = 0;
+            double thisbatch2 = 0;
+            double thisbatchvotes1 = 0;
+            double thisbatchvotes2 = 0;
+            thisbatch1 = 0.01* LU.Next((int)(100*lower1), (int)(100*higher1));
+            thisbatch2 = 0.01* LU.Next((int)(100*lower2), (int)(100*higher2));
+            inpct1[(int)district-1] += (decimal)thisbatch1;
+            inpct2[(int)district-1] += (decimal)thisbatch2;
+            thisbatchvotes1 = (double)GetVote1((int)district) * thisbatch1 *0.01;
+            thisbatchvotes2 = (double)GetVote2((int)district) * thisbatch2 *0.01;
+            invote1[(int)district-1] += (decimal)thisbatchvotes1;
+            invote2[(int)district-1] += (decimal)thisbatchvotes2;
+            votepct1[(int)district - 1] = (100 * invote1[(int)district - 1]) / (invote1[(int)district - 1] + invote2[(int)district - 1]);
+            votepct2[(int)district - 1] = (100 * invote2[(int)district - 1]) / (invote1[(int)district - 1] + invote2[(int)district - 1]);
+            inpct[(int)district-1] = 100* (invote1[(int)district-1] + invote2[(int)district-1]) / (GetVote1((int)district) + GetVote2((int)district));
         }
     }
 }

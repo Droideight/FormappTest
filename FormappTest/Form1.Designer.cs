@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ElectionTitle = new System.Windows.Forms.Label();
@@ -163,7 +163,7 @@
             this.RunConditionBox.Multiline = true;
             this.RunConditionBox.Name = "RunConditionBox";
             this.RunConditionBox.ReadOnly = true;
-            this.RunConditionBox.Size = new System.Drawing.Size(547, 229);
+            this.RunConditionBox.Size = new System.Drawing.Size(547, 223);
             this.RunConditionBox.TabIndex = 12;
             // 
             // MassSIMBox
@@ -223,7 +223,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(680, 229);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(680, 223);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // tableLayoutPanel3
@@ -232,19 +232,19 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.tableLayoutPanel3.Controls.Add(this.Can2PCT, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.Can2Votes, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(311, 119);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(311, 116);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.02469F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.97531F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(363, 104);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(363, 101);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // Can2PCT
             // 
-            this.Can2PCT.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Can2PCT.Font = new System.Drawing.Font("Berlin Sans FB", 14F);
-            this.Can2PCT.Location = new System.Drawing.Point(0, 60);
+            this.Can2PCT.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Can2PCT.Font = new System.Drawing.Font("Cambria", 14F);
+            this.Can2PCT.Location = new System.Drawing.Point(0, 62);
             this.Can2PCT.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can2PCT.Name = "Can2PCT";
             this.Can2PCT.Size = new System.Drawing.Size(360, 34);
@@ -254,9 +254,9 @@
             // 
             // Can2Votes
             // 
-            this.Can2Votes.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Can2Votes.Font = new System.Drawing.Font("Berlin Sans FB", 28F);
-            this.Can2Votes.Location = new System.Drawing.Point(0, 0);
+            this.Can2Votes.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Can2Votes.Font = new System.Drawing.Font("Cambria", 30F);
+            this.Can2Votes.Location = new System.Drawing.Point(0, 5);
             this.Can2Votes.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can2Votes.Name = "Can2Votes";
             this.Can2Votes.Size = new System.Drawing.Size(360, 47);
@@ -267,26 +267,26 @@
             // Can2Name
             // 
             this.Can2Name.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Can2Name.Font = new System.Drawing.Font("Berlin Sans FB", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Can2Name.Location = new System.Drawing.Point(21, 127);
+            this.Can2Name.Font = new System.Drawing.Font("Cambria", 28F);
+            this.Can2Name.Location = new System.Drawing.Point(21, 122);
             this.Can2Name.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can2Name.Name = "Can2Name";
             this.Can2Name.Size = new System.Drawing.Size(263, 88);
             this.Can2Name.TabIndex = 1;
             this.Can2Name.Text = "Joe Biden";
-            this.Can2Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Can2Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Can1Name
             // 
             this.Can1Name.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Can1Name.Font = new System.Drawing.Font("Berlin Sans FB", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Can1Name.Location = new System.Drawing.Point(21, 14);
+            this.Can1Name.Font = new System.Drawing.Font("Cambria", 28F);
+            this.Can1Name.Location = new System.Drawing.Point(21, 13);
             this.Can1Name.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can1Name.Name = "Can1Name";
             this.Can1Name.Size = new System.Drawing.Size(263, 87);
             this.Can1Name.TabIndex = 0;
             this.Can1Name.Text = "Donald Trump";
-            this.Can1Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Can1Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel2
             // 
@@ -299,14 +299,14 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.02469F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.97531F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(363, 104);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(363, 101);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // Can1PCT
             // 
-            this.Can1PCT.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Can1PCT.Font = new System.Drawing.Font("Berlin Sans FB", 14F);
-            this.Can1PCT.Location = new System.Drawing.Point(0, 60);
+            this.Can1PCT.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Can1PCT.Font = new System.Drawing.Font("Cambria", 14F);
+            this.Can1PCT.Location = new System.Drawing.Point(0, 62);
             this.Can1PCT.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can1PCT.Name = "Can1PCT";
             this.Can1PCT.Size = new System.Drawing.Size(360, 34);
@@ -316,9 +316,9 @@
             // 
             // Can1Votes
             // 
-            this.Can1Votes.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Can1Votes.Font = new System.Drawing.Font("Berlin Sans FB", 28F);
-            this.Can1Votes.Location = new System.Drawing.Point(0, 0);
+            this.Can1Votes.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Can1Votes.Font = new System.Drawing.Font("Cambria", 30F);
+            this.Can1Votes.Location = new System.Drawing.Point(0, 5);
             this.Can1Votes.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can1Votes.Name = "Can1Votes";
             this.Can1Votes.Size = new System.Drawing.Size(360, 47);
@@ -328,16 +328,16 @@
             // 
             // livevotechart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.livevotechart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.livevotechart.Legends.Add(legend3);
+            chartArea8.Name = "ChartArea1";
+            this.livevotechart.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.livevotechart.Legends.Add(legend8);
             this.livevotechart.Location = new System.Drawing.Point(24, 328);
             this.livevotechart.Name = "livevotechart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.livevotechart.Series.Add(series3);
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.livevotechart.Series.Add(series8);
             this.livevotechart.Size = new System.Drawing.Size(680, 317);
             this.livevotechart.TabIndex = 3;
             this.livevotechart.Text = "chart1";
