@@ -18,19 +18,19 @@ namespace FormappTest
         }
         public static int ED = 3;
         string RaceName;
-        string varCan1name;
-        string varCan2name;
-        double AVGPVI;
-        double AVGCQ1;
-        double AVGCQ2;
-        double AVGCI1;
-        double AVGCI2;
-        double AVGE1;
-        double AVGE2;
-        double BatchQ;
-        double BatchS;
-        double TotalPopulation;
-        double AVGMOE;
+        string varCan1name = "Donald Trump";
+        string varCan2name = "Joe Biden";
+        double AVGPVI = 0;
+        double AVGCQ1 = 70;
+        double AVGCQ2 = 70;
+        double AVGCI1 = 70;
+        double AVGCI2 = 70;
+        double AVGE1 = 70;
+        double AVGE2 = 70;
+        double BatchQ =1;
+        double BatchS =1;
+        double TotalPopulation = 1050000;
+        double AVGMOE = 2;
         List<string> DName = new List<string>();
         List<double> PVI = new List<double>();
         List<double> CQ1 = new List<double>();
@@ -47,7 +47,7 @@ namespace FormappTest
         public void ClearVar()
         {
             ED = 3;
-            RaceName = "US Presidential Election 2024 in Nebraska";
+            RaceName = "Live Result";
             ResetDName();
             ResetPVI();
             ResetCandidateQuality();
@@ -112,54 +112,88 @@ namespace FormappTest
         public void UpdateRuntimeCard()
         {
             AVGPVI = 0;
-            foreach (double PVIindi in PVI)
-            { AVGPVI += PVIindi; }
-            AVGPVI /= (double)PVI.Count;
-            AVGCQ1 = 0;
-            foreach (double CQ1indi in CQ1)
-            { AVGCQ1 += CQ1indi; }
-            AVGCQ1 /= (double)CQ1.Count;
-            AVGCQ2 = 0;
-            foreach (double CQ2indi in CQ2)
-            { AVGCQ2 += CQ2indi; }
-            AVGCQ2 /= (double)CQ2.Count;
-            AVGCI1 = 0;
-            foreach (double CI1indi in CI1)
-            { AVGCI1 += CI1indi; }
-            AVGCI1 /= (double)CI1.Count;
-            AVGCI2 = 0;
-            foreach (double CI2indi in CI2)
-            { AVGCI2 += CI2indi; }
-            AVGCI2 /= (double)CI2.Count;
-            AVGE1 = 0;
-            foreach (double E1indi in E1)
-            { AVGE1 += E1indi; }
-            AVGE1 /= (double)E1.Count;
-            AVGE2 = 0;
-            foreach (double E2indi in E2)
-            { AVGE2 += E2indi; }
-            AVGE2 /= (double)E2.Count;
-            BatchQ = 0;
-            foreach (double BatchQindi in BatchQI)
-            { BatchQ += BatchQindi; }
-            BatchQ /= (double)BatchQI.Count;
-            BatchS = 0;
-            foreach (double BatchSindi in BatchSI)
-            { BatchS += BatchSindi; }
-            BatchS /= (double)BatchSI.Count;
             TotalPopulation = 0;
             foreach (double PopulationIndi in PopulationI)
             { TotalPopulation += PopulationIndi; }
-            AVGMOE = 0;
-            foreach (double MOEindi in MOEI)
-            { AVGMOE += MOEindi; }
-            AVGMOE /= (double)MOEI.Count;
-            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%\r\nCandidate Quality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
-                $"Investment: {Math.Round(AVGCI1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCI2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
-                $"Enthusiasm: {Math.Round(AVGE1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGE2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
-                $"Batch Quantity: {Math.Round(BatchQ, 2, MidpointRounding.AwayFromZero)}\r\nBatch Speed: {Math.Round(BatchS, 2, MidpointRounding.AwayFromZero)}\r\n" +
-                $"Population: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)}\r\nMOE: {Math.Round(AVGMOE, 2, MidpointRounding.AwayFromZero)}%";
+            for (int i =0; i< PVI.Count; i++)
+            {
+                AVGPVI += (PVI[i] * PopulationI[i]/TotalPopulation);
+            }
+            for (int i = 0; i < CQ1.Count; i++)
+            {
+                AVGCQ1 += (CQ1[i] * PopulationI[i] / TotalPopulation);
+            }
+            for (int i = 0; i < CQ2.Count; i++)
+            {
+                AVGCQ2 += (CQ2[i] * PopulationI[i] / TotalPopulation);
+            }
+            for (int i = 0; i < CI1.Count; i++)
+            {
+                AVGCI1 += (CI1[i] * PopulationI[i] / TotalPopulation);
+            }
+            for (int i = 0; i < CI2.Count; i++)
+            {
+                AVGCI2 += (CI2[i] * PopulationI[i] / TotalPopulation);
+            }
+            for (int i = 0; i < E1.Count; i++)
+            {
+                AVGE1 += (E1[i] * PopulationI[i] / TotalPopulation);
+            }
+            for (int i = 0; i < E2.Count; i++)
+            {
+                AVGE2 += (E2[i] * PopulationI[i] / TotalPopulation);
+            }
+            for (int i = 0; i < BatchQI.Count; i++)
+            {
+                BatchQ += (BatchQI[i] * PopulationI[i] / TotalPopulation);
+            }
+            for (int i = 0; i < BatchSI.Count; i++)
+            {
+                BatchS += (BatchSI[i] * PopulationI[i] / TotalPopulation);
+            }
+            for (int i = 0; i < MOEI.Count; i++)
+            {
+                AVGMOE += (CQ1[i] * PopulationI[i] / TotalPopulation);
+            }
+            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%; Population: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)};\r\n\r\n===Ability===\r\nQuality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%;" +
+                $"\r\nInvestment: {Math.Round(AVGCI1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCI2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
+                $"Enthusiasm: {Math.Round(AVGE1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGE2, 2, MidpointRounding.AwayFromZero)}%\r\n\r\n===Vote Tally===\r\n" +
+                $"Batch Quantity: {Math.Round(BatchQ, 2, MidpointRounding.AwayFromZero)}; Speed: {Math.Round(BatchS, 2, MidpointRounding.AwayFromZero)}; MOE: {Math.Round(AVGMOE, 2, MidpointRounding.AwayFromZero)}%\r\n";
+             
             StartSimSetup.Text = "Start";
+        }
+        public void MassSimShow()
+        {
+            double m1 = Math.Round(quicksimarrayC1.Max(), 2);
+            double m2 = Math.Round(quicksimarrayC2.Max(), 2);
+            double l1 = Math.Round(quicksimarrayC1.Min(), 2);
+            double l2 = Math.Round(quicksimarrayC2.Min(), 2);
+            double avg1 = Math.Round(quicksimarrayC1.Average(), 2);
+            double avg2 = Math.Round(quicksimarrayC2.Average(), 2);
+            double sumOfSquaresOfDifferences1 = quicksimarrayC1.Select(val => (val - avg1) * (val - avg1)).Sum();
+            double sumOfSquaresOfDifferences2 = quicksimarrayC2.Select(val => (val - avg2) * (val - avg2)).Sum();
+            double sd1 = Math.Sqrt((double)sumOfSquaresOfDifferences1 / quicksimarrayC1.Length);
+            double sd2 = Math.Sqrt((double)sumOfSquaresOfDifferences2 / quicksimarrayC2.Length);
+            double lsd1 = Math.Round((double)avg1 - sd1, 2);
+            double lsd2 = Math.Round((double)avg2 - sd2, 2);
+            double hsd1 = Math.Round((double)avg1 + sd1, 2);
+            double hsd2 = Math.Round((double)avg2 + sd2, 2);
+            if (lsd1 > 100) lsd1 = 100;
+            if (hsd1 < 0) hsd1 = 0;
+            if (lsd2 > 100) lsd2 = 100;
+            if (hsd2 < 0) hsd2 = 0;
+            if (avg1 > 100) avg1 = 100;
+            if (avg1 < 0) avg1 = 0;
+            if (avg2 > 100) avg2 = 100;
+            if (avg2 < 0) avg2 = 0;
+            double original = differences.Count();
+            double[] temparrayforquicksim = new double[100000];
+            temparrayforquicksim = Array.FindAll(differences, j => j > 0).ToArray();
+            double newlength = temparrayforquicksim.Count();
+            double win = Math.Round(newlength / original * 100, 4);
+            MassSIMBox.Text = $"====Average====\r\n{varCan1name} {Math.Round(avg1, 2)}%\r\n{varCan2name} {Math.Round(avg2, 2)}%\r\n\r\n" +
+                $"====Likely====\r\n{varCan1name}: {Math.Round(lsd1, 2)} ~ {Math.Round(hsd1, 2)}%\r\n{varCan2name}: {Math.Round(lsd2, 2)} ~ {Math.Round(hsd2, 2)}%" +
+                $"\r\n\r\n{varCan1name} wins {win}% of times (n=100K).";
         }
 
         public void SetupTableSize()
@@ -356,7 +390,8 @@ namespace FormappTest
                 StartSimSetup.Text = "Pause";
                 StartSimSetup.BackColor = Color.LightGray;
                 RunQuickSim();
-                MassSIMBox.Text = ($"{GetVote1(1).ToString()} to {GetVote2(1).ToString()}");
+                RunMassSim();
+                MassSimShow();
             }
             else if (StartSimSetup.Text == "Pause")
             {
@@ -540,13 +575,49 @@ namespace FormappTest
         {
             return PopulationI[District - 1];
         }
-        double[] quicksimarray = new double[10000];
+        double[] quicksimarrayC1 = new double[100000];
+        double[] quicksimarrayC2 = new double[100000];
+        double[] differences = new double[100000];
         Random rnd = new Random();
-        double[] C1PCT = new double[ED];
-        double[] C2PCT = new double[ED];
-        double[] thirdPCT = new double[ED];
-        double[] C1Vote = new double[ED];
-        double[] C2Vote = new double[ED];
+        double[] C1PCT = new double[1000];
+        double[] C2PCT = new double[1000];
+        double[] thirdPCT = new double[1000];
+        double[] C1Vote = new double[1000];
+        double[] C2Vote = new double[1000];
+        public void RunMassSim()
+        {
+            for (int i =0; i<100000; i++)
+            {
+                double tempC1 = ((50 + AVGPVI / 2) * (Math.Pow(0.3 + (0.007 * AVGCQ1), 1 / (0.3 + (0.007 * AVGCI1)))));
+                double tempC2 = ((50 - AVGPVI / 2) * (Math.Pow(0.3 + (0.007 * AVGCQ2), 1 / (0.3 + (0.007 * AVGCI2)))));
+                double remainder = 100.0 - tempC1 - tempC2;
+                double thirdPCT = (remainder) * (1 - (0.015 * AVGE1 - 0.5)) * (1 - (0.015 * AVGE2 - 0.5));
+                double C1EntBonus = (remainder - thirdPCT) * (AVGE1 / (AVGE1 + AVGE2));
+                double C2EntBonus = (remainder - thirdPCT) * (AVGE2 / (AVGE1 + AVGE2));
+                tempC1 += C1EntBonus;
+                tempC2 += C2EntBonus;
+                double u1 = 1.0 - rnd.NextDouble();
+                double u2 = 1.0 - rnd.NextDouble();
+                double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
+                tempC1 += (AVGMOE * randStdNormal);
+                u1 = 1.0 - rnd.NextDouble();
+                u2 = 1.0 - rnd.NextDouble();
+                randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2);
+                tempC2 += (AVGMOE * randStdNormal);
+                if (tempC1 + tempC2 > 100) 
+                { 
+                    tempC1 /= (tempC1 + tempC2);
+                    tempC1 *= 100;
+                    tempC2 /= (tempC1 + tempC2);
+                    tempC2 *= 100;
+                    thirdPCT = 0;
+                }
+                quicksimarrayC1[i] = tempC1;
+                quicksimarrayC2[i] = tempC2;
+                differences[i] = tempC1- tempC2;
+            }
+            
+        }
         public void RunQuickSim()
         {
             for (int i = 0; i < ED; i++)
@@ -567,6 +638,14 @@ namespace FormappTest
                 u2 = 1.0 - rnd.NextDouble();
                 randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2);
                 tempC2 += (GetMOE(i + 1) * randStdNormal);
+                if (tempC1 + tempC2 > 100)
+                {
+                    tempC1 /= (tempC1 + tempC2);
+                    tempC1 *= 100;
+                    tempC2 /= (tempC1 + tempC2);
+                    tempC2 *= 100;
+                    thirdPCT[i] = 0;
+                }
                 C1PCT[i] = tempC1;
                 C2PCT[i] = tempC2;
                 //Total Vote

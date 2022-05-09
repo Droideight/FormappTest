@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ElectionTime = new System.Windows.Forms.Label();
@@ -40,8 +40,7 @@
             this.MassSIMBox = new System.Windows.Forms.TextBox();
             this.INPCT = new System.Windows.Forms.Label();
             this.MassSimLabel = new System.Windows.Forms.Label();
-            this.RunConditionBanner = new System.Windows.Forms.Label();
-            this.ElectionTitle = new System.Windows.Forms.Label();
+            this.INFOBanner = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.Can2PCT = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.RaceTitleBox = new System.Windows.Forms.TextBox();
             this.DistrictBox = new System.Windows.Forms.TextBox();
             this.SetupTable = new System.Windows.Forms.TableLayoutPanel();
+            this.ElectionTitle = new System.Windows.Forms.Label();
             this.Tab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -91,6 +91,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ElectionTitle);
             this.tabPage1.Controls.Add(this.ElectionTime);
             this.tabPage1.Controls.Add(this.ResetSimup);
             this.tabPage1.Controls.Add(this.StartSimSetup);
@@ -98,8 +99,7 @@
             this.tabPage1.Controls.Add(this.MassSIMBox);
             this.tabPage1.Controls.Add(this.INPCT);
             this.tabPage1.Controls.Add(this.MassSimLabel);
-            this.tabPage1.Controls.Add(this.RunConditionBanner);
-            this.tabPage1.Controls.Add(this.ElectionTitle);
+            this.tabPage1.Controls.Add(this.INFOBanner);
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
             this.tabPage1.Controls.Add(this.livevotechart);
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
@@ -148,27 +148,29 @@
             // 
             // RunConditionBox
             // 
+            this.RunConditionBox.Font = new System.Drawing.Font("Cambria", 11F);
             this.RunConditionBox.Location = new System.Drawing.Point(679, 46);
             this.RunConditionBox.Multiline = true;
             this.RunConditionBox.Name = "RunConditionBox";
             this.RunConditionBox.ReadOnly = true;
-            this.RunConditionBox.Size = new System.Drawing.Size(474, 229);
+            this.RunConditionBox.Size = new System.Drawing.Size(474, 202);
             this.RunConditionBox.TabIndex = 12;
             // 
             // MassSIMBox
             // 
-            this.MassSIMBox.Location = new System.Drawing.Point(679, 311);
+            this.MassSIMBox.Font = new System.Drawing.Font("Cambria", 11F);
+            this.MassSIMBox.Location = new System.Drawing.Point(679, 297);
             this.MassSIMBox.Multiline = true;
             this.MassSIMBox.Name = "MassSIMBox";
             this.MassSIMBox.ReadOnly = true;
-            this.MassSIMBox.Size = new System.Drawing.Size(474, 192);
+            this.MassSIMBox.Size = new System.Drawing.Size(474, 206);
             this.MassSIMBox.TabIndex = 11;
             // 
             // INPCT
             // 
             this.INPCT.AutoSize = true;
             this.INPCT.Font = new System.Drawing.Font("Cambria", 10F);
-            this.INPCT.Location = new System.Drawing.Point(532, 278);
+            this.INPCT.Location = new System.Drawing.Point(543, 23);
             this.INPCT.Name = "INPCT";
             this.INPCT.Size = new System.Drawing.Size(77, 20);
             this.INPCT.TabIndex = 10;
@@ -177,32 +179,22 @@
             // MassSimLabel
             // 
             this.MassSimLabel.Font = new System.Drawing.Font("Cambria", 18F);
-            this.MassSimLabel.Location = new System.Drawing.Point(758, 278);
+            this.MassSimLabel.Location = new System.Drawing.Point(754, 251);
             this.MassSimLabel.Name = "MassSimLabel";
-            this.MassSimLabel.Size = new System.Drawing.Size(339, 30);
+            this.MassSimLabel.Size = new System.Drawing.Size(339, 43);
             this.MassSimLabel.TabIndex = 8;
             this.MassSimLabel.Text = "Mass Simulation";
             this.MassSimLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // RunConditionBanner
+            // INFOBanner
             // 
-            this.RunConditionBanner.Font = new System.Drawing.Font("Cambria", 18F);
-            this.RunConditionBanner.Location = new System.Drawing.Point(673, 0);
-            this.RunConditionBanner.Name = "RunConditionBanner";
-            this.RunConditionBanner.Size = new System.Drawing.Size(489, 43);
-            this.RunConditionBanner.TabIndex = 7;
-            this.RunConditionBanner.Text = "Run Condition";
-            this.RunConditionBanner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ElectionTitle
-            // 
-            this.ElectionTitle.Font = new System.Drawing.Font("Cambria", 18F);
-            this.ElectionTitle.Location = new System.Drawing.Point(3, 0);
-            this.ElectionTitle.Name = "ElectionTitle";
-            this.ElectionTitle.Size = new System.Drawing.Size(599, 43);
-            this.ElectionTitle.TabIndex = 6;
-            this.ElectionTitle.Text = "Live Result";
-            this.ElectionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.INFOBanner.Font = new System.Drawing.Font("Cambria", 18F);
+            this.INFOBanner.Location = new System.Drawing.Point(673, 7);
+            this.INFOBanner.Name = "INFOBanner";
+            this.INFOBanner.Size = new System.Drawing.Size(489, 43);
+            this.INFOBanner.TabIndex = 7;
+            this.INFOBanner.Text = "Info";
+            this.INFOBanner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
@@ -326,17 +318,17 @@
             // 
             // livevotechart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.livevotechart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.livevotechart.Legends.Add(legend2);
-            this.livevotechart.Location = new System.Drawing.Point(12, 311);
+            chartArea5.Name = "ChartArea1";
+            this.livevotechart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.livevotechart.Legends.Add(legend5);
+            this.livevotechart.Location = new System.Drawing.Point(12, 340);
             this.livevotechart.Name = "livevotechart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.livevotechart.Series.Add(series2);
-            this.livevotechart.Size = new System.Drawing.Size(608, 288);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.livevotechart.Series.Add(series5);
+            this.livevotechart.Size = new System.Drawing.Size(608, 268);
             this.livevotechart.TabIndex = 3;
             this.livevotechart.Text = "chart1";
             // 
@@ -778,6 +770,16 @@
             this.SetupTable.Size = new System.Drawing.Size(17, 365);
             this.SetupTable.TabIndex = 0;
             // 
+            // ElectionTitle
+            // 
+            this.ElectionTitle.Font = new System.Drawing.Font("Cambria", 18F);
+            this.ElectionTitle.Location = new System.Drawing.Point(10, 272);
+            this.ElectionTitle.Name = "ElectionTitle";
+            this.ElectionTitle.Size = new System.Drawing.Size(610, 43);
+            this.ElectionTitle.TabIndex = 16;
+            this.ElectionTitle.Text = "Live Result";
+            this.ElectionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -804,7 +806,6 @@
 
         private System.Windows.Forms.TabControl Tab;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label ElectionTitle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label Can2PCT;
@@ -816,7 +817,7 @@
         private System.Windows.Forms.Label Can1Votes;
         private System.Windows.Forms.DataVisualization.Charting.Chart livevotechart;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label RunConditionBanner;
+        private System.Windows.Forms.Label INFOBanner;
         private System.Windows.Forms.Label MassSimLabel;
         private System.Windows.Forms.Label INPCT;
         private System.Windows.Forms.TextBox RunConditionBox;
@@ -839,6 +840,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label ElectionTitle;
     }
 }
 
