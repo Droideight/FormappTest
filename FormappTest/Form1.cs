@@ -31,6 +31,7 @@ namespace FormappTest
         double BatchS =1;
         double TotalPopulation = 1050000;
         double AVGMOE = 2;
+        double QIRatio = 0.55;
         List<string> DName = new List<string>();
         List<double> PVI = new List<double>();
         List<double> CQ1 = new List<double>();
@@ -68,44 +69,55 @@ namespace FormappTest
         public void ResetPVI()
         {
             PVI.Clear();
+            AVGPVI = 0;
             PVI.Add(0.0); PVI.Add(0.0); PVI.Add(0.0);
         }
         public void ResetCandidateQuality()
         {
             CQ1.Clear();
+            AVGCQ1 = 70;
             CQ1.Add(70.0); CQ1.Add(70.0); CQ1.Add(70.0);
             CQ2.Clear();
+            AVGCQ2 = 70;
             CQ2.Add(70.0); CQ2.Add(70.0); CQ2.Add(70.0);         
         }
         public void ResetCandidateInvestment()
         {
             CI1.Clear();
+            AVGCI1 = 70;
             CI1.Add(70.0); CI1.Add(70.0); CI1.Add(70.0);
             CI2.Clear();
+            AVGCI2 = 70;
             CI2.Add(70.0); CI2.Add(70.0); CI2.Add(70.0);
         }
         public void ResetEnthusiasm()
         {
             E1.Clear();
+            AVGE1 = 70;
             E1.Add(70.0); E1.Add(70.0); E1.Add(70.0);
             E2.Clear();
+            AVGE2 = 70;
             E2.Add(70.0); E2.Add(70.0); E2.Add(70.0);
         }
         public void ResetBatch()
         {
             BatchQI.Clear();
+            BatchQ = 1;
             BatchQI.Add(1); BatchQI.Add(1); BatchQI.Add(1);
             BatchSI.Clear();
+            BatchS = 1;
             BatchSI.Add(1); BatchSI.Add(1); BatchSI.Add(1);
         }
         public void ResetPopulation()
         {
             PopulationI.Clear();
+            TotalPopulation = 1050000;
             PopulationI.Add(350000); PopulationI.Add(350000); PopulationI.Add(350000);
         }
         public void ResetMOE()
         {
             MOEI.Clear();
+            AVGMOE = 2;
             MOEI.Add(2.0); MOEI.Add(2.0); MOEI.Add(2.0);
         }
 
@@ -115,6 +127,16 @@ namespace FormappTest
             TotalPopulation = 0;
             foreach (double PopulationIndi in PopulationI)
             { TotalPopulation += PopulationIndi; }
+            AVGPVI = 0;
+            AVGCQ1 = 0;
+            AVGCQ2 = 0;
+            AVGCI1 = 0;
+            AVGCI2 = 0;
+            AVGE1 = 0;
+            AVGE2 = 0;
+            AVGMOE = 0;
+            BatchQ = 0;
+            BatchS = 0;
             for (int i =0; i< PVI.Count; i++)
             {
                 AVGPVI += (PVI[i] * PopulationI[i]/TotalPopulation);
@@ -153,7 +175,7 @@ namespace FormappTest
             }
             for (int i = 0; i < MOEI.Count; i++)
             {
-                AVGMOE += (CQ1[i] * PopulationI[i] / TotalPopulation);
+                AVGMOE += (MOEI[i] * PopulationI[i] / TotalPopulation);
             }
             RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%; Population: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)};\r\n\r\n===Ability===\r\nQuality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%;" +
                 $"\r\nInvestment: {Math.Round(AVGCI1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCI2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
@@ -179,9 +201,21 @@ namespace FormappTest
             double hsd1 = Math.Round((double)avg1 + sd1, 2);
             double hsd2 = Math.Round((double)avg2 + sd2, 2);
             if (lsd1 > 100) lsd1 = 100;
+            if (lsd1 < 0) lsd1 = 0;
+            if (m1 > 100) m1 = 100;
+            if (m1 < 0) m1 = 0;
+            if (m2 > 100) m2 = 100;
+            if (m2 < 0) m2 = 0;
+            if (l1 > 100) l1 = 100;
+            if (l1 < 0) l1 = 0;
+            if (l2 > 100) l2 = 100;
+            if (l2 < 0) l2 = 0;
             if (hsd1 < 0) hsd1 = 0;
+            if (hsd1 > 100) hsd1 = 100;
             if (lsd2 > 100) lsd2 = 100;
+            if (lsd2 < 0) lsd2 = 0;
             if (hsd2 < 0) hsd2 = 0;
+            if (hsd2 > 100) hsd2 = 100;
             if (avg1 > 100) avg1 = 100;
             if (avg1 < 0) avg1 = 0;
             if (avg2 > 100) avg2 = 100;
@@ -191,8 +225,8 @@ namespace FormappTest
             temparrayforquicksim = Array.FindAll(differences, j => j > 0).ToArray();
             double newlength = temparrayforquicksim.Count();
             double win = Math.Round(newlength / original * 100, 4);
-            MassSIMBox.Text = $"====Average====\r\n{varCan1name} {Math.Round(avg1, 2)}%\r\n{varCan2name} {Math.Round(avg2, 2)}%\r\n\r\n" +
-                $"====Likely====\r\n{varCan1name}: {Math.Round(lsd1, 2)} ~ {Math.Round(hsd1, 2)}%\r\n{varCan2name}: {Math.Round(lsd2, 2)} ~ {Math.Round(hsd2, 2)}%" +
+            MassSIMBox.Text = $"====Average====\r\n{varCan1name}: {Math.Round(avg1, 2)}%\r\n{varCan2name}: {Math.Round(avg2, 2)}%\r\n\r\n" +
+                $"====Likely====\r\n{varCan1name}: {Math.Round(lsd1, 2)} ~ {Math.Round(hsd1, 2)}% ({l1}~{m1})\r\n{varCan2name}: {Math.Round(lsd2, 2)} ~ {Math.Round(hsd2, 2)}% ({l2}~{m2})" +
                 $"\r\n\r\n{varCan1name} wins {win}% of times (n=100K).";
         }
 
@@ -588,8 +622,8 @@ namespace FormappTest
         {
             for (int i =0; i<100000; i++)
             {
-                double tempC1 = ((50 + AVGPVI / 2) * (Math.Pow(0.3 + (0.007 * AVGCQ1), 1 / (0.3 + (0.007 * AVGCI1)))));
-                double tempC2 = ((50 - AVGPVI / 2) * (Math.Pow(0.3 + (0.007 * AVGCQ2), 1 / (0.3 + (0.007 * AVGCI2)))));
+                double tempC1 = ((50 + AVGPVI / 2) * (Math.Pow(QIRatio + (0.01 * (1 - QIRatio) * AVGCQ1), 1 / (QIRatio + (0.01 * (1 - QIRatio) * AVGCI1)))));
+                double tempC2 = ((50 - AVGPVI / 2) * (Math.Pow(QIRatio + (0.01 * (1 - QIRatio) * AVGCQ2), 1 / (QIRatio + (0.01 * (1 - QIRatio) * AVGCI2)))));
                 double remainder = 100.0 - tempC1 - tempC2;
                 double thirdPCT = (remainder) * (1 - (0.015 * AVGE1 - 0.5)) * (1 - (0.015 * AVGE2 - 0.5));
                 double C1EntBonus = (remainder - thirdPCT) * (AVGE1 / (AVGE1 + AVGE2));
@@ -622,8 +656,8 @@ namespace FormappTest
         {
             for (int i = 0; i < ED; i++)
             {
-                double tempC1 = (50 + (GetPVI(i + 1)) / 2) * (Math.Pow(0.3 + (0.007 * GetCQ1(i + 1)), 1 / (0.3 + (0.007 * GetCI1(i + 1)))));
-                double tempC2 = (50 - (GetPVI(i + 1)) / 2) * (Math.Pow(0.3 + (0.007 * GetCQ2(i + 1)), 1 / (0.3 + (0.007 * GetCI2(i + 1)))));
+                double tempC1 = (50 + (GetPVI(i + 1)) / 2) * (Math.Pow(QIRatio + (0.01 * (1 - QIRatio) * GetCQ1(i + 1)), 1 / (QIRatio + (0.01 * (1 - QIRatio) * GetCI1(i + 1)))));
+                double tempC2 = (50 - (GetPVI(i + 1)) / 2) * (Math.Pow(QIRatio + (0.01 * (1 - QIRatio) * GetCQ2(i + 1)), 1 / (QIRatio + (0.01 * (1 - QIRatio) * GetCI2(i + 1)))));
                 double remainder = 100.0 - tempC1 - tempC2;
                 thirdPCT[i] = (remainder) * (1 - (0.015 * GetE1(i + 1) - 0.5)) * (1 - (0.015 * GetE2(i + 1) - 0.5));
                 double C1EntBonus = (remainder - thirdPCT[i]) * (GetE1(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
