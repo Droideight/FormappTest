@@ -20,30 +20,31 @@ namespace FormappTest
         string RaceName;
         string varCan1name = "Donald Trump";
         string varCan2name = "Joe Biden";
-        double AVGPVI = 0;
-        double AVGCQ1 = 70;
-        double AVGCQ2 = 70;
-        double AVGCI1 = 70;
-        double AVGCI2 = 70;
-        double AVGE1 = 70;
-        double AVGE2 = 70;
-        double BatchQ =1;
-        double BatchS =1;
-        double TotalPopulation = 1050000;
-        double AVGMOE = 2;
-        double QIRatio = 0.55;
+        decimal AVGPVI = 0M;
+        decimal AVGCQ1 = 70M;
+        decimal AVGCQ2 = 70M;
+        decimal AVGCI1 = 70M;
+        decimal AVGCI2 = 70M;
+        decimal AVGE1 = 70M;
+        decimal AVGE2 = 70M;
+        decimal BatchQ =1M;
+        decimal BatchS = 1M;
+        decimal TotalPopulation = 1050000M;
+        decimal AVGMOE = 2M;
+        decimal QIRatio = 0.6M;
+        static decimal RUNTIME = 500000;
         List<string> DName = new List<string>();
-        List<double> PVI = new List<double>();
-        List<double> CQ1 = new List<double>();
-        List<double> CQ2 = new List<double>();
-        List<double> CI1 = new List<double>();
-        List<double> E1 = new List<double>();
-        List<double> E2 = new List<double>();
-        List<double> CI2 = new List<double>();
-        List<double> BatchQI = new List<double>();
-        List<double> BatchSI = new List<double>();
-        List<double> PopulationI = new List<double>();
-        List<double> MOEI = new List<double>();
+        List<decimal> PVI = new List<decimal>();
+        List<decimal> CQ1 = new List<decimal>();
+        List<decimal> CQ2 = new List<decimal>();
+        List<decimal> CI1 = new List<decimal>();
+        List<decimal> E1 = new List<decimal>();
+        List<decimal> E2 = new List<decimal>();
+        List<decimal> CI2 = new List<decimal>();
+        List<decimal> BatchQI = new List<decimal>();
+        List<decimal> BatchSI = new List<decimal>();
+        List<decimal> PopulationI = new List<decimal>();
+        List<decimal> MOEI = new List<decimal>();
 
         public void ClearVar()
         {
@@ -69,74 +70,74 @@ namespace FormappTest
         public void ResetPVI()
         {
             PVI.Clear();
-            AVGPVI = 0;
-            PVI.Add(0.0); PVI.Add(0.0); PVI.Add(0.0);
+            AVGPVI = 0M;
+            PVI.Add(0.0M); PVI.Add(0.0M); PVI.Add(0.0M);
         }
         public void ResetCandidateQuality()
         {
             CQ1.Clear();
-            AVGCQ1 = 70;
-            CQ1.Add(70.0); CQ1.Add(70.0); CQ1.Add(70.0);
+            AVGCQ1 = 70M;
+            CQ1.Add(70.0M); CQ1.Add(70.0M); CQ1.Add(70.0M);
             CQ2.Clear();
             AVGCQ2 = 70;
-            CQ2.Add(70.0); CQ2.Add(70.0); CQ2.Add(70.0);         
+            CQ2.Add(70.0M); CQ2.Add(70.0M); CQ2.Add(70.0M);         
         }
         public void ResetCandidateInvestment()
         {
             CI1.Clear();
-            AVGCI1 = 70;
-            CI1.Add(70.0); CI1.Add(70.0); CI1.Add(70.0);
+            AVGCI1 = 70M;
+            CI1.Add(70.0M); CI1.Add(70.0M); CI1.Add(70.0M);
             CI2.Clear();
-            AVGCI2 = 70;
-            CI2.Add(70.0); CI2.Add(70.0); CI2.Add(70.0);
+            AVGCI2 = 70.0M;
+            CI2.Add(70.0M); CI2.Add(70.0M); CI2.Add(70.0M);
         }
         public void ResetEnthusiasm()
         {
             E1.Clear();
-            AVGE1 = 70;
-            E1.Add(70.0); E1.Add(70.0); E1.Add(70.0);
+            AVGE1 = 70M;
+            E1.Add(70.0M); E1.Add(70.0M); E1.Add(70.0M);
             E2.Clear();
-            AVGE2 = 70;
-            E2.Add(70.0); E2.Add(70.0); E2.Add(70.0);
+            AVGE2 = 70M;
+            E2.Add(70.0M); E2.Add(70.0M); E2.Add(70.0M);
         }
         public void ResetBatch()
         {
             BatchQI.Clear();
-            BatchQ = 1;
-            BatchQI.Add(1); BatchQI.Add(1); BatchQI.Add(1);
+            BatchQ = 1M;
+            BatchQI.Add(1M); BatchQI.Add(1M); BatchQI.Add(1M);
             BatchSI.Clear();
-            BatchS = 1;
-            BatchSI.Add(1); BatchSI.Add(1); BatchSI.Add(1);
+            BatchS = 1M;
+            BatchSI.Add(1M); BatchSI.Add(1M); BatchSI.Add(1M);
         }
         public void ResetPopulation()
         {
             PopulationI.Clear();
-            TotalPopulation = 1050000;
-            PopulationI.Add(350000); PopulationI.Add(350000); PopulationI.Add(350000);
+            TotalPopulation = 1050000M;
+            PopulationI.Add(350000M); PopulationI.Add(350000M); PopulationI.Add(350000M);
         }
         public void ResetMOE()
         {
             MOEI.Clear();
-            AVGMOE = 2;
-            MOEI.Add(2.0); MOEI.Add(2.0); MOEI.Add(2.0);
+            AVGMOE = 2M;
+            MOEI.Add(2.0M); MOEI.Add(2.0M); MOEI.Add(2.0M);
         }
 
         public void UpdateRuntimeCard()
         {
-            AVGPVI = 0;
-            TotalPopulation = 0;
-            foreach (double PopulationIndi in PopulationI)
+            AVGPVI = 0M;
+            TotalPopulation = 0M;
+            foreach (decimal PopulationIndi in PopulationI)
             { TotalPopulation += PopulationIndi; }
-            AVGPVI = 0;
-            AVGCQ1 = 0;
-            AVGCQ2 = 0;
-            AVGCI1 = 0;
-            AVGCI2 = 0;
-            AVGE1 = 0;
-            AVGE2 = 0;
-            AVGMOE = 0;
-            BatchQ = 0;
-            BatchS = 0;
+            AVGPVI = 0M;
+            AVGCQ1 = 0M;
+            AVGCQ2 = 0M;
+            AVGCI1 = 0M;
+            AVGCI2 = 0M;
+            AVGE1 = 0M;
+            AVGE2 = 0M;
+            AVGMOE = 0M;
+            BatchQ = 0M;
+            BatchS = 0M;
             for (int i =0; i< PVI.Count; i++)
             {
                 AVGPVI += (PVI[i] * PopulationI[i]/TotalPopulation);
@@ -177,7 +178,7 @@ namespace FormappTest
             {
                 AVGMOE += (MOEI[i] * PopulationI[i] / TotalPopulation);
             }
-            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%; Population: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)};\r\n\r\n===Ability===\r\nQuality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%;" +
+            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%; Population: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)}\r\n\r\n===Ability===\r\nCan. Quality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%" +
                 $"\r\nInvestment: {Math.Round(AVGCI1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCI2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
                 $"Enthusiasm: {Math.Round(AVGE1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGE2, 2, MidpointRounding.AwayFromZero)}%\r\n\r\n===Vote Tally===\r\n" +
                 $"Batch Quantity: {Math.Round(BatchQ, 2, MidpointRounding.AwayFromZero)}; Speed: {Math.Round(BatchS, 2, MidpointRounding.AwayFromZero)}; MOE: {Math.Round(AVGMOE, 2, MidpointRounding.AwayFromZero)}%\r\n";
@@ -186,48 +187,47 @@ namespace FormappTest
         }
         public void MassSimShow()
         {
-            double m1 = Math.Round(quicksimarrayC1.Max(), 2);
-            double m2 = Math.Round(quicksimarrayC2.Max(), 2);
-            double l1 = Math.Round(quicksimarrayC1.Min(), 2);
-            double l2 = Math.Round(quicksimarrayC2.Min(), 2);
-            double avg1 = Math.Round(quicksimarrayC1.Average(), 2);
-            double avg2 = Math.Round(quicksimarrayC2.Average(), 2);
-            double sumOfSquaresOfDifferences1 = quicksimarrayC1.Select(val => (val - avg1) * (val - avg1)).Sum();
-            double sumOfSquaresOfDifferences2 = quicksimarrayC2.Select(val => (val - avg2) * (val - avg2)).Sum();
-            double sd1 = Math.Sqrt((double)sumOfSquaresOfDifferences1 / quicksimarrayC1.Length);
-            double sd2 = Math.Sqrt((double)sumOfSquaresOfDifferences2 / quicksimarrayC2.Length);
-            double lsd1 = Math.Round((double)avg1 - sd1, 2);
-            double lsd2 = Math.Round((double)avg2 - sd2, 2);
-            double hsd1 = Math.Round((double)avg1 + sd1, 2);
-            double hsd2 = Math.Round((double)avg2 + sd2, 2);
-            if (lsd1 > 100) lsd1 = 100;
-            if (lsd1 < 0) lsd1 = 0;
-            if (m1 > 100) m1 = 100;
-            if (m1 < 0) m1 = 0;
-            if (m2 > 100) m2 = 100;
-            if (m2 < 0) m2 = 0;
-            if (l1 > 100) l1 = 100;
-            if (l1 < 0) l1 = 0;
-            if (l2 > 100) l2 = 100;
-            if (l2 < 0) l2 = 0;
-            if (hsd1 < 0) hsd1 = 0;
-            if (hsd1 > 100) hsd1 = 100;
-            if (lsd2 > 100) lsd2 = 100;
-            if (lsd2 < 0) lsd2 = 0;
-            if (hsd2 < 0) hsd2 = 0;
-            if (hsd2 > 100) hsd2 = 100;
-            if (avg1 > 100) avg1 = 100;
-            if (avg1 < 0) avg1 = 0;
-            if (avg2 > 100) avg2 = 100;
-            if (avg2 < 0) avg2 = 0;
-            double original = differences.Count();
-            double[] temparrayforquicksim = new double[100000];
+            decimal m1 = Decimal.Round(quicksimarrayC1.Max(), 2);
+            decimal m2 = Decimal.Round(quicksimarrayC2.Max(), 2);
+            decimal l1 = Decimal.Round(quicksimarrayC1.Min(), 2);
+            decimal l2 = Decimal.Round(quicksimarrayC2.Min(), 2);
+            decimal avg1 = Decimal.Round(quicksimarrayC1.Average(), 2);
+            decimal avg2 = Decimal.Round(quicksimarrayC2.Average(), 2);
+            decimal sumOfSquaresOfDifferences1 = quicksimarrayC1.Select(val => (val - avg1) * (val - avg1)).Sum();
+            decimal sumOfSquaresOfDifferences2 = quicksimarrayC2.Select(val => (val - avg2) * (val - avg2)).Sum();
+            decimal sd1 = (decimal)Math.Sqrt((double)sumOfSquaresOfDifferences1 / quicksimarrayC1.Count());
+            decimal sd2 = (decimal)Math.Sqrt((double)sumOfSquaresOfDifferences2 / quicksimarrayC2.Count());
+            decimal lsd1 = Decimal.Round((decimal)avg1 - sd1, 2);
+            decimal lsd2 = Decimal.Round((decimal)avg2 - sd2, 2);
+            decimal hsd1 = Decimal.Round((decimal)avg1 + sd1, 2);
+            decimal hsd2 = Decimal.Round((decimal)avg2 + sd2, 2);
+            if (lsd1 > 100) lsd1 = 100M;
+            if (lsd1 < 0) lsd1 = 0M;
+            if (m1 > 100) m1 = 100M;
+            if (m1 < 0) m1 = 0M;
+            if (m2 > 100) m2 = 100M;
+            if (m2 < 0) m2 = 0M;
+            if (l1 > 100) l1 = 100M;
+            if (l1 < 0) l1 = 0M;
+            if (l2 > 100) l2 = 100M;
+            if (l2 < 0) l2 = 0M;
+            if (hsd1 < 0) hsd1 = 0M;
+            if (hsd1 > 100) hsd1 = 100M;
+            if (lsd2 > 100) lsd2 = 100M;
+            if (lsd2 < 0) lsd2 = 0M;
+            if (hsd2 < 0) hsd2 = 0M;
+            if (hsd2 > 100) hsd2 = 100M;
+            if (avg1 > 100) avg1 = 100M;
+            if (avg1 < 0) avg1 = 0M;
+            if (avg2 > 100) avg2 = 100M;
+            if (avg2 < 0) avg2 = 0M;
+            decimal[] temparrayforquicksim = new decimal[Convert.ToInt32(RUNTIME)];
             temparrayforquicksim = Array.FindAll(differences, j => j > 0).ToArray();
-            double newlength = temparrayforquicksim.Count();
-            double win = Math.Round(newlength / original * 100, 4);
-            MassSIMBox.Text = $"====Average====\r\n{varCan1name}: {Math.Round(avg1, 2)}%\r\n{varCan2name}: {Math.Round(avg2, 2)}%\r\n\r\n" +
-                $"====Likely====\r\n{varCan1name}: {Math.Round(lsd1, 2)} ~ {Math.Round(hsd1, 2)}% ({l1}~{m1})\r\n{varCan2name}: {Math.Round(lsd2, 2)} ~ {Math.Round(hsd2, 2)}% ({l2}~{m2})" +
-                $"\r\n\r\n{varCan1name} wins {win}% of times (n=100K).";
+            decimal newlength = temparrayforquicksim.Count();
+            decimal win = Decimal.Round(newlength / RUNTIME * 100, 4);
+            MassSIMBox.Text = $"====Average====\r\n{varCan1name}: {Decimal.Round(avg1, 2)}%\r\n{varCan2name}: {Decimal.Round(avg2, 2)}%\r\n\r\n" +
+                $"====Likely====\r\n{varCan1name}: {Decimal.Round(lsd1, 2)} ~ {Decimal.Round(hsd1, 2)}% ({l1}~{m1})\r\n{varCan2name}: {Decimal.Round(lsd2, 2)} ~ {Decimal.Round(hsd2, 2)}% ({l2}~{m2})" +
+                $"\r\n\r\n{varCan1name} wins {win}% of times (n= {Convert.ToInt32(RUNTIME)}).";
         }
 
         public void SetupTableSize()
@@ -401,7 +401,7 @@ namespace FormappTest
             Textboxname.TabIndex = Textboxindex;
             Textboxname.Anchor = AnchorStyles.Top;
             Textboxname.Enabled = false;
-            Textboxname.Dock = DockStyle.None;
+            Textboxname.Dock = DockStyle.Fill;
             Textboxname.Name = Textboxindex.ToString();
             SetupTable.Controls.Add(Textboxname);
             return Textboxname;
@@ -436,6 +436,7 @@ namespace FormappTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            WindowState = FormWindowState.Maximized;
             ClearVar();
         }
 
@@ -460,9 +461,9 @@ namespace FormappTest
             if (PVI.Count < ED) 
                 { for (int i = PVI.Count + 1; i <= ED; i++) 
                     {
-                    DName.Add("District "+i.ToString()); PVI.Add(0.0); CQ1.Add(70.0); CQ2.Add(70.0); CI1.Add(70.0); CI2.Add(70.0); 
-                    E1.Add(70.0); E2.Add(70.0); BatchSI.Add(1.0); BatchQI.Add(1.0); 
-                    PopulationI.Add(350000); MOEI.Add(2.0); };
+                    DName.Add("District "+i.ToString()); PVI.Add(0.0M); CQ1.Add(70.0M); CQ2.Add(70.0M); CI1.Add(70.0M); CI2.Add(70.0M); 
+                    E1.Add(70.0M); E2.Add(70.0M); BatchSI.Add(1.0M); BatchQI.Add(1.0M); 
+                    PopulationI.Add(350000M); MOEI.Add(2.0M); };
             }
             if (PVI.Count > ED)
             {
@@ -489,57 +490,57 @@ namespace FormappTest
                         }
                     case 1:
                         {
-                            PVI[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            PVI[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     case 2:
                         {
-                            CQ1[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            CQ1[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     case 3:
                         {
-                            CQ2[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            CQ2[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     case 4:
                         {
-                            CI1[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            CI1[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     case 5:
                         {
-                            CI2[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            CI2[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     case 6:
                         {
-                            E1[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            E1[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     case 7:
                         {
-                            E2[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            E2[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     case 8:
                         {
-                            BatchQI[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            BatchQI[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     case 9:
                         {
-                            BatchSI[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            BatchSI[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     case 10:
                         {
-                            PopulationI[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            PopulationI[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     case 11:
                         {
-                            MOEI[Math.DivRem(k, 12, out int case0) - 1] = Double.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            MOEI[Math.DivRem(k, 12, out int case0) - 1] = Decimal.Parse(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
                             break;
                         }
                     default:
@@ -573,78 +574,103 @@ namespace FormappTest
             varCan2name = Can2Box.Text;
             Can2Name.Text = varCan2name;
         }
-        public double GetPVI(int District)
+        public decimal GetPVI(int District)
         {
             return PVI[District - 1];
         }
-        public double GetCQ1(int District)
+        public decimal GetCQ1(int District)
         {
             return CQ1[District - 1];
         }
-        public double GetCQ2(int District)
+        public decimal GetCQ2(int District)
         {
             return CQ2[District - 1];
         }
-        public double GetCI1(int District)
+        public decimal GetCI1(int District)
         {
             return CI1[District - 1];
         }
-        public double GetCI2(int District)
+        public decimal GetCI2(int District)
         {
             return CI2[District - 1];
         }
-        public double GetE1(int District)
+        public decimal GetE1(int District)
         {
             return E1[District - 1];
         }
-        public double GetE2(int District)
+        public decimal GetE2(int District)
         {
             return E2[District - 1];
         }
-        public double GetMOE(int District)
+        public decimal GetMOE(int District)
         {
             return MOEI[District - 1];
         }
-        public double GetVoters(int District)
+        public decimal GetVoters(int District)
         {
             return PopulationI[District - 1];
         }
-        double[] quicksimarrayC1 = new double[100000];
-        double[] quicksimarrayC2 = new double[100000];
-        double[] differences = new double[100000];
+        decimal[] quicksimarrayC1 = new decimal[Convert.ToInt32(RUNTIME)];
+        decimal[] quicksimarrayC2 = new decimal[Convert.ToInt32(RUNTIME)];
+        decimal[] differences = new decimal[Convert.ToInt32(RUNTIME)];
         Random rnd = new Random();
-        double[] C1PCT = new double[1000];
-        double[] C2PCT = new double[1000];
-        double[] thirdPCT = new double[1000];
-        double[] C1Vote = new double[1000];
-        double[] C2Vote = new double[1000];
+        decimal[] C1PCT = new decimal[1000];
+        decimal[] C2PCT = new decimal[1000];
+        decimal[] thirdPCT = new decimal[1000];
+        decimal[] C1Vote = new decimal[1000];
+        decimal[] C2Vote = new decimal[1000];
         public void RunMassSim()
         {
-            for (int i =0; i<100000; i++)
+            for (int i =0; i< Convert.ToInt32(RUNTIME); i++)
             {
-                double tempC1 = ((50 + AVGPVI / 2) * (Math.Pow(QIRatio + (0.01 * (1 - QIRatio) * AVGCQ1), 1 / (QIRatio + (0.01 * (1 - QIRatio) * AVGCI1)))));
-                double tempC2 = ((50 - AVGPVI / 2) * (Math.Pow(QIRatio + (0.01 * (1 - QIRatio) * AVGCQ2), 1 / (QIRatio + (0.01 * (1 - QIRatio) * AVGCI2)))));
-                double remainder = 100.0 - tempC1 - tempC2;
-                double thirdPCT = (remainder) * (1 - (0.015 * AVGE1 - 0.5)) * (1 - (0.015 * AVGE2 - 0.5));
-                double C1EntBonus = (remainder - thirdPCT) * (AVGE1 / (AVGE1 + AVGE2));
-                double C2EntBonus = (remainder - thirdPCT) * (AVGE2 / (AVGE1 + AVGE2));
+                decimal tempC1 = (decimal)((50 + (double)AVGPVI / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCQ1), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCI1)))));
+                decimal tempC2 = (decimal)((50 - (double)AVGPVI / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCQ2), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCI2)))));
+                decimal remainder = 100.0M - tempC1 - tempC2;
+                decimal thirdPCT = (remainder) * (1M - (0.015M * AVGE1 - 0.5M)) * (1M - (0.015M * AVGE2 - 0.5M));
+                decimal C1EntBonus = (remainder - thirdPCT) * (AVGE1 / (AVGE1 + AVGE2));
+                decimal C2EntBonus = (remainder - thirdPCT) * (AVGE2 / (AVGE1 + AVGE2));
                 tempC1 += C1EntBonus;
                 tempC2 += C2EntBonus;
-                double u1 = 1.0 - rnd.NextDouble();
-                double u2 = 1.0 - rnd.NextDouble();
-                double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
-                tempC1 += (AVGMOE * randStdNormal);
-                u1 = 1.0 - rnd.NextDouble();
-                u2 = 1.0 - rnd.NextDouble();
-                randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2);
-                tempC2 += (AVGMOE * randStdNormal);
+
+                
+
+                double u1 = 1.0-rnd.NextDouble();
+                double u2 = 1.0-rnd.NextDouble();
+                double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Cos(2.0 * Math.PI * u2);
+
+                tempC1 += (AVGMOE * (decimal)randStdNormal);
+                if (tempC1 < 0)
+                {
+                    tempC1 = 0M;
+                }
+                else
+                if (tempC1 > 100)
+                {                   
+                    tempC1 = 100M;
+                }
+
+                u1 = 1.0-rnd.NextDouble();
+                u2 = 1.0-rnd.NextDouble();
+                randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Cos(2.0 * Math.PI * u2);
+
+                tempC2 += (AVGMOE * (decimal)randStdNormal);
+                if (tempC2 < 0)
+                {
+                    tempC2 = 0M;
+                }
+                else
+                if (tempC2 > 100)
+                {
+                    tempC2 = 100M;
+                }
+
                 if (tempC1 + tempC2 > 100) 
                 { 
                     tempC1 /= (tempC1 + tempC2);
-                    tempC1 *= 100;
+                    tempC1 *= 100M;
                     tempC2 /= (tempC1 + tempC2);
-                    tempC2 *= 100;
-                    thirdPCT = 0;
+                    tempC2 *= 100M;
+                    thirdPCT = 0M;
                 }
                 quicksimarrayC1[i] = tempC1;
                 quicksimarrayC2[i] = tempC2;
@@ -656,22 +682,22 @@ namespace FormappTest
         {
             for (int i = 0; i < ED; i++)
             {
-                double tempC1 = (50 + (GetPVI(i + 1)) / 2) * (Math.Pow(QIRatio + (0.01 * (1 - QIRatio) * GetCQ1(i + 1)), 1 / (QIRatio + (0.01 * (1 - QIRatio) * GetCI1(i + 1)))));
-                double tempC2 = (50 - (GetPVI(i + 1)) / 2) * (Math.Pow(QIRatio + (0.01 * (1 - QIRatio) * GetCQ2(i + 1)), 1 / (QIRatio + (0.01 * (1 - QIRatio) * GetCI2(i + 1)))));
-                double remainder = 100.0 - tempC1 - tempC2;
-                thirdPCT[i] = (remainder) * (1 - (0.015 * GetE1(i + 1) - 0.5)) * (1 - (0.015 * GetE2(i + 1) - 0.5));
-                double C1EntBonus = (remainder - thirdPCT[i]) * (GetE1(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
-                double C2EntBonus = (remainder - thirdPCT[i]) * (GetE2(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
+                decimal tempC1 = (decimal)((50 + ((double)GetPVI(i + 1)) / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCQ1(i + 1)), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCI1(i + 1))))));
+                decimal tempC2 = (decimal)((50 - ((double)GetPVI(i + 1)) / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCQ2(i + 1)), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCI2(i + 1))))));
+                decimal remainder = 100.0M - tempC1 - tempC2;
+                thirdPCT[i] = (remainder) * (1M - (0.015M * GetE1(i + 1) - 0.5M)) * (1M - (0.015M * GetE2(i + 1) - 0.5M));
+                decimal C1EntBonus = (remainder - thirdPCT[i]) * (GetE1(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
+                decimal C2EntBonus = (remainder - thirdPCT[i]) * (GetE2(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
                 tempC1 += C1EntBonus;
                 tempC2 += C2EntBonus;
                 double u1 = 1.0 - rnd.NextDouble();
                 double u2 = 1.0 - rnd.NextDouble();
                 double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
-                tempC1 += (GetMOE(i + 1) * randStdNormal);
+                tempC1 += (GetMOE(i + 1) * (decimal)randStdNormal);
                 u1 = 1.0 - rnd.NextDouble();
                 u2 = 1.0 - rnd.NextDouble();
                 randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2);
-                tempC2 += (GetMOE(i + 1) * randStdNormal);
+                tempC2 += (GetMOE(i + 1) * (decimal)randStdNormal);
                 if (tempC1 + tempC2 > 100)
                 {
                     tempC1 /= (tempC1 + tempC2);
@@ -686,17 +712,17 @@ namespace FormappTest
                 u1 = 1.0 - rnd.NextDouble();
                 u2 = 1.0 - rnd.NextDouble();
                 randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
-                double C1VOTE = C1PCT[i] * 0.01 * GetVoters(i + 1) * 0.01 * GetE1(i + 1) * 0.01 * GetE2(i + 1) * (0.9825 + (0.035 * randStdNormal));
-                double C2VOTE = C2PCT[i] * 0.01 * GetVoters(i + 1) * 0.01 * GetE1(i + 1) * 0.01 * GetE2(i + 1) * (0.9825 + (0.035 * randStdNormal));
+                decimal C1VOTE = C1PCT[i] * 0.01M * GetVoters(i + 1) * 0.01M * GetE1(i + 1) * 0.01M * GetE2(i + 1) * (0.9825M + (0.035M * (decimal)randStdNormal));
+                decimal C2VOTE = C2PCT[i] * 0.01M * GetVoters(i + 1) * 0.01M * GetE1(i + 1) * 0.01M * GetE2(i + 1) * (0.9825M + (0.035M * (decimal)randStdNormal));
                 C1Vote[i] = Math.Ceiling(C1VOTE);
                 C2Vote[i] = Math.Ceiling(C2VOTE);
             }
         }
-        public double GetVote1(int district)
+        public decimal GetVote1(int district)
         {
             return C1Vote[district - 1];
         }
-        public double GetVote2(int district)
+        public decimal GetVote2(int district)
         {
             return C2Vote[district - 1];
         }
