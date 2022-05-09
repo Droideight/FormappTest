@@ -32,7 +32,7 @@ namespace FormappTest
         decimal TotalPopulation = 1050000M;
         decimal AVGMOE = 2M;
         decimal QIRatio = 0.6M;
-        static decimal RUNTIME = 500000;
+        static decimal RUNTIME = 100000;
         List<string> DName = new List<string>();
         List<decimal> PVI = new List<decimal>();
         List<decimal> CQ1 = new List<decimal>();
@@ -665,10 +665,11 @@ namespace FormappTest
                 }
 
                 if (tempC1 + tempC2 > 100) 
-                { 
-                    tempC1 /= (tempC1 + tempC2);
+                {
+                    decimal originaltotal = tempC1 + tempC2;
+                    tempC1 /= originaltotal;
                     tempC1 *= 100M;
-                    tempC2 /= (tempC1 + tempC2);
+                    tempC2 /= originaltotal;
                     tempC2 *= 100M;
                     thirdPCT = 0M;
                 }
