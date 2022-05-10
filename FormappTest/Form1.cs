@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace FormappTest
 {
@@ -14,8 +15,44 @@ namespace FormappTest
     {
         public Form1()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            // 設定ChartArea
+            ChartArea chtArea = new ChartArea("ViewArea");
+            chtArea.AxisX.Minimum = 0; //X軸數值從0開始
+            chtArea.AxisX.ScaleView.Size = 105;
+            chtArea.AxisX.Interval = 25;
+            chtArea.AxisY.Interval = 0;
+            chtArea.AxisY.Minimum = 25;
+            chtArea.AxisY.Maximum = -25;
+            chtArea.AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
+            chtArea.AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.None; //設定scrollbar
+            livevotechart.ChartAreas[0] = chtArea;// chart new 出來時就有內建第一個chartarea
+
+
+            // 設定 Timer
+
+            clsTimer.Tick += new EventHandler(RefreshChart);
+                clsTimer.Interval = 50;
+                clsTimer.Stop();         
         }
+        private void RefreshChart(object sender, EventArgs e)
+        {
+            // 新增一個點至Series中
+            if (currentpctdiff < 0) 
+            { 
+                livevotechart.Series[0].Points.AddXY(actualin, currentpctdiff);
+                DataPoint Last = livevotechart.Series[0].Points.Last();
+                livevotechart.Series[0].Points[livevotechart.Series[0].Points.IndexOf(Last)].Color = Color.Blue;
+            }
+            if (currentpctdiff >= 0)
+            {
+                livevotechart.Series[0].Points.AddXY(actualin, currentpctdiff);
+                DataPoint Last = livevotechart.Series[0].Points.Last();
+                livevotechart.Series[0].Points[livevotechart.Series[0].Points.IndexOf(Last)].Color = Color.Red;
+            }
+            livevotechart.Series[0].Points.AddXY(actualin, currentpctdiff);
+        }
+        Timer clsTimer = new Timer();
         public static int ED = 3;
         string RaceName;
         string varCan1name = "Donald Trump";
@@ -32,9 +69,11 @@ namespace FormappTest
         decimal TotalPopulation = 1050000M;
         decimal AVGMOE = 2M;
         decimal QIRatio = 0.6M;
+        decimal actualin = 0M;
         static decimal RUNTIME = 100000;
         public decimal Stop = 500;
         public decimal SetStop = 500;
+        decimal timeelapsed = 0M;
         List<string> DName = new List<string>();
         List<decimal> PVI = new List<decimal>();
         List<decimal> CQ1 = new List<decimal>();
@@ -49,6 +88,7 @@ namespace FormappTest
         List<decimal> MOEI = new List<decimal>();
         List<decimal> VOTEBATCH1 = new List<decimal>();
         List<decimal> VOTEBATCH2 = new List<decimal>();
+        decimal massavg = 0;
         decimal[] inpct1 = new decimal[1000];
         decimal[] inpct2 = new decimal[1000];
         decimal[] inpct = new decimal[1000];
@@ -56,7 +96,9 @@ namespace FormappTest
         decimal[] invote2 = new decimal[1000];
         decimal[] votepct1 = new decimal[1000];
         decimal[] votepct2 = new decimal[1000];
+        decimal currentpctdiff = 0M;
 
+        
         public void ClearVar()
         {
             ED = 3;
@@ -248,6 +290,7 @@ namespace FormappTest
             else if (win > 10) { MassSIMBox.Text += $"Race Rating: Lean {varCan2name}"; }
             else if (win > 3) { MassSIMBox.Text += $"Race Rating: Likely {varCan2name}"; }
             else { MassSIMBox.Text += $"Race Rating: Solid {varCan2name}"; }
+            massavg = Decimal.Round(avg1, 2)- Decimal.Round(avg2, 2);
         }
 
         public void SetupTableSize()
@@ -449,15 +492,47 @@ namespace FormappTest
             else if (StartSimSetup.Text == "Tally")
             {
                 RunQuickSim();
-                TallyVote();
                 StartSimSetup.Enabled = false;
                 StartSimSetup.BackColor = Color.LightGray;
+                livevotechart.ChartAreas[0].BackColor = Color.LightGray;
+                livevotechart.ChartAreas[0].BackGradientStyle = GradientStyle.DiagonalRight;
+                if (Math.Abs(massavg) > 40)
+                {
+                    livevotechart.ChartAreas[0].AxisY.Maximum = 80;
+                    livevotechart.ChartAreas[0].AxisY.Minimum = -80;
+                }
+                else if (Math.Abs(massavg) > 32)
+                {
+                    livevotechart.ChartAreas[0].AxisY.Maximum = 70;
+                    livevotechart.ChartAreas[0].AxisY.Minimum = -70;
+                }
+                else if (Math.Abs(massavg) > 24)
+                {
+                    livevotechart.ChartAreas[0].AxisY.Maximum = 60;
+                    livevotechart.ChartAreas[0].AxisY.Minimum = -60;
+                }
+                else if (Math.Abs(massavg) > 16)
+                {
+                    livevotechart.ChartAreas[0].AxisY.Maximum = 50;
+                    livevotechart.ChartAreas[0].AxisY.Minimum = -50;
+                }
+                else if (Math.Abs(massavg) > 8)
+                {
+                    livevotechart.ChartAreas[0].AxisY.Maximum = 40;
+                    livevotechart.ChartAreas[0].AxisY.Minimum = -40;
+                }
+                else
+                {
+                    livevotechart.ChartAreas[0].AxisY.Maximum = 30;
+                    livevotechart.ChartAreas[0].AxisY.Minimum = -30;
+                }
+                livevotechart.ChartAreas[0].AxisY.Interval = 10;
+                TallyVote();
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Maximized;
             ClearVar();
         }
 
@@ -749,17 +824,19 @@ namespace FormappTest
         {
             return C2Vote[district - 1];
         }
-        
+        int finished = 0;
         public async void TallyVote()
         {
-            int finished = 0;
+            clsTimer.Start();
+            finished = 0;
+            timeelapsed = 0;
             do
             {                
-                await Task.Delay((int)Stop);
                 for (int i = 0; i < ED; i++)
                 {
-                    if (inpct1[i] == 100M && inpct2[i] == 100M) { }
-                    else if (inpct1[i] >= 99.7M && inpct2[i] >= 99.7M) 
+                    if (timeelapsed< 100/BatchSI[i]) { }
+                    else if (inpct1[i] == 100M && inpct2[i] == 100M) { }
+                    else if (inpct1[i] >= 99.7M && inpct2[i] >= 99.7M)
                     {
                         LiveUpdate((decimal)i + 1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]);
                         finished++;
@@ -767,24 +844,36 @@ namespace FormappTest
                         inpct2[i] = 100.0M;
                         inpct[i] = 100.0M;
                     }
-                    else if (inpct1[i] >= 99.7M && inpct2[i] < 99.7M) { LiveUpdate((decimal)i +1M, 0.02M * BatchQI[i], 0.05M * BatchQI[i], 0.2M * BatchQI[i], 0.5M*BatchQI[i]); }
-                    else if (inpct1[i] < 99.7M && inpct2[i] >= 99.7M) { LiveUpdate((decimal)i +1M, 0.2M * BatchQI[i], 0.5M* BatchQI[i], 0.02M * BatchQI[i], 0.05M * BatchQI[i]); }
-                    else if (inpct1[i] >= 90.0M && inpct2[i] >= 90.0M) { LiveUpdate((decimal)i +1M, 0.1M * BatchQI[i], 0.25M*BatchQI[i], 0.1M * BatchQI[i], 0.25M*BatchQI[i]); }
-                    else if (inpct1[i] >= 90.0M && inpct2[i] < 90.0M) { LiveUpdate((decimal)i +1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.2M * BatchQI[i], 0.5M*BatchQI[i]); }
-                    else if (inpct1[i] < 90.0M && inpct2[i] >= 90.0M) { LiveUpdate((decimal)i +1M, 0.2M * BatchQI[i],0.5M*BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]); }
-                    else { LiveUpdate((decimal)i+1M, 0.2M * BatchQI[i], 0.5M*BatchQI[i], 0.2M * BatchQI[i], 0.5M*BatchQI[i]); }
+                    else if (inpct1[i] >= 99.7M && inpct2[i] < 99.7M) { LiveUpdate((decimal)i + 1M, 0.02M * BatchQI[i], 0.05M * BatchQI[i], 0.2M * BatchQI[i], 0.5M * BatchQI[i]); }
+                    else if (inpct1[i] < 99.7M && inpct2[i] >= 99.7M) { LiveUpdate((decimal)i + 1M, 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.02M * BatchQI[i], 0.05M * BatchQI[i]); }
+                    else if (inpct1[i] >= 90.0M && inpct2[i] >= 90.0M) { LiveUpdate((decimal)i + 1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]); }
+                    else if (inpct1[i] >= 90.0M && inpct2[i] < 90.0M) { LiveUpdate((decimal)i + 1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.2M * BatchQI[i], 0.5M * BatchQI[i]); }
+                    else if (inpct1[i] < 90.0M && inpct2[i] >= 90.0M) { LiveUpdate((decimal)i + 1M, 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]); }
+                    else { LiveUpdate((decimal)i + 1M, 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.2M * BatchQI[i], 0.5M * BatchQI[i]); }
                 }
                 Can1Votes.Text = String.Format("{0:n0}", invote1.Sum());
                 Can2Votes.Text = String.Format("{0:n0}", invote2.Sum());
-                Can1PCT.Text = String.Format("{0:0.00}", 100*(invote1.Sum() / (invote1.Sum() + invote2.Sum()))) + "%";
-                Can2PCT.Text = String.Format("{0:0.00}", 100*(invote2.Sum() / (invote1.Sum() + invote2.Sum()))) + "%";
-                decimal actualin = 0;
+                if (invote1.Sum() + invote2.Sum() == 0) 
+                { Can1PCT.Text = "--.-%";
+                    Can2PCT.Text = "--.-%";
+                    currentpctdiff = 0;
+                }
+                else { Can1PCT.Text = String.Format("{0:0.00}", 100 * (invote1.Sum() / (invote1.Sum() + invote2.Sum()))) + "%";
+                    Can2PCT.Text = String.Format("{0:0.00}", 100 * (invote2.Sum() / (invote1.Sum() + invote2.Sum()))) + "%";
+                    currentpctdiff = Convert.ToDecimal(100 * (invote1.Sum() / (invote1.Sum() + invote2.Sum()))) - Convert.ToDecimal(100 * (invote2.Sum() / (invote1.Sum() + invote2.Sum())));
+                }
+                                   
+               
+                
                 for (int i = 0; i<ED; i++)
                 {
                     actualin += PopulationI[i] * inpct[i];
                 }
                 actualin /= PopulationI.Sum();
                 INPCT.Text = "In: " + String.Format("{0:0.00}", actualin) + "%";
+                timeelapsed += 1;
+                ElectionTime.Text = ShowTime(timeelapsed.ToString());
+                await Task.Delay((int)Stop);
             } 
             while (finished < ED);
         }
@@ -806,6 +895,55 @@ namespace FormappTest
             votepct1[(int)district - 1] = (100 * invote1[(int)district - 1]) / (invote1[(int)district - 1] + invote2[(int)district - 1]);
             votepct2[(int)district - 1] = (100 * invote2[(int)district - 1]) / (invote1[(int)district - 1] + invote2[(int)district - 1]);
             inpct[(int)district-1] = 100* (invote1[(int)district-1] + invote2[(int)district-1]) / (GetVote1((int)district) + GetVote2((int)district));
+        }
+        public string ShowTime(string Timeelapsed)
+        {
+            double minute = 0;
+            double hour = 0;
+            string returning = "0:00 ET";
+            minute = Convert.ToDouble(Timeelapsed) / 2;
+            if (minute < 60) 
+            { 
+                if (minute < 10) { returning = "19:0" + Math.Ceiling(minute) + " ET"; }
+                else { returning = "19:" + Math.Ceiling(minute) + " ET"; }
+            }
+            else if (minute < 300) 
+            {
+                if (minute%60 < 10) { returning = ((minute / 60) + 19) + ":0" + Math.Ceiling(minute) + " ET"; }
+                else { returning = ((minute / 60) + 19) + ":" + Math.Ceiling(minute) + " ET"; }                
+            }
+            else 
+            {
+                if (minute % 60 < 10) { returning = ((minute / 60) - 5) + ":0" + Math.Ceiling(minute) + " ET"; }
+                else { returning = ((minute / 60) - 5) + ":" + Math.Ceiling(minute) + " ET"; }
+            }
+            return returning;
+
+        }
+        private void ResetSimup_Click(object sender, EventArgs e)
+        {
+            finished = ED;
+            ClearTally();
+            StartSimSetup.Text = "Start";
+            StartSimSetup.BackColor = Color.MistyRose;
+            StartSimSetup.Enabled = true;
+        }
+        public void ClearTally()
+        {
+            Array.Clear(inpct, 0, 1000);
+            Array.Clear(inpct1, 0, 1000);
+            Array.Clear(inpct2, 0, 1000);
+            Array.Clear(invote1, 0, 1000);
+            Array.Clear(invote2, 0, 1000);
+            Array.Clear(votepct1, 0, 1000);
+            Array.Clear(votepct2, 0, 1000);
+            Can1Votes.Text = "0";
+            Can2Votes.Text = "0";
+            Can1PCT.Text = "0.00%";
+            Can2PCT.Text = "0.00%";
+            INPCT.Text = "In: 0.00%";
+            clsTimer.Stop();
+            livevotechart.Series[0].Points.Clear();
         }
     }
 }

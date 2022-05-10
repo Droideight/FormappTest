@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ElectionTitle = new System.Windows.Forms.Label();
@@ -49,8 +48,8 @@
             this.Can2Name = new System.Windows.Forms.Label();
             this.Can1Name = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.Can1PCT = new System.Windows.Forms.Label();
             this.Can1Votes = new System.Windows.Forms.Label();
+            this.Can1PCT = new System.Windows.Forms.Label();
             this.livevotechart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ResetSetUp = new System.Windows.Forms.Button();
@@ -122,13 +121,13 @@
             // 
             // ElectionTime
             // 
-            this.ElectionTime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ElectionTime.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ElectionTime.AutoSize = true;
-            this.ElectionTime.Location = new System.Drawing.Point(1198, 556);
+            this.ElectionTime.Location = new System.Drawing.Point(1107, 556);
             this.ElectionTime.Name = "ElectionTime";
-            this.ElectionTime.Size = new System.Drawing.Size(83, 23);
+            this.ElectionTime.Size = new System.Drawing.Size(87, 23);
             this.ElectionTime.TabIndex = 15;
-            this.ElectionTime.Text = "19:00ET";
+            this.ElectionTime.Text = "19:00 ET";
             this.ElectionTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ResetSimup
@@ -136,12 +135,13 @@
             this.ResetSimup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ResetSimup.BackColor = System.Drawing.Color.LightGray;
             this.ResetSimup.Font = new System.Drawing.Font("Cambria", 16F);
-            this.ResetSimup.Location = new System.Drawing.Point(1166, 600);
+            this.ResetSimup.Location = new System.Drawing.Point(1111, 600);
             this.ResetSimup.Name = "ResetSimup";
-            this.ResetSimup.Size = new System.Drawing.Size(141, 45);
+            this.ResetSimup.Size = new System.Drawing.Size(196, 45);
             this.ResetSimup.TabIndex = 14;
             this.ResetSimup.Text = "Reset";
             this.ResetSimup.UseVisualStyleBackColor = false;
+            this.ResetSimup.Click += new System.EventHandler(this.ResetSimup_Click);
             // 
             // StartSimSetup
             // 
@@ -150,7 +150,7 @@
             this.StartSimSetup.Font = new System.Drawing.Font("Cambria", 36F);
             this.StartSimSetup.Location = new System.Drawing.Point(760, 556);
             this.StartSimSetup.Name = "StartSimSetup";
-            this.StartSimSetup.Size = new System.Drawing.Size(400, 89);
+            this.StartSimSetup.Size = new System.Drawing.Size(321, 89);
             this.StartSimSetup.TabIndex = 13;
             this.StartSimSetup.Text = "Start";
             this.StartSimSetup.UseVisualStyleBackColor = false;
@@ -229,25 +229,25 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.Can2PCT, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.Can2Votes, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(311, 116);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.02469F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.97531F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(363, 101);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // Can2PCT
             // 
-            this.Can2PCT.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Can2PCT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Can2PCT.Font = new System.Drawing.Font("Cambria", 14F);
-            this.Can2PCT.Location = new System.Drawing.Point(0, 62);
+            this.Can2PCT.Location = new System.Drawing.Point(0, 70);
             this.Can2PCT.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can2PCT.Name = "Can2PCT";
-            this.Can2PCT.Size = new System.Drawing.Size(360, 34);
+            this.Can2PCT.Size = new System.Drawing.Size(360, 31);
             this.Can2PCT.TabIndex = 3;
             this.Can2PCT.Text = "0.00%";
             this.Can2PCT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -256,10 +256,10 @@
             // 
             this.Can2Votes.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Can2Votes.Font = new System.Drawing.Font("Cambria", 30F);
-            this.Can2Votes.Location = new System.Drawing.Point(0, 5);
+            this.Can2Votes.Location = new System.Drawing.Point(0, 0);
             this.Can2Votes.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can2Votes.Name = "Can2Votes";
-            this.Can2Votes.Size = new System.Drawing.Size(360, 47);
+            this.Can2Votes.Size = new System.Drawing.Size(360, 70);
             this.Can2Votes.TabIndex = 2;
             this.Can2Votes.Text = "0";
             this.Can2Votes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -267,7 +267,7 @@
             // Can2Name
             // 
             this.Can2Name.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Can2Name.Font = new System.Drawing.Font("Cambria", 28F);
+            this.Can2Name.Font = new System.Drawing.Font("Cambria", 26F);
             this.Can2Name.Location = new System.Drawing.Point(21, 122);
             this.Can2Name.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can2Name.Name = "Can2Name";
@@ -279,7 +279,7 @@
             // Can1Name
             // 
             this.Can1Name.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Can1Name.Font = new System.Drawing.Font("Cambria", 28F);
+            this.Can1Name.Font = new System.Drawing.Font("Cambria", 26F);
             this.Can1Name.Location = new System.Drawing.Point(21, 13);
             this.Can1Name.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can1Name.Name = "Can1Name";
@@ -291,54 +291,67 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
-            this.tableLayoutPanel2.Controls.Add(this.Can1PCT, 0, 1);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.Can1Votes, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Can1PCT, 0, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(311, 6);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.02469F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.97531F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(363, 101);
             this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // Can1PCT
-            // 
-            this.Can1PCT.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Can1PCT.Font = new System.Drawing.Font("Cambria", 14F);
-            this.Can1PCT.Location = new System.Drawing.Point(0, 62);
-            this.Can1PCT.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.Can1PCT.Name = "Can1PCT";
-            this.Can1PCT.Size = new System.Drawing.Size(360, 34);
-            this.Can1PCT.TabIndex = 4;
-            this.Can1PCT.Text = "0.00%";
-            this.Can1PCT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Can1Votes
             // 
             this.Can1Votes.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Can1Votes.Font = new System.Drawing.Font("Cambria", 30F);
-            this.Can1Votes.Location = new System.Drawing.Point(0, 5);
+            this.Can1Votes.Location = new System.Drawing.Point(0, 0);
             this.Can1Votes.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Can1Votes.Name = "Can1Votes";
-            this.Can1Votes.Size = new System.Drawing.Size(360, 47);
+            this.Can1Votes.Size = new System.Drawing.Size(360, 70);
             this.Can1Votes.TabIndex = 3;
             this.Can1Votes.Text = "0";
             this.Can1Votes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // Can1PCT
+            // 
+            this.Can1PCT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Can1PCT.Font = new System.Drawing.Font("Cambria", 14F);
+            this.Can1PCT.Location = new System.Drawing.Point(0, 70);
+            this.Can1PCT.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.Can1PCT.Name = "Can1PCT";
+            this.Can1PCT.Size = new System.Drawing.Size(360, 31);
+            this.Can1PCT.TabIndex = 4;
+            this.Can1PCT.Text = "0.00%";
+            this.Can1PCT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // livevotechart
             // 
-            chartArea8.Name = "ChartArea1";
-            this.livevotechart.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.livevotechart.Legends.Add(legend8);
+            this.livevotechart.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.Orange;
+            chartArea3.AxisX.LineWidth = 4;
+            chartArea3.AxisY.Crossing = 0D;
+            chartArea3.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisY.IsLogarithmic = true;
+            chartArea3.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            chartArea3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea3.BorderColor = System.Drawing.Color.DarkGray;
+            chartArea3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea3.Name = "ChartArea1";
+            this.livevotechart.ChartAreas.Add(chartArea3);
             this.livevotechart.Location = new System.Drawing.Point(24, 328);
             this.livevotechart.Name = "livevotechart";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.livevotechart.Series.Add(series8);
-            this.livevotechart.Size = new System.Drawing.Size(680, 317);
+            this.livevotechart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series3.BorderWidth = 2;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.Red;
+            series3.Name = "Result_Difference";
+            this.livevotechart.Series.Add(series3);
+            this.livevotechart.Size = new System.Drawing.Size(680, 360);
             this.livevotechart.TabIndex = 3;
             this.livevotechart.Text = "chart1";
             // 
@@ -812,8 +825,6 @@
         private System.Windows.Forms.Label Can2Name;
         private System.Windows.Forms.Label Can1Name;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label Can1PCT;
-        private System.Windows.Forms.Label Can1Votes;
         private System.Windows.Forms.DataVisualization.Charting.Chart livevotechart;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label INFOBanner;
@@ -824,7 +835,6 @@
         private System.Windows.Forms.TableLayoutPanel SetupTable;
         private System.Windows.Forms.TextBox RaceTitleBox;
         private System.Windows.Forms.TextBox DistrictBox;
-        private System.Windows.Forms.Label ElectionTime;
         private System.Windows.Forms.Button ResetSimup;
         private System.Windows.Forms.Button StartSimSetup;
         private System.Windows.Forms.Button DistrictButton;
@@ -840,6 +850,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label ElectionTitle;
+        private System.Windows.Forms.Label Can1Votes;
+        private System.Windows.Forms.Label Can1PCT;
+        private System.Windows.Forms.Label ElectionTime;
     }
 }
 
