@@ -11,7 +11,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace FormappTest
 {
-    public partial class Form1 : Form
+    public partial class Form1: Form
     {
         public Form1()
         {
@@ -26,13 +26,15 @@ namespace FormappTest
             chtArea.AxisY.Maximum = -25;
             chtArea.AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
             chtArea.AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.None; //設定scrollbar
+            livevotechart.ChartAreas[0].InnerPlotPosition.X = 0;
+            livevotechart.ChartAreas[0].InnerPlotPosition.Y = 0;
             livevotechart.ChartAreas[0] = chtArea;// chart new 出來時就有內建第一個chartarea
 
 
             // 設定 Timer
 
             clsTimer.Tick += new EventHandler(RefreshChart);
-                clsTimer.Interval = 50;
+                clsTimer.Interval = (int)Stop;
                 clsTimer.Stop();         
         }
         private void RefreshChart(object sender, EventArgs e)
@@ -70,9 +72,10 @@ namespace FormappTest
         decimal AVGMOE = 2M;
         decimal QIRatio = 0.6M;
         decimal actualin = 0M;
+        decimal VTP = 1.0M;
+        double BatchVariety = 1.0;
         static decimal RUNTIME = 100000;
-        public decimal Stop = 500;
-        public decimal SetStop = 500;
+        public decimal Stop = 1000;
         decimal timeelapsed = 0M;
         List<string> DName = new List<string>();
         List<decimal> PVI = new List<decimal>();
@@ -231,10 +234,10 @@ namespace FormappTest
             {
                 AVGMOE += (MOEI[i] * PopulationI[i] / TotalPopulation);
             }
-            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%\r\nPopulation: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)}\r\n\r\n===Ability===\r\nCan. Quality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%" +
-                $"\r\nInvestment: {Math.Round(AVGCI1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCI2, 2, MidpointRounding.AwayFromZero)}%\r\n" +
-                $"Enthusiasm: {Math.Round(AVGE1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGE2, 2, MidpointRounding.AwayFromZero)}%\r\n\r\n===Vote Tally===\r\n" +
-                $"Batch Quantity: {Math.Round(BatchQ, 2, MidpointRounding.AwayFromZero)};\r\nSpeed: {Math.Round(BatchS, 2, MidpointRounding.AwayFromZero)};\r\nMOE: {Math.Round(AVGMOE, 2, MidpointRounding.AwayFromZero)}%\r\n";
+            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%; Population: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)}\r\n\r\n===Ability===\r\nCan. Quality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%" +
+                $"; Investment: {Math.Round(AVGCI1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCI2, 2, MidpointRounding.AwayFromZero)}%" +
+                $"; Enthusiasm: {Math.Round(AVGE1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGE2, 2, MidpointRounding.AwayFromZero)}%\r\n\r\n===Vote Tally===\r\n" +
+                $"Batch Quantity: {Math.Round(BatchQ, 2, MidpointRounding.AwayFromZero)}; Speed: {Math.Round(BatchS, 2, MidpointRounding.AwayFromZero)}; MOE: {Math.Round(AVGMOE, 2, MidpointRounding.AwayFromZero)}%\r\n";
              
             StartSimSetup.Text = "Start";
         }
@@ -310,10 +313,10 @@ namespace FormappTest
             {
                 CloneTextBox(j);
             }
-            fillcontent();
+            Fillcontent();
         }
 
-        public void fillcontent()
+        public void Fillcontent()
         {
             for (int k = 0; k <  12; k++)
             {
@@ -496,7 +499,12 @@ namespace FormappTest
                 StartSimSetup.BackColor = Color.LightGray;
                 livevotechart.ChartAreas[0].BackColor = Color.LightGray;
                 livevotechart.ChartAreas[0].BackGradientStyle = GradientStyle.DiagonalRight;
-                if (Math.Abs(massavg) > 40)
+                if (Math.Abs(massavg) > 60)
+                {
+                    livevotechart.ChartAreas[0].AxisY.Maximum = 100;
+                    livevotechart.ChartAreas[0].AxisY.Minimum = -100;
+                }
+                else if (Math.Abs(massavg) > 40)
                 {
                     livevotechart.ChartAreas[0].AxisY.Maximum = 80;
                     livevotechart.ChartAreas[0].AxisY.Minimum = -80;
@@ -527,6 +535,8 @@ namespace FormappTest
                     livevotechart.ChartAreas[0].AxisY.Minimum = -30;
                 }
                 livevotechart.ChartAreas[0].AxisY.Interval = 10;
+                livevotechart.ChartAreas[0].InnerPlotPosition.X = 2;
+                livevotechart.ChartAreas[0].InnerPlotPosition.Y = 0;
                 TallyVote();
             }
         }
@@ -727,9 +737,6 @@ namespace FormappTest
                 decimal C2EntBonus = (remainder - thirdPCT) * (AVGE2 / (AVGE1 + AVGE2));
                 tempC1 += C1EntBonus;
                 tempC2 += C2EntBonus;
-
-                
-
                 double u1 = 1.0-rnd.NextDouble();
                 double u2 = 1.0-rnd.NextDouble();
                 double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Cos(2.0 * Math.PI * u2);
@@ -772,8 +779,7 @@ namespace FormappTest
                 quicksimarrayC1[i] = tempC1;
                 quicksimarrayC2[i] = tempC2;
                 differences[i] = tempC1- tempC2;
-            }
-            
+            } 
         }
         public void RunQuickSim()
         {
@@ -812,8 +818,8 @@ namespace FormappTest
                 randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
                 decimal C1VOTE = C1PCT[i] * 0.01M * GetVoters(i + 1) * 0.01M * GetE1(i + 1) * 0.01M * GetE2(i + 1) * (0.9825M + (0.035M * (decimal)randStdNormal));
                 decimal C2VOTE = C2PCT[i] * 0.01M * GetVoters(i + 1) * 0.01M * GetE1(i + 1) * 0.01M * GetE2(i + 1) * (0.9825M + (0.035M * (decimal)randStdNormal));
-                C1Vote[i] = Math.Ceiling(C1VOTE);
-                C2Vote[i] = Math.Ceiling(C2VOTE);
+                C1Vote[i] = Math.Ceiling(VTP*C1VOTE);
+                C2Vote[i] = Math.Ceiling(VTP*C2VOTE);
             }
         }
         public decimal GetVote1(int district)
@@ -880,6 +886,12 @@ namespace FormappTest
         public void LiveUpdate(decimal district, decimal lower1, decimal higher1, decimal lower2, decimal higher2)
         {
             Random LU = new Random();
+            lower1 *= (decimal)(1/Math.Floor(Math.Sqrt(BatchVariety)));
+            higher1 *= (decimal)(Math.Ceiling(Math.Sqrt(BatchVariety)));
+            lower2 *= (decimal)(1 / Math.Floor(Math.Sqrt(BatchVariety)));
+            higher2 *= (decimal)(Math.Ceiling(Math.Sqrt(BatchVariety)));
+            if (lower1 >= higher1) { higher1 = lower1 + 0.01M; }
+            if (lower2 >= higher2) { higher2 = lower2 + 0.01M; }
             double thisbatch1 = 0;
             double thisbatch2 = 0;
             double thisbatchvotes1 = 0;
@@ -898,26 +910,30 @@ namespace FormappTest
         }
         public string ShowTime(string Timeelapsed)
         {
-            double minute = 0;
-            double hour = 0;
+            decimal minute = 0;
             string returning = "0:00 ET";
-            minute = Convert.ToDouble(Timeelapsed) / 2;
-            if (minute < 60) 
+            minute = Convert.ToDecimal(Timeelapsed) / 2M;
+            if (minute < 59.5M) 
             { 
-                if (minute < 10) { returning = "19:0" + Math.Ceiling(minute) + " ET"; }
-                else { returning = "19:" + Math.Ceiling(minute) + " ET"; }
+                if (minute < 9.5M) { returning = "19:0" + Math.Ceiling(minute) + " ET"; }
+                else { returning = "19:" + (int)Math.Ceiling(minute) + " ET"; }
+                return returning;
             }
-            else if (minute < 300) 
+            else if (minute < 299.5M) 
             {
-                if (minute%60 < 10) { returning = ((minute / 60) + 19) + ":0" + Math.Ceiling(minute) + " ET"; }
-                else { returning = ((minute / 60) + 19) + ":" + Math.Ceiling(minute) + " ET"; }                
+                if (minute %60 == 0M || minute%60 == 59.5M) { returning = (Math.DivRem((int)minute, 60, out int result) + 19) + ":00 ET"; }
+                else if (minute%60 < 9.5M) { returning = (Math.DivRem((int)minute, 60, out int result) + 19) + ":0" + Math.Ceiling(minute%60) + " ET"; }
+                else { returning = (Math.DivRem((int)minute, 60, out int result) + 19) + ":" + (int)Math.Ceiling(minute%60) + " ET"; }
+                return returning;
             }
             else 
             {
-                if (minute % 60 < 10) { returning = ((minute / 60) - 5) + ":0" + Math.Ceiling(minute) + " ET"; }
-                else { returning = ((minute / 60) - 5) + ":" + Math.Ceiling(minute) + " ET"; }
+                if (minute % 60 == 0M || minute % 60 == 59.5M) { returning = (Math.DivRem((int)minute, 60, out int result) - 5) + ":00 ET"; }
+                else if (minute % 60 < 9.5M) { returning = (Math.DivRem((int)minute, 60, out int result) -5) + ":0" + Math.Ceiling(minute%60) + " ET"; }
+                else { returning = (Math.DivRem((int)minute, 60, out int result) - 5) + ":" + (int)Math.Ceiling(minute%60) + " ET"; }
+                return returning;
             }
-            return returning;
+            
 
         }
         private void ResetSimup_Click(object sender, EventArgs e)
@@ -944,6 +960,25 @@ namespace FormappTest
             INPCT.Text = "In: 0.00%";
             clsTimer.Stop();
             livevotechart.Series[0].Points.Clear();
+        }
+
+        private void InButton_Click(object sender, EventArgs e)
+        {
+           Stop = Convert.ToDecimal(IntervalBox.Text);
+            clsTimer.Interval = Convert.ToInt32(IntervalBox.Text);
+            INintervallabelcount.Text = "(" + IntervalBox.Text +"ms)";
+        }
+
+        private void VTPButton_Click(object sender, EventArgs e)
+        {
+            VTP = Convert.ToDecimal(VTPBox.Text);
+            VTPlabelcount.Text = "(" + VTPBox.Text + ")";
+        }
+
+        private void btbbutton_Click(object sender, EventArgs e)
+        {
+            BatchVariety = Convert.ToDouble(btbbox.Text);
+            Btblabelcount.Text = "(" + btbbox.Text + ")";
         }
     }
 }
