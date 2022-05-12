@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Tab = new System.Windows.Forms.TabControl();
             this.MainTab = new System.Windows.Forms.TabPage();
+            this.infobox = new System.Windows.Forms.Label();
             this.ElectionTitle = new System.Windows.Forms.Label();
             this.ElectionTime = new System.Windows.Forms.Label();
             this.ResetSimup = new System.Windows.Forms.Button();
@@ -110,7 +111,21 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ininterval = new System.Windows.Forms.Label();
-            this.infobox = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.inintervalq = new System.Windows.Forms.Button();
+            this.vtpratioq = new System.Windows.Forms.Button();
+            this.btbvarietyq = new System.Windows.Forms.Button();
+            this.GameplaySettingsHelp = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tallystarthr = new System.Windows.Forms.Button();
+            this.Tallystartbox = new System.Windows.Forms.TextBox();
+            this.Tallystartset = new System.Windows.Forms.Button();
+            this.electionbegintime = new System.Windows.Forms.Label();
+            this.advancedsetting = new System.Windows.Forms.GroupBox();
+            this.loadsettingtxtbox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.loadsettingtxt = new System.Windows.Forms.Button();
             this.Tab.SuspendLayout();
             this.MainTab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -120,6 +135,9 @@
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.advancedsetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tab
@@ -156,6 +174,15 @@
             this.MainTab.TabIndex = 0;
             this.MainTab.Text = "Result";
             this.MainTab.UseVisualStyleBackColor = true;
+            // 
+            // infobox
+            // 
+            this.infobox.BackColor = System.Drawing.SystemColors.Control;
+            this.infobox.Font = new System.Drawing.Font("Cambria", 12F);
+            this.infobox.Location = new System.Drawing.Point(760, 59);
+            this.infobox.Name = "infobox";
+            this.infobox.Size = new System.Drawing.Size(547, 228);
+            this.infobox.TabIndex = 17;
             // 
             // ElectionTitle
             // 
@@ -405,27 +432,27 @@
             // livevotechart
             // 
             this.livevotechart.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea4.AxisX.LineColor = System.Drawing.Color.Orange;
-            chartArea4.AxisX.LineWidth = 4;
-            chartArea4.AxisY.Crossing = 0D;
-            chartArea4.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea4.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            chartArea4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea4.BorderColor = System.Drawing.Color.DarkGray;
-            chartArea4.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea4.Name = "ChartArea1";
-            this.livevotechart.ChartAreas.Add(chartArea4);
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.Orange;
+            chartArea1.AxisX.LineWidth = 4;
+            chartArea1.AxisY.Crossing = 0D;
+            chartArea1.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea1.BorderColor = System.Drawing.Color.DarkGray;
+            chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea1.Name = "ChartArea1";
+            this.livevotechart.ChartAreas.Add(chartArea1);
             this.livevotechart.Location = new System.Drawing.Point(24, 313);
             this.livevotechart.Name = "livevotechart";
             this.livevotechart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series4.BorderWidth = 2;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Color = System.Drawing.Color.Red;
-            series4.Name = "Result_Difference";
-            this.livevotechart.Series.Add(series4);
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.Red;
+            series1.Name = "Result_Difference";
+            this.livevotechart.Series.Add(series1);
             this.livevotechart.Size = new System.Drawing.Size(680, 332);
             this.livevotechart.TabIndex = 3;
             this.livevotechart.Text = "chart1";
@@ -975,52 +1002,22 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.PartyColorButton2);
-            this.tabPage3.Controls.Add(this.PartyColorButton1);
-            this.tabPage3.Controls.Add(this.PartyColorBox2);
-            this.tabPage3.Controls.Add(this.PartyColorBox1);
-            this.tabPage3.Controls.Add(this.PartyColor2);
-            this.tabPage3.Controls.Add(this.PartyColor1);
-            this.tabPage3.Controls.Add(this.PartySet2);
-            this.tabPage3.Controls.Add(this.PartySet1);
-            this.tabPage3.Controls.Add(this.PartyBox2);
-            this.tabPage3.Controls.Add(this.Party2Label);
-            this.tabPage3.Controls.Add(this.PartyBox1);
-            this.tabPage3.Controls.Add(this.Party1Label);
-            this.tabPage3.Controls.Add(this.Btblabelcount);
-            this.tabPage3.Controls.Add(this.VTPlabelcount);
-            this.tabPage3.Controls.Add(this.INintervallabelcount);
+            this.tabPage3.Controls.Add(this.advancedsetting);
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.btbbutton);
-            this.tabPage3.Controls.Add(this.btbbox);
-            this.tabPage3.Controls.Add(this.btblabel);
-            this.tabPage3.Controls.Add(this.VTPButton);
-            this.tabPage3.Controls.Add(this.InButton);
-            this.tabPage3.Controls.Add(this.VTPBox);
-            this.tabPage3.Controls.Add(this.IntervalBox);
-            this.tabPage3.Controls.Add(this.vtpratio);
-            this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.CAN2Button);
-            this.tabPage3.Controls.Add(this.Can2Box);
-            this.tabPage3.Controls.Add(this.label12);
-            this.tabPage3.Controls.Add(this.Can1Button);
-            this.tabPage3.Controls.Add(this.Can1Box);
-            this.tabPage3.Controls.Add(this.RaceTitleButton);
-            this.tabPage3.Controls.Add(this.RaceTitleBox);
-            this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.ininterval);
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1342, 684);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "General";
+            this.tabPage3.Text = "Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // PartyColorButton2
             // 
-            this.PartyColorButton2.Location = new System.Drawing.Point(1064, 267);
+            this.PartyColorButton2.Location = new System.Drawing.Point(1063, 152);
             this.PartyColorButton2.Name = "PartyColorButton2";
             this.PartyColorButton2.Size = new System.Drawing.Size(46, 34);
             this.PartyColorButton2.TabIndex = 134;
@@ -1030,7 +1027,7 @@
             // 
             // PartyColorButton1
             // 
-            this.PartyColorButton1.Location = new System.Drawing.Point(1064, 185);
+            this.PartyColorButton1.Location = new System.Drawing.Point(1063, 100);
             this.PartyColorButton1.Name = "PartyColorButton1";
             this.PartyColorButton1.Size = new System.Drawing.Size(46, 34);
             this.PartyColorButton1.TabIndex = 133;
@@ -1050,7 +1047,7 @@
             "Black",
             "White",
             "Gray"});
-            this.PartyColorBox2.Location = new System.Drawing.Point(927, 267);
+            this.PartyColorBox2.Location = new System.Drawing.Point(925, 152);
             this.PartyColorBox2.Name = "PartyColorBox2";
             this.PartyColorBox2.Size = new System.Drawing.Size(121, 31);
             this.PartyColorBox2.TabIndex = 132;
@@ -1068,7 +1065,7 @@
             "Black",
             "White",
             "Gray"});
-            this.PartyColorBox1.Location = new System.Drawing.Point(927, 186);
+            this.PartyColorBox1.Location = new System.Drawing.Point(925, 100);
             this.PartyColorBox1.Name = "PartyColorBox1";
             this.PartyColorBox1.Size = new System.Drawing.Size(121, 31);
             this.PartyColorBox1.TabIndex = 131;
@@ -1077,7 +1074,7 @@
             // PartyColor2
             // 
             this.PartyColor2.AutoSize = true;
-            this.PartyColor2.Location = new System.Drawing.Point(860, 268);
+            this.PartyColor2.Location = new System.Drawing.Point(858, 152);
             this.PartyColor2.Name = "PartyColor2";
             this.PartyColor2.Size = new System.Drawing.Size(61, 23);
             this.PartyColor2.TabIndex = 130;
@@ -1086,7 +1083,7 @@
             // PartyColor1
             // 
             this.PartyColor1.AutoSize = true;
-            this.PartyColor1.Location = new System.Drawing.Point(860, 188);
+            this.PartyColor1.Location = new System.Drawing.Point(858, 100);
             this.PartyColor1.Name = "PartyColor1";
             this.PartyColor1.Size = new System.Drawing.Size(61, 23);
             this.PartyColor1.TabIndex = 129;
@@ -1094,7 +1091,7 @@
             // 
             // PartySet2
             // 
-            this.PartySet2.Location = new System.Drawing.Point(775, 268);
+            this.PartySet2.Location = new System.Drawing.Point(773, 149);
             this.PartySet2.Name = "PartySet2";
             this.PartySet2.Size = new System.Drawing.Size(46, 34);
             this.PartySet2.TabIndex = 128;
@@ -1104,7 +1101,7 @@
             // 
             // PartySet1
             // 
-            this.PartySet1.Location = new System.Drawing.Point(775, 188);
+            this.PartySet1.Location = new System.Drawing.Point(773, 100);
             this.PartySet1.Name = "PartySet1";
             this.PartySet1.Size = new System.Drawing.Size(46, 34);
             this.PartySet1.TabIndex = 127;
@@ -1114,15 +1111,15 @@
             // 
             // PartyBox2
             // 
-            this.PartyBox2.Location = new System.Drawing.Point(695, 268);
+            this.PartyBox2.Location = new System.Drawing.Point(664, 152);
             this.PartyBox2.Name = "PartyBox2";
-            this.PartyBox2.Size = new System.Drawing.Size(62, 31);
+            this.PartyBox2.Size = new System.Drawing.Size(89, 31);
             this.PartyBox2.TabIndex = 126;
             // 
             // Party2Label
             // 
             this.Party2Label.AutoSize = true;
-            this.Party2Label.Location = new System.Drawing.Point(613, 268);
+            this.Party2Label.Location = new System.Drawing.Point(597, 152);
             this.Party2Label.Name = "Party2Label";
             this.Party2Label.Size = new System.Drawing.Size(61, 23);
             this.Party2Label.TabIndex = 125;
@@ -1130,15 +1127,15 @@
             // 
             // PartyBox1
             // 
-            this.PartyBox1.Location = new System.Drawing.Point(695, 188);
+            this.PartyBox1.Location = new System.Drawing.Point(664, 100);
             this.PartyBox1.Name = "PartyBox1";
-            this.PartyBox1.Size = new System.Drawing.Size(62, 31);
+            this.PartyBox1.Size = new System.Drawing.Size(89, 31);
             this.PartyBox1.TabIndex = 124;
             // 
             // Party1Label
             // 
             this.Party1Label.AutoSize = true;
-            this.Party1Label.Location = new System.Drawing.Point(613, 188);
+            this.Party1Label.Location = new System.Drawing.Point(597, 100);
             this.Party1Label.Name = "Party1Label";
             this.Party1Label.Size = new System.Drawing.Size(61, 23);
             this.Party1Label.TabIndex = 123;
@@ -1148,7 +1145,7 @@
             // 
             this.Btblabelcount.AutoSize = true;
             this.Btblabelcount.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.Btblabelcount.Location = new System.Drawing.Point(597, 514);
+            this.Btblabelcount.Location = new System.Drawing.Point(424, 180);
             this.Btblabelcount.Name = "Btblabelcount";
             this.Btblabelcount.Size = new System.Drawing.Size(37, 23);
             this.Btblabelcount.TabIndex = 122;
@@ -1158,7 +1155,7 @@
             // 
             this.VTPlabelcount.AutoSize = true;
             this.VTPlabelcount.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.VTPlabelcount.Location = new System.Drawing.Point(597, 434);
+            this.VTPlabelcount.Location = new System.Drawing.Point(423, 120);
             this.VTPlabelcount.Name = "VTPlabelcount";
             this.VTPlabelcount.Size = new System.Drawing.Size(52, 23);
             this.VTPlabelcount.TabIndex = 121;
@@ -1168,7 +1165,7 @@
             // 
             this.INintervallabelcount.AutoSize = true;
             this.INintervallabelcount.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.INintervallabelcount.Location = new System.Drawing.Point(597, 351);
+            this.INintervallabelcount.Location = new System.Drawing.Point(424, 60);
             this.INintervallabelcount.Name = "INintervallabelcount";
             this.INintervallabelcount.Size = new System.Drawing.Size(96, 23);
             this.INintervallabelcount.TabIndex = 120;
@@ -1192,9 +1189,9 @@
             // 
             // btbbutton
             // 
-            this.btbbutton.Location = new System.Drawing.Point(491, 508);
+            this.btbbutton.Location = new System.Drawing.Point(346, 180);
             this.btbbutton.Name = "btbbutton";
-            this.btbbutton.Size = new System.Drawing.Size(82, 34);
+            this.btbbutton.Size = new System.Drawing.Size(72, 34);
             this.btbbutton.TabIndex = 117;
             this.btbbutton.Text = "Enter";
             this.btbbutton.UseVisualStyleBackColor = true;
@@ -1202,15 +1199,15 @@
             // 
             // btbbox
             // 
-            this.btbbox.Location = new System.Drawing.Point(226, 508);
+            this.btbbox.Location = new System.Drawing.Point(214, 180);
             this.btbbox.Name = "btbbox";
-            this.btbbox.Size = new System.Drawing.Size(250, 31);
+            this.btbbox.Size = new System.Drawing.Size(126, 31);
             this.btbbox.TabIndex = 116;
             // 
             // btblabel
             // 
             this.btblabel.AutoSize = true;
-            this.btblabel.Location = new System.Drawing.Point(74, 508);
+            this.btblabel.Location = new System.Drawing.Point(24, 180);
             this.btblabel.Name = "btblabel";
             this.btblabel.Size = new System.Drawing.Size(127, 23);
             this.btblabel.TabIndex = 115;
@@ -1218,9 +1215,9 @@
             // 
             // VTPButton
             // 
-            this.VTPButton.Location = new System.Drawing.Point(491, 428);
+            this.VTPButton.Location = new System.Drawing.Point(346, 120);
             this.VTPButton.Name = "VTPButton";
-            this.VTPButton.Size = new System.Drawing.Size(82, 34);
+            this.VTPButton.Size = new System.Drawing.Size(72, 34);
             this.VTPButton.TabIndex = 114;
             this.VTPButton.Text = "Enter";
             this.VTPButton.UseVisualStyleBackColor = true;
@@ -1228,9 +1225,9 @@
             // 
             // InButton
             // 
-            this.InButton.Location = new System.Drawing.Point(491, 348);
+            this.InButton.Location = new System.Drawing.Point(346, 60);
             this.InButton.Name = "InButton";
-            this.InButton.Size = new System.Drawing.Size(82, 34);
+            this.InButton.Size = new System.Drawing.Size(72, 34);
             this.InButton.TabIndex = 113;
             this.InButton.Text = "Enter";
             this.InButton.UseVisualStyleBackColor = true;
@@ -1238,22 +1235,22 @@
             // 
             // VTPBox
             // 
-            this.VTPBox.Location = new System.Drawing.Point(226, 428);
+            this.VTPBox.Location = new System.Drawing.Point(214, 120);
             this.VTPBox.Name = "VTPBox";
-            this.VTPBox.Size = new System.Drawing.Size(250, 31);
+            this.VTPBox.Size = new System.Drawing.Size(126, 31);
             this.VTPBox.TabIndex = 112;
             // 
             // IntervalBox
             // 
-            this.IntervalBox.Location = new System.Drawing.Point(226, 348);
+            this.IntervalBox.Location = new System.Drawing.Point(214, 60);
             this.IntervalBox.Name = "IntervalBox";
-            this.IntervalBox.Size = new System.Drawing.Size(250, 31);
+            this.IntervalBox.Size = new System.Drawing.Size(126, 31);
             this.IntervalBox.TabIndex = 111;
             // 
             // vtpratio
             // 
             this.vtpratio.AutoSize = true;
-            this.vtpratio.Location = new System.Drawing.Point(73, 428);
+            this.vtpratio.Location = new System.Drawing.Point(24, 120);
             this.vtpratio.Name = "vtpratio";
             this.vtpratio.Size = new System.Drawing.Size(120, 23);
             this.vtpratio.TabIndex = 110;
@@ -1262,7 +1259,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(73, 268);
+            this.label13.Location = new System.Drawing.Point(24, 152);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(121, 23);
             this.label13.TabIndex = 109;
@@ -1270,7 +1267,7 @@
             // 
             // CAN2Button
             // 
-            this.CAN2Button.Location = new System.Drawing.Point(491, 267);
+            this.CAN2Button.Location = new System.Drawing.Point(451, 152);
             this.CAN2Button.Name = "CAN2Button";
             this.CAN2Button.Size = new System.Drawing.Size(82, 34);
             this.CAN2Button.TabIndex = 108;
@@ -1280,15 +1277,15 @@
             // 
             // Can2Box
             // 
-            this.Can2Box.Location = new System.Drawing.Point(226, 267);
+            this.Can2Box.Location = new System.Drawing.Point(149, 152);
             this.Can2Box.Name = "Can2Box";
-            this.Can2Box.Size = new System.Drawing.Size(250, 31);
+            this.Can2Box.Size = new System.Drawing.Size(280, 31);
             this.Can2Box.TabIndex = 107;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(73, 188);
+            this.label12.Location = new System.Drawing.Point(24, 100);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(121, 23);
             this.label12.TabIndex = 106;
@@ -1296,7 +1293,7 @@
             // 
             // Can1Button
             // 
-            this.Can1Button.Location = new System.Drawing.Point(491, 186);
+            this.Can1Button.Location = new System.Drawing.Point(451, 100);
             this.Can1Button.Name = "Can1Button";
             this.Can1Button.Size = new System.Drawing.Size(82, 34);
             this.Can1Button.TabIndex = 105;
@@ -1306,14 +1303,14 @@
             // 
             // Can1Box
             // 
-            this.Can1Box.Location = new System.Drawing.Point(226, 185);
+            this.Can1Box.Location = new System.Drawing.Point(149, 100);
             this.Can1Box.Name = "Can1Box";
-            this.Can1Box.Size = new System.Drawing.Size(250, 31);
+            this.Can1Box.Size = new System.Drawing.Size(280, 31);
             this.Can1Box.TabIndex = 104;
             // 
             // RaceTitleButton
             // 
-            this.RaceTitleButton.Location = new System.Drawing.Point(491, 108);
+            this.RaceTitleButton.Location = new System.Drawing.Point(773, 45);
             this.RaceTitleButton.Name = "RaceTitleButton";
             this.RaceTitleButton.Size = new System.Drawing.Size(82, 34);
             this.RaceTitleButton.TabIndex = 103;
@@ -1323,15 +1320,15 @@
             // 
             // RaceTitleBox
             // 
-            this.RaceTitleBox.Location = new System.Drawing.Point(226, 108);
+            this.RaceTitleBox.Location = new System.Drawing.Point(149, 45);
             this.RaceTitleBox.Name = "RaceTitleBox";
-            this.RaceTitleBox.Size = new System.Drawing.Size(250, 31);
+            this.RaceTitleBox.Size = new System.Drawing.Size(604, 31);
             this.RaceTitleBox.TabIndex = 102;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(73, 108);
+            this.label11.Location = new System.Drawing.Point(24, 48);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 23);
             this.label11.TabIndex = 101;
@@ -1348,20 +1345,207 @@
             // ininterval
             // 
             this.ininterval.AutoSize = true;
-            this.ininterval.Location = new System.Drawing.Point(73, 348);
+            this.ininterval.Location = new System.Drawing.Point(24, 60);
             this.ininterval.Name = "ininterval";
             this.ininterval.Size = new System.Drawing.Size(103, 23);
             this.ininterval.TabIndex = 0;
             this.ininterval.Text = "In Interval:";
             // 
-            // infobox
+            // groupBox1
             // 
-            this.infobox.BackColor = System.Drawing.SystemColors.Control;
-            this.infobox.Font = new System.Drawing.Font("Cambria", 12F);
-            this.infobox.Location = new System.Drawing.Point(760, 59);
-            this.infobox.Name = "infobox";
-            this.infobox.Size = new System.Drawing.Size(547, 228);
-            this.infobox.TabIndex = 17;
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.PartyColorButton2);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.PartyColorButton1);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.PartyColorBox2);
+            this.groupBox1.Controls.Add(this.RaceTitleBox);
+            this.groupBox1.Controls.Add(this.PartyColorBox1);
+            this.groupBox1.Controls.Add(this.Can1Box);
+            this.groupBox1.Controls.Add(this.PartyColor2);
+            this.groupBox1.Controls.Add(this.Can2Box);
+            this.groupBox1.Controls.Add(this.PartyColor1);
+            this.groupBox1.Controls.Add(this.RaceTitleButton);
+            this.groupBox1.Controls.Add(this.PartySet2);
+            this.groupBox1.Controls.Add(this.Can1Button);
+            this.groupBox1.Controls.Add(this.PartySet1);
+            this.groupBox1.Controls.Add(this.CAN2Button);
+            this.groupBox1.Controls.Add(this.PartyBox2);
+            this.groupBox1.Controls.Add(this.Party1Label);
+            this.groupBox1.Controls.Add(this.PartyBox1);
+            this.groupBox1.Controls.Add(this.Party2Label);
+            this.groupBox1.Location = new System.Drawing.Point(77, 55);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1178, 210);
+            this.groupBox1.TabIndex = 135;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Race Information";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.electionbegintime);
+            this.groupBox2.Controls.Add(this.Tallystartset);
+            this.groupBox2.Controls.Add(this.Tallystartbox);
+            this.groupBox2.Controls.Add(this.tallystarthr);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.GameplaySettingsHelp);
+            this.groupBox2.Controls.Add(this.btbvarietyq);
+            this.groupBox2.Controls.Add(this.vtpratioq);
+            this.groupBox2.Controls.Add(this.inintervalq);
+            this.groupBox2.Controls.Add(this.ininterval);
+            this.groupBox2.Controls.Add(this.vtpratio);
+            this.groupBox2.Controls.Add(this.INintervallabelcount);
+            this.groupBox2.Controls.Add(this.VTPlabelcount);
+            this.groupBox2.Controls.Add(this.Btblabelcount);
+            this.groupBox2.Controls.Add(this.btblabel);
+            this.groupBox2.Controls.Add(this.IntervalBox);
+            this.groupBox2.Controls.Add(this.VTPBox);
+            this.groupBox2.Controls.Add(this.btbbox);
+            this.groupBox2.Controls.Add(this.InButton);
+            this.groupBox2.Controls.Add(this.btbbutton);
+            this.groupBox2.Controls.Add(this.VTPButton);
+            this.groupBox2.Location = new System.Drawing.Point(77, 306);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(534, 348);
+            this.groupBox2.TabIndex = 136;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Gameplay Settings";
+            // 
+            // inintervalq
+            // 
+            this.inintervalq.BackColor = System.Drawing.Color.MistyRose;
+            this.inintervalq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.inintervalq.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.inintervalq.Location = new System.Drawing.Point(133, 55);
+            this.inintervalq.Name = "inintervalq";
+            this.inintervalq.Size = new System.Drawing.Size(29, 35);
+            this.inintervalq.TabIndex = 123;
+            this.inintervalq.Text = "?";
+            this.inintervalq.UseVisualStyleBackColor = false;
+            this.inintervalq.Click += new System.EventHandler(this.inintervalq_Click);
+            // 
+            // vtpratioq
+            // 
+            this.vtpratioq.BackColor = System.Drawing.Color.MistyRose;
+            this.vtpratioq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.vtpratioq.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.vtpratioq.Location = new System.Drawing.Point(150, 115);
+            this.vtpratioq.Name = "vtpratioq";
+            this.vtpratioq.Size = new System.Drawing.Size(29, 37);
+            this.vtpratioq.TabIndex = 137;
+            this.vtpratioq.Text = "?";
+            this.vtpratioq.UseVisualStyleBackColor = false;
+            this.vtpratioq.Click += new System.EventHandler(this.vtpratioq_Click);
+            // 
+            // btbvarietyq
+            // 
+            this.btbvarietyq.BackColor = System.Drawing.Color.MistyRose;
+            this.btbvarietyq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btbvarietyq.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.btbvarietyq.Location = new System.Drawing.Point(149, 175);
+            this.btbvarietyq.Name = "btbvarietyq";
+            this.btbvarietyq.Size = new System.Drawing.Size(29, 32);
+            this.btbvarietyq.TabIndex = 138;
+            this.btbvarietyq.Text = "?";
+            this.btbvarietyq.UseVisualStyleBackColor = false;
+            this.btbvarietyq.Click += new System.EventHandler(this.btbvarietyq_Click);
+            // 
+            // GameplaySettingsHelp
+            // 
+            this.GameplaySettingsHelp.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.GameplaySettingsHelp.Location = new System.Drawing.Point(28, 275);
+            this.GameplaySettingsHelp.Name = "GameplaySettingsHelp";
+            this.GameplaySettingsHelp.Size = new System.Drawing.Size(477, 60);
+            this.GameplaySettingsHelp.TabIndex = 139;
+            this.GameplaySettingsHelp.Text = "General Settings for the Program.";
+            this.GameplaySettingsHelp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 240);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 23);
+            this.label4.TabIndex = 137;
+            this.label4.Text = "Tally Start:";
+            // 
+            // tallystarthr
+            // 
+            this.tallystarthr.BackColor = System.Drawing.Color.MistyRose;
+            this.tallystarthr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tallystarthr.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.tallystarthr.Location = new System.Drawing.Point(149, 235);
+            this.tallystarthr.Name = "tallystarthr";
+            this.tallystarthr.Size = new System.Drawing.Size(29, 32);
+            this.tallystarthr.TabIndex = 140;
+            this.tallystarthr.Text = "?";
+            this.tallystarthr.UseVisualStyleBackColor = false;
+            this.tallystarthr.Click += new System.EventHandler(this.tallystarthr_Click);
+            // 
+            // Tallystartbox
+            // 
+            this.Tallystartbox.Location = new System.Drawing.Point(214, 240);
+            this.Tallystartbox.Name = "Tallystartbox";
+            this.Tallystartbox.Size = new System.Drawing.Size(126, 31);
+            this.Tallystartbox.TabIndex = 141;
+            // 
+            // Tallystartset
+            // 
+            this.Tallystartset.Location = new System.Drawing.Point(346, 240);
+            this.Tallystartset.Name = "Tallystartset";
+            this.Tallystartset.Size = new System.Drawing.Size(72, 34);
+            this.Tallystartset.TabIndex = 142;
+            this.Tallystartset.Text = "Enter";
+            this.Tallystartset.UseVisualStyleBackColor = true;
+            this.Tallystartset.Click += new System.EventHandler(this.Tallystartset_Click);
+            // 
+            // electionbegintime
+            // 
+            this.electionbegintime.AutoSize = true;
+            this.electionbegintime.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.electionbegintime.Location = new System.Drawing.Point(424, 240);
+            this.electionbegintime.Name = "electionbegintime";
+            this.electionbegintime.Size = new System.Drawing.Size(75, 23);
+            this.electionbegintime.TabIndex = 143;
+            this.electionbegintime.Text = "(19:00)";
+            // 
+            // advancedsetting
+            // 
+            this.advancedsetting.Controls.Add(this.loadsettingtxt);
+            this.advancedsetting.Controls.Add(this.label5);
+            this.advancedsetting.Controls.Add(this.loadsettingtxtbox);
+            this.advancedsetting.Location = new System.Drawing.Point(652, 306);
+            this.advancedsetting.Name = "advancedsetting";
+            this.advancedsetting.Size = new System.Drawing.Size(603, 348);
+            this.advancedsetting.TabIndex = 137;
+            this.advancedsetting.TabStop = false;
+            this.advancedsetting.Text = "Advanced Settings";
+            // 
+            // loadsettingtxtbox
+            // 
+            this.loadsettingtxtbox.Location = new System.Drawing.Point(46, 120);
+            this.loadsettingtxtbox.Name = "loadsettingtxtbox";
+            this.loadsettingtxtbox.Size = new System.Drawing.Size(405, 31);
+            this.loadsettingtxtbox.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(42, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(155, 23);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Load Settings.txt";
+            // 
+            // loadsettingtxt
+            // 
+            this.loadsettingtxt.Location = new System.Drawing.Point(471, 120);
+            this.loadsettingtxt.Name = "loadsettingtxt";
+            this.loadsettingtxt.Size = new System.Drawing.Size(72, 34);
+            this.loadsettingtxt.TabIndex = 115;
+            this.loadsettingtxt.Text = "Enter";
+            this.loadsettingtxt.UseVisualStyleBackColor = true;
+            this.loadsettingtxt.Click += new System.EventHandler(this.loadsettingtxt_Click);
             // 
             // Form1
             // 
@@ -1384,6 +1568,12 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.advancedsetting.ResumeLayout(false);
+            this.advancedsetting.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1471,6 +1661,21 @@
         private System.Windows.Forms.Label DisplayParty1Label;
         private System.Windows.Forms.Label DisplayParty2Label;
         private System.Windows.Forms.Label infobox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btbvarietyq;
+        private System.Windows.Forms.Button vtpratioq;
+        private System.Windows.Forms.Button inintervalq;
+        private System.Windows.Forms.Label GameplaySettingsHelp;
+        private System.Windows.Forms.Label electionbegintime;
+        private System.Windows.Forms.Button Tallystartset;
+        private System.Windows.Forms.TextBox Tallystartbox;
+        private System.Windows.Forms.Button tallystarthr;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox advancedsetting;
+        private System.Windows.Forms.Button loadsettingtxt;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox loadsettingtxtbox;
     }
 }
 
