@@ -51,6 +51,8 @@ namespace FormappTest
         static decimal RUNTIME = 100000;
         double BatchVariety = 1.0;
         int finished = 0;
+        decimal DBDBoardClock = 0M;
+        int DBDBoardInfoserial = 0;
         Random rnd = new Random();
         List<string> DName = new List<string>();
         List<decimal> PVI = new List<decimal>();
@@ -66,11 +68,14 @@ namespace FormappTest
         List<decimal> MOEI = new List<decimal>();
         decimal[] inpct1 = new decimal[1000];
         decimal[] inpct2 = new decimal[1000];
+        decimal[] inpct3 = new decimal[1000];
         decimal[] inpct = new decimal[1000];
         decimal[] invote1 = new decimal[1000];
         decimal[] invote2 = new decimal[1000];
+        decimal[] invote3 = new decimal[1000];
         decimal[] votepct1 = new decimal[1000];
         decimal[] votepct2 = new decimal[1000];
+        decimal[] votepct3 = new decimal[1000];
         decimal[] quicksimarrayC1 = new decimal[Convert.ToInt32(RUNTIME)];
         decimal[] quicksimarrayC2 = new decimal[Convert.ToInt32(RUNTIME)];
         decimal[] differences = new decimal[Convert.ToInt32(RUNTIME)];
@@ -79,6 +84,7 @@ namespace FormappTest
         decimal[] thirdPCT = new decimal[1000];
         decimal[] C1Vote = new decimal[1000];
         decimal[] C2Vote = new decimal[1000];
+        decimal[] thirdVote = new decimal[1000];
         private void Form1_Load(object sender, EventArgs e)
         {
             ClearVar();
@@ -120,10 +126,13 @@ namespace FormappTest
             Array.Clear(inpct, 0, 1000);
             Array.Clear(inpct1, 0, 1000);
             Array.Clear(inpct2, 0, 1000);
+            Array.Clear(inpct3, 0, 1000);
             Array.Clear(invote1, 0, 1000);
             Array.Clear(invote2, 0, 1000);
+            Array.Clear(invote3, 0, 1000);
             Array.Clear(votepct1, 0, 1000);
             Array.Clear(votepct2, 0, 1000);
+            Array.Clear(votepct3, 0, 1000);
             Can1Votes.Text = "0";
             Can2Votes.Text = "0";
             Can1PCT.Text = "0.00%";
@@ -135,7 +144,7 @@ namespace FormappTest
         public void ResetDName()
         {
             DName.Clear();
-            DName.Add("District 1"); DName.Add("District 2"); DName.Add("District 3");
+            DName.Add("D1"); DName.Add("D2"); DName.Add("D3");
         }
         public void ResetPVI()
         {
@@ -400,7 +409,7 @@ namespace FormappTest
             {
                 for (int i = PVI.Count + 1; i <= ED; i++)
                 {
-                    DName.Add("District " + i.ToString()); PVI.Add(0.0M); CQ1.Add(70.0M); CQ2.Add(70.0M); CI1.Add(70.0M); CI2.Add(70.0M);
+                    DName.Add("D" + i.ToString()); PVI.Add(0.0M); CQ1.Add(70.0M); CQ2.Add(70.0M); CI1.Add(70.0M); CI2.Add(70.0M);
                     E1.Add(70.0M); E2.Add(70.0M); BatchSI.Add(1.0M); BatchQI.Add(1.0M);
                     PopulationI.Add(350000M); MOEI.Add(2.0M);
                 };
@@ -528,7 +537,6 @@ namespace FormappTest
             BatchVariety = Convert.ToDouble(btbbox.Text);
             Btblabelcount.Text = "(" + btbbox.Text + ")";
         }
-
         private async void PartySet1_Click(object sender, EventArgs e)
         {
             DisplayParty1Label.Text = PartyBox1.Text;
@@ -681,6 +689,10 @@ namespace FormappTest
         {
             return C2Vote[district - 1];
         }
+        public decimal GetVote3(int district)
+        {
+            return thirdVote[district - 1];
+        }
         public void RunMassSim()
         {
             for (int i = 0; i < Convert.ToInt32(RUNTIME); i++)
@@ -744,9 +756,9 @@ namespace FormappTest
                 decimal tempC1 = (decimal)((50 + ((double)GetPVI(i + 1)) / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCQ1(i + 1)), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCI1(i + 1))))));
                 decimal tempC2 = (decimal)((50 - ((double)GetPVI(i + 1)) / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCQ2(i + 1)), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCI2(i + 1))))));
                 decimal remainder = 100.0M - tempC1 - tempC2;
-                thirdPCT[i] = (remainder) * (1M - (0.015M * GetE1(i + 1) - 0.5M)) * (1M - (0.015M * GetE2(i + 1) - 0.5M));
-                decimal C1EntBonus = (remainder - thirdPCT[i]) * (GetE1(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
-                decimal C2EntBonus = (remainder - thirdPCT[i]) * (GetE2(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
+                decimal thirdpct = (remainder) * (1M - (0.015M * GetE1(i + 1) - 0.5M)) * (1M - (0.015M * GetE2(i + 1) - 0.5M));
+                decimal C1EntBonus = (remainder - thirdpct) * (GetE1(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
+                decimal C2EntBonus = (remainder - thirdpct) * (GetE2(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
                 tempC1 += C1EntBonus;
                 tempC2 += C2EntBonus;
                 double u1 = 1.0 - rnd.NextDouble();
@@ -764,18 +776,23 @@ namespace FormappTest
                     tempC1 *= 100M;
                     tempC2 /= originaltotal;
                     tempC2 *= 100M;
-                    thirdPCT[i] = 0M;
+                    thirdpct = 0M;
                 }
+                else { thirdpct = 100M - tempC1 - tempC2; }
                 C1PCT[i] = tempC1;
                 C2PCT[i] = tempC2;
+                thirdPCT[i] = thirdpct;
                 //Total Vote
                 u1 = 1.0 - rnd.NextDouble();
                 u2 = 1.0 - rnd.NextDouble();
                 randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
-                decimal C1VOTE = C1PCT[i] * 0.01M * GetVoters(i + 1) * 0.01M * GetE1(i + 1) * 0.01M * GetE2(i + 1) * (0.9825M + (0.035M * (decimal)randStdNormal));
-                decimal C2VOTE = C2PCT[i] * 0.01M * GetVoters(i + 1) * 0.01M * GetE1(i + 1) * 0.01M * GetE2(i + 1) * (0.9825M + (0.035M * (decimal)randStdNormal));
-                C1Vote[i] = Math.Ceiling(VTP * C1VOTE);
-                C2Vote[i] = Math.Ceiling(VTP * C2VOTE);
+                decimal C1VOTE = C1PCT[i] * 0.01M * GetVoters(i + 1) * (0.005M * GetE1(i + 1) + 0.005M * GetE2(i + 1)) * (0.9825M + (0.035M * (decimal)randStdNormal));
+                decimal C2VOTE = C2PCT[i] * 0.01M * GetVoters(i + 1) * (0.005M * GetE1(i + 1) + 0.005M * GetE2(i + 1)) * (0.9825M + (0.035M * (decimal)randStdNormal));
+                decimal C3VOTE = thirdPCT[i] * 0.01M * GetVoters(i + 1) * (0.005M * GetE1(i + 1) + 0.005M * GetE2(i + 1)) * (0.9825M + (0.035M * (decimal)randStdNormal));
+                if (C3VOTE < 0) C3VOTE = 0;
+                C1Vote[i] = Math.Round(VTP * C1VOTE);
+                C2Vote[i] = Math.Round(VTP * C2VOTE);
+                thirdVote[i] = Math.Round(VTP * C3VOTE);
             }
         }
         public void SaveRuntimeConditions()
@@ -973,26 +990,30 @@ namespace FormappTest
             clsTimer.Start();
             finished = 0;
             timeelapsed = 0;
+            DBDBoardClock = 0M;
             do
             {
                 for (int i = 0; i < ED; i++)
                 {
                     if (timeelapsed < 100 / BatchSI[i]) { }
-                    else if (inpct1[i] == 100M && inpct2[i] == 100M) { }
-                    else if (inpct1[i] >= 99.7M && inpct2[i] >= 99.7M)
+                    else if (inpct1[i] >= 100M && inpct2[i] >= 100M && inpct3[i] >= 100M) { }
+                    else if (inpct1[i] >= 99.7M && inpct2[i] >= 99.7M && inpct3[i] >= 99.7M)
                     {
-                        LiveUpdate((decimal)i + 1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]);
+                        LiveUpdate((decimal)i + 1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]);
                         finished++;
                         inpct1[i] = 100.0M;
                         inpct2[i] = 100.0M;
+                        inpct3[i] = 100.0M;
                         inpct[i] = 100.0M;
+                        DBDBoardClock = 5000M;
+                        TallyDistrictByDistrict();
                     }
-                    else if (inpct1[i] >= 99.7M && inpct2[i] < 99.7M) { LiveUpdate((decimal)i + 1M, 0.02M * BatchQI[i], 0.05M * BatchQI[i], 0.2M * BatchQI[i], 0.5M * BatchQI[i]); }
-                    else if (inpct1[i] < 99.7M && inpct2[i] >= 99.7M) { LiveUpdate((decimal)i + 1M, 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.02M * BatchQI[i], 0.05M * BatchQI[i]); }
-                    else if (inpct1[i] >= 90.0M && inpct2[i] >= 90.0M) { LiveUpdate((decimal)i + 1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]); }
-                    else if (inpct1[i] >= 90.0M && inpct2[i] < 90.0M) { LiveUpdate((decimal)i + 1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.2M * BatchQI[i], 0.5M * BatchQI[i]); }
-                    else if (inpct1[i] < 90.0M && inpct2[i] >= 90.0M) { LiveUpdate((decimal)i + 1M, 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]); }
-                    else { LiveUpdate((decimal)i + 1M, 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.2M * BatchQI[i], 0.5M * BatchQI[i]); }
+                    else if (inpct1[i] >= 99.7M && inpct2[i] < 99.7M) { LiveUpdate((decimal)i + 1M, 0.02M * BatchQI[i], 0.05M * BatchQI[i], 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.11M * BatchQI[i], 0.275M * BatchQI[i]); }
+                    else if (inpct1[i] < 99.7M && inpct2[i] >= 99.7M) { LiveUpdate((decimal)i + 1M, 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.02M * BatchQI[i], 0.05M * BatchQI[i], 0.11M * BatchQI[i], 0.275M * BatchQI[i]); }
+                    else if (inpct1[i] >= 90.0M && inpct2[i] >= 90.0M) { LiveUpdate((decimal)i + 1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i]); }
+                    else if (inpct1[i] >= 90.0M && inpct2[i] < 90.0M) { LiveUpdate((decimal)i + 1M, 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.15M * BatchQI[i], 0.375M * BatchQI[i]); }
+                    else if (inpct1[i] < 90.0M && inpct2[i] >= 90.0M) { LiveUpdate((decimal)i + 1M, 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.1M * BatchQI[i], 0.25M * BatchQI[i], 0.15M * BatchQI[i], 0.375M * BatchQI[i]); }
+                    else { LiveUpdate((decimal)i + 1M, 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.2M * BatchQI[i], 0.5M * BatchQI[i], 0.2M * BatchQI[i], 0.5M * BatchQI[i]); }
                 }
                 Can1Votes.Text = String.Format("{0:n0}", invote1.Sum());
                 Can2Votes.Text = String.Format("{0:n0}", invote2.Sum());
@@ -1004,13 +1025,10 @@ namespace FormappTest
                 }
                 else
                 {
-                    Can1PCT.Text = String.Format("{0:0.00}", 100 * (invote1.Sum() / (invote1.Sum() + invote2.Sum()))) + "%";
-                    Can2PCT.Text = String.Format("{0:0.00}", 100 * (invote2.Sum() / (invote1.Sum() + invote2.Sum()))) + "%";
-                    currentpctdiff = Convert.ToDecimal(100 * (invote1.Sum() / (invote1.Sum() + invote2.Sum()))) - Convert.ToDecimal(100 * (invote2.Sum() / (invote1.Sum() + invote2.Sum())));
+                    Can1PCT.Text = String.Format("{0:0.00}", 100 * (invote1.Sum() / (invote1.Sum() + invote2.Sum() + invote3.Sum()))) + "%";
+                    Can2PCT.Text = String.Format("{0:0.00}", 100 * (invote2.Sum() / (invote1.Sum() + invote2.Sum() + invote3.Sum()))) + "%";
+                    currentpctdiff = Convert.ToDecimal(100 * (invote1.Sum() / (invote1.Sum() + invote2.Sum() + invote3.Sum()))) - Convert.ToDecimal(100 * (invote2.Sum() / (invote1.Sum() + invote2.Sum() + invote3.Sum())));
                 }
-
-
-
                 for (int i = 0; i < ED; i++)
                 {
                     actualin += PopulationI[i] * inpct[i];
@@ -1020,33 +1038,61 @@ namespace FormappTest
                 timeelapsed += 1;
                 ElectionTime.Text = ShowTime(timeelapsed.ToString());
                 await Task.Delay((int)Stop);
+                DBDBoardClock += Stop;
+                TallyDistrictByDistrict();
             }
             while (finished < ED);
         }
-        public void LiveUpdate(decimal district, decimal lower1, decimal higher1, decimal lower2, decimal higher2)
+        public void TallyDistrictByDistrict()
+        {
+            if (DBDBoardClock > 5000M)
+            {
+                infobox.Text = "";
+                for (int i = 0; i < 3; i++)
+                {
+                    infobox.Text += "===" + DName[DBDBoardInfoserial] + " (In: " + Decimal.Round(inpct[DBDBoardInfoserial],2) + "%)" + "===\r\n" +
+                      varCan1name + ": " + Decimal.Round(invote1[DBDBoardInfoserial],0) + " (" + Decimal.Round(votepct1[DBDBoardInfoserial],2) + "%)\r\n" +
+                      varCan2name + ": " + Decimal.Round(invote2[DBDBoardInfoserial],0) + " (" + Decimal.Round(votepct2[DBDBoardInfoserial],2) + "%)\r\n\r\n";
+                    DBDBoardInfoserial++;
+                    if (DBDBoardInfoserial == ED) { DBDBoardInfoserial = 0; break; }
+                }
+                DBDBoardClock -= 5000M;
+            }
+        }
+        public void LiveUpdate(decimal district, decimal lower1, decimal higher1, decimal lower2, decimal higher2, decimal lower3, decimal higher3)
         {
             Random LU = new Random();
             lower1 *= (decimal)(1 / Math.Floor(Math.Sqrt(BatchVariety)));
             higher1 *= (decimal)(Math.Ceiling(Math.Sqrt(BatchVariety)));
             lower2 *= (decimal)(1 / Math.Floor(Math.Sqrt(BatchVariety)));
             higher2 *= (decimal)(Math.Ceiling(Math.Sqrt(BatchVariety)));
+            lower3 *= (decimal)(1 / Math.Floor(Math.Sqrt(BatchVariety)));
+            higher3 *= (decimal)(Math.Ceiling(Math.Sqrt(BatchVariety)));
             if (lower1 >= higher1) { higher1 = lower1 + 0.01M; }
             if (lower2 >= higher2) { higher2 = lower2 + 0.01M; }
+            if (lower3 >= higher3) { higher3 = lower3 + 0.01M; }
             double thisbatch1 = 0;
             double thisbatch2 = 0;
+            double thisbatch3 = 0;
             double thisbatchvotes1 = 0;
             double thisbatchvotes2 = 0;
+            double thisbatchvotes3 = 0;
             thisbatch1 = 0.01 * LU.Next((int)(100 * lower1), (int)(100 * higher1));
             thisbatch2 = 0.01 * LU.Next((int)(100 * lower2), (int)(100 * higher2));
+            thisbatch3 = 0.01 * LU.Next((int)(100 * lower3), (int)(100 * higher3));
             inpct1[(int)district - 1] += (decimal)thisbatch1;
             inpct2[(int)district - 1] += (decimal)thisbatch2;
+            inpct3[(int)district - 1] += (decimal)thisbatch3;
             thisbatchvotes1 = (double)GetVote1((int)district) * thisbatch1 * 0.01;
             thisbatchvotes2 = (double)GetVote2((int)district) * thisbatch2 * 0.01;
+            thisbatchvotes3 = (double)GetVote3((int)district) * thisbatch3 * 0.01;
             invote1[(int)district - 1] += (decimal)thisbatchvotes1;
             invote2[(int)district - 1] += (decimal)thisbatchvotes2;
-            votepct1[(int)district - 1] = (100 * invote1[(int)district - 1]) / (invote1[(int)district - 1] + invote2[(int)district - 1]);
-            votepct2[(int)district - 1] = (100 * invote2[(int)district - 1]) / (invote1[(int)district - 1] + invote2[(int)district - 1]);
-            inpct[(int)district - 1] = 100 * (invote1[(int)district - 1] + invote2[(int)district - 1]) / (GetVote1((int)district) + GetVote2((int)district));
+            invote3[(int)district - 1] += (decimal)thisbatchvotes3;
+            votepct1[(int)district - 1] = (100 * invote1[(int)district - 1]) / (invote1[(int)district - 1] + invote2[(int)district - 1] + invote3[(int)district - 1]);
+            votepct2[(int)district - 1] = (100 * invote2[(int)district - 1]) / (invote1[(int)district - 1] + invote2[(int)district - 1] + invote3[(int)district - 1]);
+            votepct3[(int)district - 1] = (100 * invote3[(int)district - 1]) / (invote1[(int)district - 1] + invote2[(int)district - 1] + invote3[(int)district - 1]);
+            inpct[(int)district - 1] = 100 * (invote1[(int)district - 1] + invote2[(int)district - 1] + invote3[(int)district - 1]) / (GetVote1((int)district) + GetVote2((int)district) + GetVote3((int)district));
         }
         public string ShowTime(string Timeelapsed)
         {
@@ -1084,6 +1130,7 @@ namespace FormappTest
             StartSimSetup.BackColor = Color.MistyRose;
             StartSimSetup.Enabled = true;
             ElectionTime.Text = "19:00 ET";
+            infobox.Text = "";
         }
 
         private void C1Bulk_Click(object sender, EventArgs e)
@@ -1118,7 +1165,6 @@ namespace FormappTest
                         }
                 }
         }
-
         private void C3Bulk_Click(object sender, EventArgs e)
         {
             for (int k = 24; k < (ED + 1) * 12; k++)
@@ -1135,7 +1181,6 @@ namespace FormappTest
                         }
                 }
         }
-
         private void C4Bulk_Click(object sender, EventArgs e)
         {
             for (int k = 24; k < (ED + 1) * 12; k++)
@@ -1152,7 +1197,6 @@ namespace FormappTest
                         }
                 }
         }
-
         private void C5Bulk_Click(object sender, EventArgs e)
         {
             for (int k = 24; k < (ED + 1) * 12; k++)
@@ -1169,7 +1213,6 @@ namespace FormappTest
                         }
                 }
         }
-
         private void C6Bulk_Click(object sender, EventArgs e)
         {
             for (int k = 24; k < (ED + 1) * 12; k++)
@@ -1186,7 +1229,6 @@ namespace FormappTest
                         }
                 }
         }
-
         private void C7Bulk_Click(object sender, EventArgs e)
         {
             for (int k = 24; k < (ED + 1) * 12; k++)
@@ -1203,7 +1245,6 @@ namespace FormappTest
                         }
                 }
         }
-
         private void C8Bulk_Click(object sender, EventArgs e)
         {
             for (int k = 24; k < (ED + 1) * 12; k++)
@@ -1220,7 +1261,6 @@ namespace FormappTest
                         }
                 }
         }
-
         private void C9Bulk_Click(object sender, EventArgs e)
         {
             for (int k = 24; k < (ED + 1) * 12; k++)
@@ -1237,7 +1277,6 @@ namespace FormappTest
                         }
                 }
         }
-
         private void C10Bulk_Click(object sender, EventArgs e)
         {
             for (int k = 24; k < (ED + 1) * 12; k++)
@@ -1254,7 +1293,6 @@ namespace FormappTest
                         }
                 }
         }
-
         private void C11Bulk_Click(object sender, EventArgs e)
         {
             for (int k = 24; k < (ED + 1) * 12; k++)
@@ -1271,7 +1309,6 @@ namespace FormappTest
                         }
                 }
         }
-
         private void C12Bulk_Click(object sender, EventArgs e)
         {
             for (int k = 24; k < (ED + 1) * 12; k++)

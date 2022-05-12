@@ -1,0 +1,5 @@
+Election Simulation Report
+
+====System Setting===
+Version:
+0.1.0
