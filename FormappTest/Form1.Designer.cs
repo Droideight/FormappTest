@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.InfoBox = new System.Windows.Forms.TextBox();
@@ -51,6 +51,7 @@
             this.Can1PCT = new System.Windows.Forms.Label();
             this.Can2Name = new System.Windows.Forms.Label();
             this.DisplayParty1Label = new System.Windows.Forms.Label();
+            this.DisplayParty2Label = new System.Windows.Forms.Label();
             this.livevotechart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -110,7 +111,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ininterval = new System.Windows.Forms.Label();
-            this.DisplayParty2Label = new System.Windows.Forms.Label();
             this.Tab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -401,30 +401,44 @@
             this.DisplayParty1Label.Text = "R";
             this.DisplayParty1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // DisplayParty2Label
+            // 
+            this.DisplayParty2Label.AutoSize = true;
+            this.DisplayParty2Label.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.DisplayParty2Label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DisplayParty2Label.Font = new System.Drawing.Font("Castellar", 24F);
+            this.DisplayParty2Label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DisplayParty2Label.Location = new System.Drawing.Point(640, 105);
+            this.DisplayParty2Label.Name = "DisplayParty2Label";
+            this.DisplayParty2Label.Size = new System.Drawing.Size(36, 104);
+            this.DisplayParty2Label.TabIndex = 5;
+            this.DisplayParty2Label.Text = "D";
+            this.DisplayParty2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // livevotechart
             // 
             this.livevotechart.BackColor = System.Drawing.Color.Transparent;
-            chartArea7.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea7.AxisX.LineColor = System.Drawing.Color.Orange;
-            chartArea7.AxisX.LineWidth = 4;
-            chartArea7.AxisY.Crossing = 0D;
-            chartArea7.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea7.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            chartArea7.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea7.BorderColor = System.Drawing.Color.DarkGray;
-            chartArea7.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea7.Name = "ChartArea1";
-            this.livevotechart.ChartAreas.Add(chartArea7);
+            chartArea11.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea11.AxisX.LineColor = System.Drawing.Color.Orange;
+            chartArea11.AxisX.LineWidth = 4;
+            chartArea11.AxisY.Crossing = 0D;
+            chartArea11.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea11.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            chartArea11.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea11.BorderColor = System.Drawing.Color.DarkGray;
+            chartArea11.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea11.Name = "ChartArea1";
+            this.livevotechart.ChartAreas.Add(chartArea11);
             this.livevotechart.Location = new System.Drawing.Point(24, 293);
             this.livevotechart.Name = "livevotechart";
             this.livevotechart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series7.BorderWidth = 2;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Color = System.Drawing.Color.Red;
-            series7.Name = "Result_Difference";
-            this.livevotechart.Series.Add(series7);
+            series11.BorderWidth = 2;
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series11.Color = System.Drawing.Color.Red;
+            series11.Name = "Result_Difference";
+            this.livevotechart.Series.Add(series11);
             this.livevotechart.Size = new System.Drawing.Size(680, 352);
             this.livevotechart.TabIndex = 3;
             this.livevotechart.Text = "chart1";
@@ -493,6 +507,7 @@
             this.C12Bulk.TabIndex = 11;
             this.C12Bulk.Text = "Set R1";
             this.C12Bulk.UseVisualStyleBackColor = false;
+            this.C12Bulk.Click += new System.EventHandler(this.C12Bulk_Click);
             // 
             // C11Bulk
             // 
@@ -504,6 +519,7 @@
             this.C11Bulk.TabIndex = 10;
             this.C11Bulk.Text = "Set R1";
             this.C11Bulk.UseVisualStyleBackColor = false;
+            this.C11Bulk.Click += new System.EventHandler(this.C11Bulk_Click);
             // 
             // C10Bulk
             // 
@@ -515,6 +531,7 @@
             this.C10Bulk.TabIndex = 9;
             this.C10Bulk.Text = "Set R1";
             this.C10Bulk.UseVisualStyleBackColor = false;
+            this.C10Bulk.Click += new System.EventHandler(this.C10Bulk_Click);
             // 
             // C9Bulk
             // 
@@ -526,6 +543,7 @@
             this.C9Bulk.TabIndex = 8;
             this.C9Bulk.Text = "Set R1";
             this.C9Bulk.UseVisualStyleBackColor = false;
+            this.C9Bulk.Click += new System.EventHandler(this.C9Bulk_Click);
             // 
             // C8Bulk
             // 
@@ -537,6 +555,7 @@
             this.C8Bulk.TabIndex = 7;
             this.C8Bulk.Text = "Set R1";
             this.C8Bulk.UseVisualStyleBackColor = false;
+            this.C8Bulk.Click += new System.EventHandler(this.C8Bulk_Click);
             // 
             // C7Bulk
             // 
@@ -548,6 +567,7 @@
             this.C7Bulk.TabIndex = 6;
             this.C7Bulk.Text = "Set R1";
             this.C7Bulk.UseVisualStyleBackColor = false;
+            this.C7Bulk.Click += new System.EventHandler(this.C7Bulk_Click);
             // 
             // C6Bulk
             // 
@@ -559,6 +579,7 @@
             this.C6Bulk.TabIndex = 5;
             this.C6Bulk.Text = "Set R1";
             this.C6Bulk.UseVisualStyleBackColor = false;
+            this.C6Bulk.Click += new System.EventHandler(this.C6Bulk_Click);
             // 
             // C5Bulk
             // 
@@ -570,6 +591,7 @@
             this.C5Bulk.TabIndex = 4;
             this.C5Bulk.Text = "Set R1";
             this.C5Bulk.UseVisualStyleBackColor = false;
+            this.C5Bulk.Click += new System.EventHandler(this.C5Bulk_Click);
             // 
             // C4Bulk
             // 
@@ -581,6 +603,7 @@
             this.C4Bulk.TabIndex = 3;
             this.C4Bulk.Text = "Set R1";
             this.C4Bulk.UseVisualStyleBackColor = false;
+            this.C4Bulk.Click += new System.EventHandler(this.C4Bulk_Click);
             // 
             // C3Bulk
             // 
@@ -592,6 +615,7 @@
             this.C3Bulk.TabIndex = 2;
             this.C3Bulk.Text = "Set R1";
             this.C3Bulk.UseVisualStyleBackColor = false;
+            this.C3Bulk.Click += new System.EventHandler(this.C3Bulk_Click);
             // 
             // C2Bulk
             // 
@@ -603,6 +627,7 @@
             this.C2Bulk.TabIndex = 1;
             this.C2Bulk.Text = "Set R1";
             this.C2Bulk.UseVisualStyleBackColor = false;
+            this.C2Bulk.Click += new System.EventHandler(this.C2Bulk_Click);
             // 
             // C1Bulk
             // 
@@ -1341,20 +1366,6 @@
             this.ininterval.Size = new System.Drawing.Size(103, 23);
             this.ininterval.TabIndex = 0;
             this.ininterval.Text = "In Interval:";
-            // 
-            // DisplayParty2Label
-            // 
-            this.DisplayParty2Label.AutoSize = true;
-            this.DisplayParty2Label.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.DisplayParty2Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DisplayParty2Label.Font = new System.Drawing.Font("Castellar", 24F);
-            this.DisplayParty2Label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DisplayParty2Label.Location = new System.Drawing.Point(640, 105);
-            this.DisplayParty2Label.Name = "DisplayParty2Label";
-            this.DisplayParty2Label.Size = new System.Drawing.Size(36, 104);
-            this.DisplayParty2Label.TabIndex = 5;
-            this.DisplayParty2Label.Text = "D";
-            this.DisplayParty2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 

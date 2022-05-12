@@ -528,10 +528,7 @@ namespace FormappTest
             BatchVariety = Convert.ToDouble(btbbox.Text);
             Btblabelcount.Text = "(" + btbbox.Text + ")";
         }
-        private void C1Bulk_Click(object sender, EventArgs e)
-        {
 
-        }
         private async void PartySet1_Click(object sender, EventArgs e)
         {
             DisplayParty1Label.Text = PartyBox1.Text;
@@ -1087,6 +1084,209 @@ namespace FormappTest
             StartSimSetup.BackColor = Color.MistyRose;
             StartSimSetup.Enabled = true;
             ElectionTime.Text = "19:00 ET";
+        }
+
+        private void C1Bulk_Click(object sender, EventArgs e)
+        {
+            for(int k = 24; k < (ED + 1) * 12; k++)
+            switch (k % 12) 
+            {
+                case 0:
+                    {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("12", true)[0].Text;
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+        }
+        private void C2Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 1:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("13", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void C3Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 2:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("14", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void C4Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 3:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("15", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void C5Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 4:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("16", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void C6Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 5:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("17", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void C7Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 6:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("18", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void C8Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 7:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("19", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void C9Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 8:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("20", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void C10Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 9:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("21", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void C11Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 10:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("22", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void C12Bulk_Click(object sender, EventArgs e)
+        {
+            for (int k = 24; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 11:
+                        {
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = SetupTable.Controls.Find("23", true)[0].Text;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
         }
     }
 }
