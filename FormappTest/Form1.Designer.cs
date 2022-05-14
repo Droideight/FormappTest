@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Tab = new System.Windows.Forms.TabControl();
             this.MainTab = new System.Windows.Forms.TabPage();
             this.infobox = new System.Windows.Forms.Label();
@@ -75,57 +75,63 @@
             this.DistrictBox = new System.Windows.Forms.TextBox();
             this.SetupTable = new System.Windows.Forms.TableLayoutPanel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.PartyColorButton2 = new System.Windows.Forms.Button();
-            this.PartyColorButton1 = new System.Windows.Forms.Button();
-            this.PartyColorBox2 = new System.Windows.Forms.ComboBox();
-            this.PartyColorBox1 = new System.Windows.Forms.ComboBox();
-            this.PartyColor2 = new System.Windows.Forms.Label();
-            this.PartyColor1 = new System.Windows.Forms.Label();
-            this.PartySet2 = new System.Windows.Forms.Button();
-            this.PartySet1 = new System.Windows.Forms.Button();
-            this.PartyBox2 = new System.Windows.Forms.TextBox();
-            this.Party2Label = new System.Windows.Forms.Label();
-            this.PartyBox1 = new System.Windows.Forms.TextBox();
-            this.Party1Label = new System.Windows.Forms.Label();
-            this.Btblabelcount = new System.Windows.Forms.Label();
-            this.VTPlabelcount = new System.Windows.Forms.Label();
+            this.advancedsetting = new System.Windows.Forms.GroupBox();
+            this.loadsettingtxt = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.loadsettingtxtbox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.electionbegintime = new System.Windows.Forms.Label();
+            this.Tallystartset = new System.Windows.Forms.Button();
+            this.Tallystartbox = new System.Windows.Forms.TextBox();
+            this.tallystarthr = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.GameplaySettingsHelp = new System.Windows.Forms.Label();
+            this.btbvarietyq = new System.Windows.Forms.Button();
+            this.vtpratioq = new System.Windows.Forms.Button();
+            this.inintervalq = new System.Windows.Forms.Button();
+            this.ininterval = new System.Windows.Forms.Label();
+            this.vtpratio = new System.Windows.Forms.Label();
             this.INintervallabelcount = new System.Windows.Forms.Label();
+            this.VTPlabelcount = new System.Windows.Forms.Label();
+            this.Btblabelcount = new System.Windows.Forms.Label();
+            this.btblabel = new System.Windows.Forms.Label();
+            this.IntervalBox = new System.Windows.Forms.TextBox();
+            this.VTPBox = new System.Windows.Forms.TextBox();
+            this.btbbox = new System.Windows.Forms.TextBox();
+            this.InButton = new System.Windows.Forms.Button();
+            this.btbbutton = new System.Windows.Forms.Button();
+            this.VTPButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.PartyColorButton2 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.PartyColorButton1 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.PartyColorBox2 = new System.Windows.Forms.ComboBox();
+            this.RaceTitleBox = new System.Windows.Forms.TextBox();
+            this.PartyColorBox1 = new System.Windows.Forms.ComboBox();
+            this.Can1Box = new System.Windows.Forms.TextBox();
+            this.PartyColor2 = new System.Windows.Forms.Label();
+            this.Can2Box = new System.Windows.Forms.TextBox();
+            this.PartyColor1 = new System.Windows.Forms.Label();
+            this.RaceTitleButton = new System.Windows.Forms.Button();
+            this.PartySet2 = new System.Windows.Forms.Button();
+            this.Can1Button = new System.Windows.Forms.Button();
+            this.PartySet1 = new System.Windows.Forms.Button();
+            this.CAN2Button = new System.Windows.Forms.Button();
+            this.PartyBox2 = new System.Windows.Forms.TextBox();
+            this.Party1Label = new System.Windows.Forms.Label();
+            this.PartyBox1 = new System.Windows.Forms.TextBox();
+            this.Party2Label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btbbutton = new System.Windows.Forms.Button();
-            this.btbbox = new System.Windows.Forms.TextBox();
-            this.btblabel = new System.Windows.Forms.Label();
-            this.VTPButton = new System.Windows.Forms.Button();
-            this.InButton = new System.Windows.Forms.Button();
-            this.VTPBox = new System.Windows.Forms.TextBox();
-            this.IntervalBox = new System.Windows.Forms.TextBox();
-            this.vtpratio = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.CAN2Button = new System.Windows.Forms.Button();
-            this.Can2Box = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.Can1Button = new System.Windows.Forms.Button();
-            this.Can1Box = new System.Windows.Forms.TextBox();
-            this.RaceTitleButton = new System.Windows.Forms.Button();
-            this.RaceTitleBox = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ininterval = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.inintervalq = new System.Windows.Forms.Button();
-            this.vtpratioq = new System.Windows.Forms.Button();
-            this.btbvarietyq = new System.Windows.Forms.Button();
-            this.GameplaySettingsHelp = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tallystarthr = new System.Windows.Forms.Button();
-            this.Tallystartbox = new System.Windows.Forms.TextBox();
-            this.Tallystartset = new System.Windows.Forms.Button();
-            this.electionbegintime = new System.Windows.Forms.Label();
-            this.advancedsetting = new System.Windows.Forms.GroupBox();
-            this.loadsettingtxtbox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.loadsettingtxt = new System.Windows.Forms.Button();
+            this.writetxtbutton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.Settingstxthelp = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.AdvancedHelp = new System.Windows.Forms.Label();
             this.Tab.SuspendLayout();
             this.MainTab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -135,9 +141,9 @@
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.advancedsetting.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tab
@@ -432,27 +438,27 @@
             // livevotechart
             // 
             this.livevotechart.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.Orange;
-            chartArea1.AxisX.LineWidth = 4;
-            chartArea1.AxisY.Crossing = 0D;
-            chartArea1.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea1.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea1.BorderColor = System.Drawing.Color.DarkGray;
-            chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea1.Name = "ChartArea1";
-            this.livevotechart.ChartAreas.Add(chartArea1);
+            chartArea4.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea4.AxisX.LineColor = System.Drawing.Color.Orange;
+            chartArea4.AxisX.LineWidth = 4;
+            chartArea4.AxisY.Crossing = 0D;
+            chartArea4.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            chartArea4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea4.BorderColor = System.Drawing.Color.DarkGray;
+            chartArea4.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea4.Name = "ChartArea1";
+            this.livevotechart.ChartAreas.Add(chartArea4);
             this.livevotechart.Location = new System.Drawing.Point(24, 313);
             this.livevotechart.Name = "livevotechart";
             this.livevotechart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series1.BorderWidth = 2;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.Red;
-            series1.Name = "Result_Difference";
-            this.livevotechart.Series.Add(series1);
+            series4.BorderWidth = 2;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Red;
+            series4.Name = "Result_Difference";
+            this.livevotechart.Series.Add(series4);
             this.livevotechart.Size = new System.Drawing.Size(680, 332);
             this.livevotechart.TabIndex = 3;
             this.livevotechart.Text = "chart1";
@@ -719,8 +725,8 @@
             // 
             this.SetupTable.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SetupTable.AutoScroll = true;
-            this.SetupTable.AutoScrollMargin = new System.Drawing.Size(10, 10);
-            this.SetupTable.AutoScrollMinSize = new System.Drawing.Size(10, 10);
+            this.SetupTable.AutoScrollMargin = new System.Drawing.Size(5, 5);
+            this.SetupTable.AutoScrollMinSize = new System.Drawing.Size(5, 5);
             this.SetupTable.AutoSize = true;
             this.SetupTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SetupTable.BackColor = System.Drawing.Color.LightGray;
@@ -1015,371 +1021,49 @@
             this.tabPage3.Text = "Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // PartyColorButton2
-            // 
-            this.PartyColorButton2.Location = new System.Drawing.Point(1063, 152);
-            this.PartyColorButton2.Name = "PartyColorButton2";
-            this.PartyColorButton2.Size = new System.Drawing.Size(46, 34);
-            this.PartyColorButton2.TabIndex = 134;
-            this.PartyColorButton2.Text = "Set";
-            this.PartyColorButton2.UseVisualStyleBackColor = true;
-            this.PartyColorButton2.Click += new System.EventHandler(this.PartyColorButton2_Click);
-            // 
-            // PartyColorButton1
-            // 
-            this.PartyColorButton1.Location = new System.Drawing.Point(1063, 100);
-            this.PartyColorButton1.Name = "PartyColorButton1";
-            this.PartyColorButton1.Size = new System.Drawing.Size(46, 34);
-            this.PartyColorButton1.TabIndex = 133;
-            this.PartyColorButton1.Text = "Set";
-            this.PartyColorButton1.UseVisualStyleBackColor = true;
-            this.PartyColorButton1.Click += new System.EventHandler(this.PartyColorButton1_Click);
-            // 
-            // PartyColorBox2
-            // 
-            this.PartyColorBox2.FormattingEnabled = true;
-            this.PartyColorBox2.Items.AddRange(new object[] {
-            "Blue",
-            "Red",
-            "Green",
-            "Orange",
-            "Purple",
-            "Black",
-            "White",
-            "Gray"});
-            this.PartyColorBox2.Location = new System.Drawing.Point(925, 152);
-            this.PartyColorBox2.Name = "PartyColorBox2";
-            this.PartyColorBox2.Size = new System.Drawing.Size(121, 31);
-            this.PartyColorBox2.TabIndex = 132;
-            this.PartyColorBox2.Text = "Blue";
-            // 
-            // PartyColorBox1
-            // 
-            this.PartyColorBox1.FormattingEnabled = true;
-            this.PartyColorBox1.Items.AddRange(new object[] {
-            "Red",
-            "Blue",
-            "Green",
-            "Orange",
-            "Purple",
-            "Black",
-            "White",
-            "Gray"});
-            this.PartyColorBox1.Location = new System.Drawing.Point(925, 100);
-            this.PartyColorBox1.Name = "PartyColorBox1";
-            this.PartyColorBox1.Size = new System.Drawing.Size(121, 31);
-            this.PartyColorBox1.TabIndex = 131;
-            this.PartyColorBox1.Text = "Red";
-            // 
-            // PartyColor2
-            // 
-            this.PartyColor2.AutoSize = true;
-            this.PartyColor2.Location = new System.Drawing.Point(858, 152);
-            this.PartyColor2.Name = "PartyColor2";
-            this.PartyColor2.Size = new System.Drawing.Size(61, 23);
-            this.PartyColor2.TabIndex = 130;
-            this.PartyColor2.Text = "Color:";
-            // 
-            // PartyColor1
-            // 
-            this.PartyColor1.AutoSize = true;
-            this.PartyColor1.Location = new System.Drawing.Point(858, 100);
-            this.PartyColor1.Name = "PartyColor1";
-            this.PartyColor1.Size = new System.Drawing.Size(61, 23);
-            this.PartyColor1.TabIndex = 129;
-            this.PartyColor1.Text = "Color:";
-            // 
-            // PartySet2
-            // 
-            this.PartySet2.Location = new System.Drawing.Point(773, 149);
-            this.PartySet2.Name = "PartySet2";
-            this.PartySet2.Size = new System.Drawing.Size(46, 34);
-            this.PartySet2.TabIndex = 128;
-            this.PartySet2.Text = "Set";
-            this.PartySet2.UseVisualStyleBackColor = true;
-            this.PartySet2.Click += new System.EventHandler(this.PartySet2_Click);
-            // 
-            // PartySet1
-            // 
-            this.PartySet1.Location = new System.Drawing.Point(773, 100);
-            this.PartySet1.Name = "PartySet1";
-            this.PartySet1.Size = new System.Drawing.Size(46, 34);
-            this.PartySet1.TabIndex = 127;
-            this.PartySet1.Text = "Set";
-            this.PartySet1.UseVisualStyleBackColor = true;
-            this.PartySet1.Click += new System.EventHandler(this.PartySet1_Click);
-            // 
-            // PartyBox2
-            // 
-            this.PartyBox2.Location = new System.Drawing.Point(664, 152);
-            this.PartyBox2.Name = "PartyBox2";
-            this.PartyBox2.Size = new System.Drawing.Size(89, 31);
-            this.PartyBox2.TabIndex = 126;
-            // 
-            // Party2Label
-            // 
-            this.Party2Label.AutoSize = true;
-            this.Party2Label.Location = new System.Drawing.Point(597, 152);
-            this.Party2Label.Name = "Party2Label";
-            this.Party2Label.Size = new System.Drawing.Size(61, 23);
-            this.Party2Label.TabIndex = 125;
-            this.Party2Label.Text = "Party:";
-            // 
-            // PartyBox1
-            // 
-            this.PartyBox1.Location = new System.Drawing.Point(664, 100);
-            this.PartyBox1.Name = "PartyBox1";
-            this.PartyBox1.Size = new System.Drawing.Size(89, 31);
-            this.PartyBox1.TabIndex = 124;
-            // 
-            // Party1Label
-            // 
-            this.Party1Label.AutoSize = true;
-            this.Party1Label.Location = new System.Drawing.Point(597, 100);
-            this.Party1Label.Name = "Party1Label";
-            this.Party1Label.Size = new System.Drawing.Size(61, 23);
-            this.Party1Label.TabIndex = 123;
-            this.Party1Label.Text = "Party:";
-            // 
-            // Btblabelcount
-            // 
-            this.Btblabelcount.AutoSize = true;
-            this.Btblabelcount.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.Btblabelcount.Location = new System.Drawing.Point(424, 180);
-            this.Btblabelcount.Name = "Btblabelcount";
-            this.Btblabelcount.Size = new System.Drawing.Size(37, 23);
-            this.Btblabelcount.TabIndex = 122;
-            this.Btblabelcount.Text = "(1)";
-            // 
-            // VTPlabelcount
-            // 
-            this.VTPlabelcount.AutoSize = true;
-            this.VTPlabelcount.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.VTPlabelcount.Location = new System.Drawing.Point(423, 120);
-            this.VTPlabelcount.Name = "VTPlabelcount";
-            this.VTPlabelcount.Size = new System.Drawing.Size(52, 23);
-            this.VTPlabelcount.TabIndex = 121;
-            this.VTPlabelcount.Text = "(0.8)";
-            // 
-            // INintervallabelcount
-            // 
-            this.INintervallabelcount.AutoSize = true;
-            this.INintervallabelcount.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.INintervallabelcount.Location = new System.Drawing.Point(424, 60);
-            this.INintervallabelcount.Name = "INintervallabelcount";
-            this.INintervallabelcount.Size = new System.Drawing.Size(96, 23);
-            this.INintervallabelcount.TabIndex = 120;
-            this.INintervallabelcount.Text = "(1000ms)";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(648, 188);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 23);
-            this.label3.TabIndex = 119;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(648, 108);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 23);
-            this.label1.TabIndex = 118;
-            // 
-            // btbbutton
-            // 
-            this.btbbutton.Location = new System.Drawing.Point(346, 180);
-            this.btbbutton.Name = "btbbutton";
-            this.btbbutton.Size = new System.Drawing.Size(72, 34);
-            this.btbbutton.TabIndex = 117;
-            this.btbbutton.Text = "Enter";
-            this.btbbutton.UseVisualStyleBackColor = true;
-            this.btbbutton.Click += new System.EventHandler(this.btbbutton_Click);
-            // 
-            // btbbox
-            // 
-            this.btbbox.Location = new System.Drawing.Point(214, 180);
-            this.btbbox.Name = "btbbox";
-            this.btbbox.Size = new System.Drawing.Size(126, 31);
-            this.btbbox.TabIndex = 116;
-            // 
-            // btblabel
-            // 
-            this.btblabel.AutoSize = true;
-            this.btblabel.Location = new System.Drawing.Point(24, 180);
-            this.btblabel.Name = "btblabel";
-            this.btblabel.Size = new System.Drawing.Size(127, 23);
-            this.btblabel.TabIndex = 115;
-            this.btblabel.Text = "B-T-B Variety:";
-            // 
-            // VTPButton
-            // 
-            this.VTPButton.Location = new System.Drawing.Point(346, 120);
-            this.VTPButton.Name = "VTPButton";
-            this.VTPButton.Size = new System.Drawing.Size(72, 34);
-            this.VTPButton.TabIndex = 114;
-            this.VTPButton.Text = "Enter";
-            this.VTPButton.UseVisualStyleBackColor = true;
-            this.VTPButton.Click += new System.EventHandler(this.VTPButton_Click);
-            // 
-            // InButton
-            // 
-            this.InButton.Location = new System.Drawing.Point(346, 60);
-            this.InButton.Name = "InButton";
-            this.InButton.Size = new System.Drawing.Size(72, 34);
-            this.InButton.TabIndex = 113;
-            this.InButton.Text = "Enter";
-            this.InButton.UseVisualStyleBackColor = true;
-            this.InButton.Click += new System.EventHandler(this.InButton_Click);
-            // 
-            // VTPBox
-            // 
-            this.VTPBox.Location = new System.Drawing.Point(214, 120);
-            this.VTPBox.Name = "VTPBox";
-            this.VTPBox.Size = new System.Drawing.Size(126, 31);
-            this.VTPBox.TabIndex = 112;
-            // 
-            // IntervalBox
-            // 
-            this.IntervalBox.Location = new System.Drawing.Point(214, 60);
-            this.IntervalBox.Name = "IntervalBox";
-            this.IntervalBox.Size = new System.Drawing.Size(126, 31);
-            this.IntervalBox.TabIndex = 111;
-            // 
-            // vtpratio
-            // 
-            this.vtpratio.AutoSize = true;
-            this.vtpratio.Location = new System.Drawing.Point(24, 120);
-            this.vtpratio.Name = "vtpratio";
-            this.vtpratio.Size = new System.Drawing.Size(120, 23);
-            this.vtpratio.TabIndex = 110;
-            this.vtpratio.Text = "V-To-P Ratio:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(24, 152);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(121, 23);
-            this.label13.TabIndex = 109;
-            this.label13.Text = "Can. 2 Name:";
-            // 
-            // CAN2Button
-            // 
-            this.CAN2Button.Location = new System.Drawing.Point(451, 152);
-            this.CAN2Button.Name = "CAN2Button";
-            this.CAN2Button.Size = new System.Drawing.Size(82, 34);
-            this.CAN2Button.TabIndex = 108;
-            this.CAN2Button.Text = "Enter";
-            this.CAN2Button.UseVisualStyleBackColor = true;
-            this.CAN2Button.Click += new System.EventHandler(this.CAN2Button_Click);
-            // 
-            // Can2Box
-            // 
-            this.Can2Box.Location = new System.Drawing.Point(149, 152);
-            this.Can2Box.Name = "Can2Box";
-            this.Can2Box.Size = new System.Drawing.Size(280, 31);
-            this.Can2Box.TabIndex = 107;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(24, 100);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(121, 23);
-            this.label12.TabIndex = 106;
-            this.label12.Text = "Can. 1 Name:";
-            // 
-            // Can1Button
-            // 
-            this.Can1Button.Location = new System.Drawing.Point(451, 100);
-            this.Can1Button.Name = "Can1Button";
-            this.Can1Button.Size = new System.Drawing.Size(82, 34);
-            this.Can1Button.TabIndex = 105;
-            this.Can1Button.Text = "Enter";
-            this.Can1Button.UseVisualStyleBackColor = true;
-            this.Can1Button.Click += new System.EventHandler(this.Can1Button_Click);
-            // 
-            // Can1Box
-            // 
-            this.Can1Box.Location = new System.Drawing.Point(149, 100);
-            this.Can1Box.Name = "Can1Box";
-            this.Can1Box.Size = new System.Drawing.Size(280, 31);
-            this.Can1Box.TabIndex = 104;
-            // 
-            // RaceTitleButton
-            // 
-            this.RaceTitleButton.Location = new System.Drawing.Point(773, 45);
-            this.RaceTitleButton.Name = "RaceTitleButton";
-            this.RaceTitleButton.Size = new System.Drawing.Size(82, 34);
-            this.RaceTitleButton.TabIndex = 103;
-            this.RaceTitleButton.Text = "Enter";
-            this.RaceTitleButton.UseVisualStyleBackColor = true;
-            this.RaceTitleButton.Click += new System.EventHandler(this.RaceTitleButton_Click);
-            // 
-            // RaceTitleBox
-            // 
-            this.RaceTitleBox.Location = new System.Drawing.Point(149, 45);
-            this.RaceTitleBox.Name = "RaceTitleBox";
-            this.RaceTitleBox.Size = new System.Drawing.Size(604, 31);
-            this.RaceTitleBox.TabIndex = 102;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(24, 48);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 23);
-            this.label11.TabIndex = 101;
-            this.label11.Text = "Race Title:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 226);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 23);
-            this.label2.TabIndex = 1;
-            // 
-            // ininterval
-            // 
-            this.ininterval.AutoSize = true;
-            this.ininterval.Location = new System.Drawing.Point(24, 60);
-            this.ininterval.Name = "ininterval";
-            this.ininterval.Size = new System.Drawing.Size(103, 23);
-            this.ininterval.TabIndex = 0;
-            this.ininterval.Text = "In Interval:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.PartyColorButton2);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.PartyColorButton1);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.PartyColorBox2);
-            this.groupBox1.Controls.Add(this.RaceTitleBox);
-            this.groupBox1.Controls.Add(this.PartyColorBox1);
-            this.groupBox1.Controls.Add(this.Can1Box);
-            this.groupBox1.Controls.Add(this.PartyColor2);
-            this.groupBox1.Controls.Add(this.Can2Box);
-            this.groupBox1.Controls.Add(this.PartyColor1);
-            this.groupBox1.Controls.Add(this.RaceTitleButton);
-            this.groupBox1.Controls.Add(this.PartySet2);
-            this.groupBox1.Controls.Add(this.Can1Button);
-            this.groupBox1.Controls.Add(this.PartySet1);
-            this.groupBox1.Controls.Add(this.CAN2Button);
-            this.groupBox1.Controls.Add(this.PartyBox2);
-            this.groupBox1.Controls.Add(this.Party1Label);
-            this.groupBox1.Controls.Add(this.PartyBox1);
-            this.groupBox1.Controls.Add(this.Party2Label);
-            this.groupBox1.Location = new System.Drawing.Point(77, 55);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1178, 210);
-            this.groupBox1.TabIndex = 135;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Race Information";
+            // advancedsetting
+            // 
+            this.advancedsetting.Controls.Add(this.AdvancedHelp);
+            this.advancedsetting.Controls.Add(this.button2);
+            this.advancedsetting.Controls.Add(this.Settingstxthelp);
+            this.advancedsetting.Controls.Add(this.hScrollBar1);
+            this.advancedsetting.Controls.Add(this.label6);
+            this.advancedsetting.Controls.Add(this.writetxtbutton);
+            this.advancedsetting.Controls.Add(this.loadsettingtxt);
+            this.advancedsetting.Controls.Add(this.label5);
+            this.advancedsetting.Controls.Add(this.loadsettingtxtbox);
+            this.advancedsetting.Location = new System.Drawing.Point(652, 306);
+            this.advancedsetting.Name = "advancedsetting";
+            this.advancedsetting.Size = new System.Drawing.Size(603, 348);
+            this.advancedsetting.TabIndex = 137;
+            this.advancedsetting.TabStop = false;
+            this.advancedsetting.Text = "Advanced Settings";
+            // 
+            // loadsettingtxt
+            // 
+            this.loadsettingtxt.Location = new System.Drawing.Point(405, 120);
+            this.loadsettingtxt.Name = "loadsettingtxt";
+            this.loadsettingtxt.Size = new System.Drawing.Size(72, 34);
+            this.loadsettingtxt.TabIndex = 115;
+            this.loadsettingtxt.Text = "Load";
+            this.loadsettingtxt.UseVisualStyleBackColor = true;
+            this.loadsettingtxt.Click += new System.EventHandler(this.loadsettingtxt_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(42, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 23);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Settings.txt";
+            // 
+            // loadsettingtxtbox
+            // 
+            this.loadsettingtxtbox.Location = new System.Drawing.Point(46, 120);
+            this.loadsettingtxtbox.Name = "loadsettingtxtbox";
+            this.loadsettingtxtbox.Size = new System.Drawing.Size(353, 31);
+            this.loadsettingtxtbox.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -1411,63 +1095,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gameplay Settings";
             // 
-            // inintervalq
+            // electionbegintime
             // 
-            this.inintervalq.BackColor = System.Drawing.Color.MistyRose;
-            this.inintervalq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.inintervalq.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.inintervalq.Location = new System.Drawing.Point(133, 55);
-            this.inintervalq.Name = "inintervalq";
-            this.inintervalq.Size = new System.Drawing.Size(29, 35);
-            this.inintervalq.TabIndex = 123;
-            this.inintervalq.Text = "?";
-            this.inintervalq.UseVisualStyleBackColor = false;
-            this.inintervalq.Click += new System.EventHandler(this.inintervalq_Click);
+            this.electionbegintime.AutoSize = true;
+            this.electionbegintime.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.electionbegintime.Location = new System.Drawing.Point(424, 240);
+            this.electionbegintime.Name = "electionbegintime";
+            this.electionbegintime.Size = new System.Drawing.Size(75, 23);
+            this.electionbegintime.TabIndex = 143;
+            this.electionbegintime.Text = "(19:00)";
             // 
-            // vtpratioq
+            // Tallystartset
             // 
-            this.vtpratioq.BackColor = System.Drawing.Color.MistyRose;
-            this.vtpratioq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.vtpratioq.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.vtpratioq.Location = new System.Drawing.Point(150, 115);
-            this.vtpratioq.Name = "vtpratioq";
-            this.vtpratioq.Size = new System.Drawing.Size(29, 37);
-            this.vtpratioq.TabIndex = 137;
-            this.vtpratioq.Text = "?";
-            this.vtpratioq.UseVisualStyleBackColor = false;
-            this.vtpratioq.Click += new System.EventHandler(this.vtpratioq_Click);
+            this.Tallystartset.Location = new System.Drawing.Point(346, 240);
+            this.Tallystartset.Name = "Tallystartset";
+            this.Tallystartset.Size = new System.Drawing.Size(72, 34);
+            this.Tallystartset.TabIndex = 142;
+            this.Tallystartset.Text = "Enter";
+            this.Tallystartset.UseVisualStyleBackColor = true;
+            this.Tallystartset.Click += new System.EventHandler(this.Tallystartset_Click);
             // 
-            // btbvarietyq
+            // Tallystartbox
             // 
-            this.btbvarietyq.BackColor = System.Drawing.Color.MistyRose;
-            this.btbvarietyq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btbvarietyq.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.btbvarietyq.Location = new System.Drawing.Point(149, 175);
-            this.btbvarietyq.Name = "btbvarietyq";
-            this.btbvarietyq.Size = new System.Drawing.Size(29, 32);
-            this.btbvarietyq.TabIndex = 138;
-            this.btbvarietyq.Text = "?";
-            this.btbvarietyq.UseVisualStyleBackColor = false;
-            this.btbvarietyq.Click += new System.EventHandler(this.btbvarietyq_Click);
-            // 
-            // GameplaySettingsHelp
-            // 
-            this.GameplaySettingsHelp.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.GameplaySettingsHelp.Location = new System.Drawing.Point(28, 275);
-            this.GameplaySettingsHelp.Name = "GameplaySettingsHelp";
-            this.GameplaySettingsHelp.Size = new System.Drawing.Size(477, 60);
-            this.GameplaySettingsHelp.TabIndex = 139;
-            this.GameplaySettingsHelp.Text = "General Settings for the Program.";
-            this.GameplaySettingsHelp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 240);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 23);
-            this.label4.TabIndex = 137;
-            this.label4.Text = "Tally Start:";
+            this.Tallystartbox.Location = new System.Drawing.Point(214, 240);
+            this.Tallystartbox.Name = "Tallystartbox";
+            this.Tallystartbox.Size = new System.Drawing.Size(126, 31);
+            this.Tallystartbox.TabIndex = 141;
             // 
             // tallystarthr
             // 
@@ -1482,70 +1135,494 @@
             this.tallystarthr.UseVisualStyleBackColor = false;
             this.tallystarthr.Click += new System.EventHandler(this.tallystarthr_Click);
             // 
-            // Tallystartbox
+            // label4
             // 
-            this.Tallystartbox.Location = new System.Drawing.Point(214, 240);
-            this.Tallystartbox.Name = "Tallystartbox";
-            this.Tallystartbox.Size = new System.Drawing.Size(126, 31);
-            this.Tallystartbox.TabIndex = 141;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 240);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 23);
+            this.label4.TabIndex = 137;
+            this.label4.Text = "Tally Start:";
             // 
-            // Tallystartset
+            // GameplaySettingsHelp
             // 
-            this.Tallystartset.Location = new System.Drawing.Point(346, 240);
-            this.Tallystartset.Name = "Tallystartset";
-            this.Tallystartset.Size = new System.Drawing.Size(72, 34);
-            this.Tallystartset.TabIndex = 142;
-            this.Tallystartset.Text = "Enter";
-            this.Tallystartset.UseVisualStyleBackColor = true;
-            this.Tallystartset.Click += new System.EventHandler(this.Tallystartset_Click);
+            this.GameplaySettingsHelp.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.GameplaySettingsHelp.Location = new System.Drawing.Point(28, 275);
+            this.GameplaySettingsHelp.Name = "GameplaySettingsHelp";
+            this.GameplaySettingsHelp.Size = new System.Drawing.Size(477, 60);
+            this.GameplaySettingsHelp.TabIndex = 139;
+            this.GameplaySettingsHelp.Text = "General Settings for the Program.";
+            this.GameplaySettingsHelp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // electionbegintime
+            // btbvarietyq
             // 
-            this.electionbegintime.AutoSize = true;
-            this.electionbegintime.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.electionbegintime.Location = new System.Drawing.Point(424, 240);
-            this.electionbegintime.Name = "electionbegintime";
-            this.electionbegintime.Size = new System.Drawing.Size(75, 23);
-            this.electionbegintime.TabIndex = 143;
-            this.electionbegintime.Text = "(19:00)";
+            this.btbvarietyq.BackColor = System.Drawing.Color.MistyRose;
+            this.btbvarietyq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btbvarietyq.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.btbvarietyq.Location = new System.Drawing.Point(149, 175);
+            this.btbvarietyq.Name = "btbvarietyq";
+            this.btbvarietyq.Size = new System.Drawing.Size(29, 32);
+            this.btbvarietyq.TabIndex = 138;
+            this.btbvarietyq.Text = "?";
+            this.btbvarietyq.UseVisualStyleBackColor = false;
+            this.btbvarietyq.Click += new System.EventHandler(this.btbvarietyq_Click);
             // 
-            // advancedsetting
+            // vtpratioq
             // 
-            this.advancedsetting.Controls.Add(this.loadsettingtxt);
-            this.advancedsetting.Controls.Add(this.label5);
-            this.advancedsetting.Controls.Add(this.loadsettingtxtbox);
-            this.advancedsetting.Location = new System.Drawing.Point(652, 306);
-            this.advancedsetting.Name = "advancedsetting";
-            this.advancedsetting.Size = new System.Drawing.Size(603, 348);
-            this.advancedsetting.TabIndex = 137;
-            this.advancedsetting.TabStop = false;
-            this.advancedsetting.Text = "Advanced Settings";
+            this.vtpratioq.BackColor = System.Drawing.Color.MistyRose;
+            this.vtpratioq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.vtpratioq.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.vtpratioq.Location = new System.Drawing.Point(150, 115);
+            this.vtpratioq.Name = "vtpratioq";
+            this.vtpratioq.Size = new System.Drawing.Size(29, 37);
+            this.vtpratioq.TabIndex = 137;
+            this.vtpratioq.Text = "?";
+            this.vtpratioq.UseVisualStyleBackColor = false;
+            this.vtpratioq.Click += new System.EventHandler(this.vtpratioq_Click);
             // 
-            // loadsettingtxtbox
+            // inintervalq
             // 
-            this.loadsettingtxtbox.Location = new System.Drawing.Point(46, 120);
-            this.loadsettingtxtbox.Name = "loadsettingtxtbox";
-            this.loadsettingtxtbox.Size = new System.Drawing.Size(405, 31);
-            this.loadsettingtxtbox.TabIndex = 0;
+            this.inintervalq.BackColor = System.Drawing.Color.MistyRose;
+            this.inintervalq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.inintervalq.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.inintervalq.Location = new System.Drawing.Point(133, 55);
+            this.inintervalq.Name = "inintervalq";
+            this.inintervalq.Size = new System.Drawing.Size(29, 35);
+            this.inintervalq.TabIndex = 123;
+            this.inintervalq.Text = "?";
+            this.inintervalq.UseVisualStyleBackColor = false;
+            this.inintervalq.Click += new System.EventHandler(this.inintervalq_Click);
             // 
-            // label5
+            // ininterval
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(42, 60);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(155, 23);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Load Settings.txt";
+            this.ininterval.AutoSize = true;
+            this.ininterval.Location = new System.Drawing.Point(24, 60);
+            this.ininterval.Name = "ininterval";
+            this.ininterval.Size = new System.Drawing.Size(103, 23);
+            this.ininterval.TabIndex = 0;
+            this.ininterval.Text = "In Interval:";
             // 
-            // loadsettingtxt
+            // vtpratio
             // 
-            this.loadsettingtxt.Location = new System.Drawing.Point(471, 120);
-            this.loadsettingtxt.Name = "loadsettingtxt";
-            this.loadsettingtxt.Size = new System.Drawing.Size(72, 34);
-            this.loadsettingtxt.TabIndex = 115;
-            this.loadsettingtxt.Text = "Enter";
-            this.loadsettingtxt.UseVisualStyleBackColor = true;
-            this.loadsettingtxt.Click += new System.EventHandler(this.loadsettingtxt_Click);
+            this.vtpratio.AutoSize = true;
+            this.vtpratio.Location = new System.Drawing.Point(24, 120);
+            this.vtpratio.Name = "vtpratio";
+            this.vtpratio.Size = new System.Drawing.Size(120, 23);
+            this.vtpratio.TabIndex = 110;
+            this.vtpratio.Text = "V-To-P Ratio:";
+            // 
+            // INintervallabelcount
+            // 
+            this.INintervallabelcount.AutoSize = true;
+            this.INintervallabelcount.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.INintervallabelcount.Location = new System.Drawing.Point(424, 60);
+            this.INintervallabelcount.Name = "INintervallabelcount";
+            this.INintervallabelcount.Size = new System.Drawing.Size(96, 23);
+            this.INintervallabelcount.TabIndex = 120;
+            this.INintervallabelcount.Text = "(1000ms)";
+            // 
+            // VTPlabelcount
+            // 
+            this.VTPlabelcount.AutoSize = true;
+            this.VTPlabelcount.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.VTPlabelcount.Location = new System.Drawing.Point(423, 120);
+            this.VTPlabelcount.Name = "VTPlabelcount";
+            this.VTPlabelcount.Size = new System.Drawing.Size(52, 23);
+            this.VTPlabelcount.TabIndex = 121;
+            this.VTPlabelcount.Text = "(0.8)";
+            // 
+            // Btblabelcount
+            // 
+            this.Btblabelcount.AutoSize = true;
+            this.Btblabelcount.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.Btblabelcount.Location = new System.Drawing.Point(424, 180);
+            this.Btblabelcount.Name = "Btblabelcount";
+            this.Btblabelcount.Size = new System.Drawing.Size(37, 23);
+            this.Btblabelcount.TabIndex = 122;
+            this.Btblabelcount.Text = "(1)";
+            // 
+            // btblabel
+            // 
+            this.btblabel.AutoSize = true;
+            this.btblabel.Location = new System.Drawing.Point(24, 180);
+            this.btblabel.Name = "btblabel";
+            this.btblabel.Size = new System.Drawing.Size(127, 23);
+            this.btblabel.TabIndex = 115;
+            this.btblabel.Text = "B-T-B Variety:";
+            // 
+            // IntervalBox
+            // 
+            this.IntervalBox.Location = new System.Drawing.Point(214, 60);
+            this.IntervalBox.Name = "IntervalBox";
+            this.IntervalBox.Size = new System.Drawing.Size(126, 31);
+            this.IntervalBox.TabIndex = 111;
+            // 
+            // VTPBox
+            // 
+            this.VTPBox.Location = new System.Drawing.Point(214, 120);
+            this.VTPBox.Name = "VTPBox";
+            this.VTPBox.Size = new System.Drawing.Size(126, 31);
+            this.VTPBox.TabIndex = 112;
+            // 
+            // btbbox
+            // 
+            this.btbbox.Location = new System.Drawing.Point(214, 180);
+            this.btbbox.Name = "btbbox";
+            this.btbbox.Size = new System.Drawing.Size(126, 31);
+            this.btbbox.TabIndex = 116;
+            // 
+            // InButton
+            // 
+            this.InButton.Location = new System.Drawing.Point(346, 60);
+            this.InButton.Name = "InButton";
+            this.InButton.Size = new System.Drawing.Size(72, 34);
+            this.InButton.TabIndex = 113;
+            this.InButton.Text = "Enter";
+            this.InButton.UseVisualStyleBackColor = true;
+            this.InButton.Click += new System.EventHandler(this.InButton_Click);
+            // 
+            // btbbutton
+            // 
+            this.btbbutton.Location = new System.Drawing.Point(346, 180);
+            this.btbbutton.Name = "btbbutton";
+            this.btbbutton.Size = new System.Drawing.Size(72, 34);
+            this.btbbutton.TabIndex = 117;
+            this.btbbutton.Text = "Enter";
+            this.btbbutton.UseVisualStyleBackColor = true;
+            this.btbbutton.Click += new System.EventHandler(this.btbbutton_Click);
+            // 
+            // VTPButton
+            // 
+            this.VTPButton.Location = new System.Drawing.Point(346, 120);
+            this.VTPButton.Name = "VTPButton";
+            this.VTPButton.Size = new System.Drawing.Size(72, 34);
+            this.VTPButton.TabIndex = 114;
+            this.VTPButton.Text = "Enter";
+            this.VTPButton.UseVisualStyleBackColor = true;
+            this.VTPButton.Click += new System.EventHandler(this.VTPButton_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.PartyColorButton2);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.PartyColorButton1);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.PartyColorBox2);
+            this.groupBox1.Controls.Add(this.RaceTitleBox);
+            this.groupBox1.Controls.Add(this.PartyColorBox1);
+            this.groupBox1.Controls.Add(this.Can1Box);
+            this.groupBox1.Controls.Add(this.PartyColor2);
+            this.groupBox1.Controls.Add(this.Can2Box);
+            this.groupBox1.Controls.Add(this.PartyColor1);
+            this.groupBox1.Controls.Add(this.RaceTitleButton);
+            this.groupBox1.Controls.Add(this.PartySet2);
+            this.groupBox1.Controls.Add(this.Can1Button);
+            this.groupBox1.Controls.Add(this.PartySet1);
+            this.groupBox1.Controls.Add(this.CAN2Button);
+            this.groupBox1.Controls.Add(this.PartyBox2);
+            this.groupBox1.Controls.Add(this.Party1Label);
+            this.groupBox1.Controls.Add(this.PartyBox1);
+            this.groupBox1.Controls.Add(this.Party2Label);
+            this.groupBox1.Location = new System.Drawing.Point(77, 55);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1178, 210);
+            this.groupBox1.TabIndex = 135;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Race Information";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(24, 48);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 23);
+            this.label11.TabIndex = 101;
+            this.label11.Text = "Race Title:";
+            // 
+            // PartyColorButton2
+            // 
+            this.PartyColorButton2.Location = new System.Drawing.Point(1063, 152);
+            this.PartyColorButton2.Name = "PartyColorButton2";
+            this.PartyColorButton2.Size = new System.Drawing.Size(46, 34);
+            this.PartyColorButton2.TabIndex = 134;
+            this.PartyColorButton2.Text = "Set";
+            this.PartyColorButton2.UseVisualStyleBackColor = true;
+            this.PartyColorButton2.Click += new System.EventHandler(this.PartyColorButton2_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(24, 100);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(121, 23);
+            this.label12.TabIndex = 106;
+            this.label12.Text = "Can. 1 Name:";
+            // 
+            // PartyColorButton1
+            // 
+            this.PartyColorButton1.Location = new System.Drawing.Point(1063, 100);
+            this.PartyColorButton1.Name = "PartyColorButton1";
+            this.PartyColorButton1.Size = new System.Drawing.Size(46, 34);
+            this.PartyColorButton1.TabIndex = 133;
+            this.PartyColorButton1.Text = "Set";
+            this.PartyColorButton1.UseVisualStyleBackColor = true;
+            this.PartyColorButton1.Click += new System.EventHandler(this.PartyColorButton1_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(24, 152);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(121, 23);
+            this.label13.TabIndex = 109;
+            this.label13.Text = "Can. 2 Name:";
+            // 
+            // PartyColorBox2
+            // 
+            this.PartyColorBox2.FormattingEnabled = true;
+            this.PartyColorBox2.Items.AddRange(new object[] {
+            "Blue",
+            "Red",
+            "Green",
+            "Orange",
+            "Purple",
+            "Black",
+            "White",
+            "Gray"});
+            this.PartyColorBox2.Location = new System.Drawing.Point(925, 152);
+            this.PartyColorBox2.Name = "PartyColorBox2";
+            this.PartyColorBox2.Size = new System.Drawing.Size(121, 31);
+            this.PartyColorBox2.TabIndex = 132;
+            this.PartyColorBox2.Text = "Blue";
+            // 
+            // RaceTitleBox
+            // 
+            this.RaceTitleBox.Location = new System.Drawing.Point(149, 45);
+            this.RaceTitleBox.Name = "RaceTitleBox";
+            this.RaceTitleBox.Size = new System.Drawing.Size(604, 31);
+            this.RaceTitleBox.TabIndex = 102;
+            // 
+            // PartyColorBox1
+            // 
+            this.PartyColorBox1.FormattingEnabled = true;
+            this.PartyColorBox1.Items.AddRange(new object[] {
+            "Red",
+            "Blue",
+            "Green",
+            "Orange",
+            "Purple",
+            "Black",
+            "White",
+            "Gray"});
+            this.PartyColorBox1.Location = new System.Drawing.Point(925, 100);
+            this.PartyColorBox1.Name = "PartyColorBox1";
+            this.PartyColorBox1.Size = new System.Drawing.Size(121, 31);
+            this.PartyColorBox1.TabIndex = 131;
+            this.PartyColorBox1.Text = "Red";
+            // 
+            // Can1Box
+            // 
+            this.Can1Box.Location = new System.Drawing.Point(149, 100);
+            this.Can1Box.Name = "Can1Box";
+            this.Can1Box.Size = new System.Drawing.Size(280, 31);
+            this.Can1Box.TabIndex = 104;
+            // 
+            // PartyColor2
+            // 
+            this.PartyColor2.AutoSize = true;
+            this.PartyColor2.Location = new System.Drawing.Point(858, 152);
+            this.PartyColor2.Name = "PartyColor2";
+            this.PartyColor2.Size = new System.Drawing.Size(61, 23);
+            this.PartyColor2.TabIndex = 130;
+            this.PartyColor2.Text = "Color:";
+            // 
+            // Can2Box
+            // 
+            this.Can2Box.Location = new System.Drawing.Point(149, 152);
+            this.Can2Box.Name = "Can2Box";
+            this.Can2Box.Size = new System.Drawing.Size(280, 31);
+            this.Can2Box.TabIndex = 107;
+            // 
+            // PartyColor1
+            // 
+            this.PartyColor1.AutoSize = true;
+            this.PartyColor1.Location = new System.Drawing.Point(858, 100);
+            this.PartyColor1.Name = "PartyColor1";
+            this.PartyColor1.Size = new System.Drawing.Size(61, 23);
+            this.PartyColor1.TabIndex = 129;
+            this.PartyColor1.Text = "Color:";
+            // 
+            // RaceTitleButton
+            // 
+            this.RaceTitleButton.Location = new System.Drawing.Point(773, 45);
+            this.RaceTitleButton.Name = "RaceTitleButton";
+            this.RaceTitleButton.Size = new System.Drawing.Size(82, 34);
+            this.RaceTitleButton.TabIndex = 103;
+            this.RaceTitleButton.Text = "Enter";
+            this.RaceTitleButton.UseVisualStyleBackColor = true;
+            this.RaceTitleButton.Click += new System.EventHandler(this.RaceTitleButton_Click);
+            // 
+            // PartySet2
+            // 
+            this.PartySet2.Location = new System.Drawing.Point(773, 149);
+            this.PartySet2.Name = "PartySet2";
+            this.PartySet2.Size = new System.Drawing.Size(46, 34);
+            this.PartySet2.TabIndex = 128;
+            this.PartySet2.Text = "Set";
+            this.PartySet2.UseVisualStyleBackColor = true;
+            this.PartySet2.Click += new System.EventHandler(this.PartySet2_Click);
+            // 
+            // Can1Button
+            // 
+            this.Can1Button.Location = new System.Drawing.Point(451, 100);
+            this.Can1Button.Name = "Can1Button";
+            this.Can1Button.Size = new System.Drawing.Size(82, 34);
+            this.Can1Button.TabIndex = 105;
+            this.Can1Button.Text = "Enter";
+            this.Can1Button.UseVisualStyleBackColor = true;
+            this.Can1Button.Click += new System.EventHandler(this.Can1Button_Click);
+            // 
+            // PartySet1
+            // 
+            this.PartySet1.Location = new System.Drawing.Point(773, 100);
+            this.PartySet1.Name = "PartySet1";
+            this.PartySet1.Size = new System.Drawing.Size(46, 34);
+            this.PartySet1.TabIndex = 127;
+            this.PartySet1.Text = "Set";
+            this.PartySet1.UseVisualStyleBackColor = true;
+            this.PartySet1.Click += new System.EventHandler(this.PartySet1_Click);
+            // 
+            // CAN2Button
+            // 
+            this.CAN2Button.Location = new System.Drawing.Point(451, 152);
+            this.CAN2Button.Name = "CAN2Button";
+            this.CAN2Button.Size = new System.Drawing.Size(82, 34);
+            this.CAN2Button.TabIndex = 108;
+            this.CAN2Button.Text = "Enter";
+            this.CAN2Button.UseVisualStyleBackColor = true;
+            this.CAN2Button.Click += new System.EventHandler(this.CAN2Button_Click);
+            // 
+            // PartyBox2
+            // 
+            this.PartyBox2.Location = new System.Drawing.Point(664, 152);
+            this.PartyBox2.Name = "PartyBox2";
+            this.PartyBox2.Size = new System.Drawing.Size(89, 31);
+            this.PartyBox2.TabIndex = 126;
+            // 
+            // Party1Label
+            // 
+            this.Party1Label.AutoSize = true;
+            this.Party1Label.Location = new System.Drawing.Point(597, 100);
+            this.Party1Label.Name = "Party1Label";
+            this.Party1Label.Size = new System.Drawing.Size(61, 23);
+            this.Party1Label.TabIndex = 123;
+            this.Party1Label.Text = "Party:";
+            // 
+            // PartyBox1
+            // 
+            this.PartyBox1.Location = new System.Drawing.Point(664, 100);
+            this.PartyBox1.Name = "PartyBox1";
+            this.PartyBox1.Size = new System.Drawing.Size(89, 31);
+            this.PartyBox1.TabIndex = 124;
+            // 
+            // Party2Label
+            // 
+            this.Party2Label.AutoSize = true;
+            this.Party2Label.Location = new System.Drawing.Point(597, 152);
+            this.Party2Label.Name = "Party2Label";
+            this.Party2Label.Size = new System.Drawing.Size(61, 23);
+            this.Party2Label.TabIndex = 125;
+            this.Party2Label.Text = "Party:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(648, 188);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 23);
+            this.label3.TabIndex = 119;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(648, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 23);
+            this.label1.TabIndex = 118;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(73, 226);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 23);
+            this.label2.TabIndex = 1;
+            // 
+            // writetxtbutton
+            // 
+            this.writetxtbutton.Location = new System.Drawing.Point(488, 120);
+            this.writetxtbutton.Name = "writetxtbutton";
+            this.writetxtbutton.Size = new System.Drawing.Size(72, 34);
+            this.writetxtbutton.TabIndex = 116;
+            this.writetxtbutton.Text = "Write";
+            this.writetxtbutton.UseVisualStyleBackColor = true;
+            this.writetxtbutton.Click += new System.EventHandler(this.writetxtbutton_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(47, 180);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(269, 23);
+            this.label6.TabIndex = 117;
+            this.label6.Text = "Quality- Investment Influence:";
+            // 
+            // hScrollBar1
+            // 
+            this.hScrollBar1.Location = new System.Drawing.Point(51, 229);
+            this.hScrollBar1.Minimum = 10;
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Size = new System.Drawing.Size(509, 34);
+            this.hScrollBar1.TabIndex = 118;
+            this.hScrollBar1.Value = 60;
+            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
+            // 
+            // Settingstxthelp
+            // 
+            this.Settingstxthelp.BackColor = System.Drawing.Color.MistyRose;
+            this.Settingstxthelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Settingstxthelp.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.Settingstxthelp.Location = new System.Drawing.Point(169, 55);
+            this.Settingstxthelp.Name = "Settingstxthelp";
+            this.Settingstxthelp.Size = new System.Drawing.Size(29, 32);
+            this.Settingstxthelp.TabIndex = 141;
+            this.Settingstxthelp.Text = "?";
+            this.Settingstxthelp.UseVisualStyleBackColor = false;
+            this.Settingstxthelp.Click += new System.EventHandler(this.Settingtxthelp_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.MistyRose;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Font = new System.Drawing.Font("Cascadia Code SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.button2.Location = new System.Drawing.Point(322, 174);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(29, 32);
+            this.button2.TabIndex = 142;
+            this.button2.Text = "?";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // AdvancedHelp
+            // 
+            this.AdvancedHelp.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.AdvancedHelp.Location = new System.Drawing.Point(57, 275);
+            this.AdvancedHelp.Name = "AdvancedHelp";
+            this.AdvancedHelp.Size = new System.Drawing.Size(477, 60);
+            this.AdvancedHelp.TabIndex = 143;
+            this.AdvancedHelp.Text = "Advanced Settings for the Program.";
+            this.AdvancedHelp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -1568,12 +1645,12 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.advancedsetting.ResumeLayout(false);
             this.advancedsetting.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1676,6 +1753,12 @@
         private System.Windows.Forms.Button loadsettingtxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox loadsettingtxtbox;
+        private System.Windows.Forms.Button writetxtbutton;
+        private System.Windows.Forms.Label AdvancedHelp;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Settingstxthelp;
+        private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.Label label6;
     }
 }
 

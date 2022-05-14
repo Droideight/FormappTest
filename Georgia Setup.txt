@@ -1,0 +1,58 @@
+Election Simulation Report
+
+====System Setting===
+QIInfluence:
+55
+
+In Interval:
+2500
+
+VTP Variety:
+0.55
+
+BTB Variety:
+2.5
+
+Tally Start:
+17.0
+
+====Race Information===
+Title:
+United States Senate Election in Georgia, 2022
+
+Can1Name:
+Herschel Walker
+
+Can2Name:
+Raphael Warnock
+
+Party1Name:
+R
+
+Party2Name:
+D
+
+Party1Color:
+Red
+
+Party2Color:
+Blue
+
+====Election Environment====
+Total Districts:
+14
+(Name, PVI, C1Quality, C2, C1Investment, C2, C1 Enthusiasm, C2, Batch QTY, SPD, Voters, MOE)
+D1,9,70,70,80,80,80,80,0.9,1.11,755729,3.0
+D2,-4,70,70,80,80,80,80,1,1,672988,2.0
+D3,16,80,60,80,80,80,80,0.8,1.25,763098,3.0
+D4,-27,60,80,80,80,80,80,1.1,0.78,773730,3.0
+D5,-36,60,80,80,80,80,80,1.4,0.72,788152,3.5
+D6,-1,70,70,80,80,80,80,1,1,765948,3.0
+D7,2,70,70,80,80,80,80,1,1,859207,4.5
+D8,15,80,60,80,80,80,80,0.8,1.25,719905,2.5
+D9,30,80,60,80,80,80,80,0.6,1.67,775367,3.0
+D10,13,80,60,80,80,80,80,0.8,1.25,775037,3.0
+D11,12,80,60,80,80,80,80,0.8,1.25,802721,4.0
+D12,9,70,70,80,80,80,80,0.9,1.11,738654,2.5
+D13,-23,60,80,80,80,80,80,1.3,0.78,792988,3.5
+D14,-28,60,80,80,80,80,80,1.3,0.78,728332,2.5

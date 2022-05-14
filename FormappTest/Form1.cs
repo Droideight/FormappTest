@@ -69,6 +69,7 @@ namespace FormappTest
         List<decimal> PopulationI = new List<decimal>();
         List<decimal> MOEI = new List<decimal>();
         string[] lines = new string[1000];
+        string[] olines = new string[1000];
         decimal[] inpct1 = new decimal[1000];
         decimal[] inpct2 = new decimal[1000];
         decimal[] inpct3 = new decimal[1000];
@@ -523,6 +524,7 @@ namespace FormappTest
         private void InButton_Click(object sender, EventArgs e)
         {
             Stop = Convert.ToDecimal(IntervalBox.Text);
+            clsTimer.Interval = (int)Stop;
             INintervallabelcount.Text = "(" + IntervalBox.Text + "ms)";
         }
         private void VTPButton_Click(object sender, EventArgs e)
@@ -1039,17 +1041,17 @@ namespace FormappTest
                 INPCT.Text = "In: " + String.Format("{0:0.00}", actualin) + "%";
                 timeelapsed += 1;
                 ElectionTime.Text = ShowTime(timeelapsed.ToString());
+                TallyDistrictByDistrict();
                 await Task.Delay((int)Stop);
                 DBDBoardClock += Stop;
-                TallyDistrictByDistrict();
+
             }
             while (finished < ED);
-            DBDBoardClock = 5000M;
             TallyDistrictByDistrict();
         }
         public void TallyDistrictByDistrict()
         {
-            if (DBDBoardClock > 5000M)
+            if (DBDBoardClock > 3000M)
             {
                 infobox.Text = "";
                 for (int i = 0; i < 3; i++)
@@ -1060,7 +1062,7 @@ namespace FormappTest
                     DBDBoardInfoserial++;
                     if (DBDBoardInfoserial == ED) { DBDBoardInfoserial = 0; break; }
                 }
-                DBDBoardClock -= 5000M;
+                DBDBoardClock -= 3000M;
             }
         }
         public void LiveUpdate(decimal district, decimal lower1, decimal higher1, decimal lower2, decimal higher2, decimal lower3, decimal higher3)
@@ -1121,6 +1123,7 @@ namespace FormappTest
         }
         public void ExternalHelper()
         {
+            int lineofqiratio = 4;
             int lineofininterval = 7;
             int lineofvtp = 10;
             int lineofbtb = 13;
@@ -1134,8 +1137,11 @@ namespace FormappTest
             int lineofcan2color = 38;
             int lineoftotaldistrict = 42;
             int lineoffirstdistrict = 44;
-            int lineoflastdistrict = 55;
+
+            QIRatio = Convert.ToDecimal(lines[lineofqiratio]);
+            hScrollBar1.Value = (int)(QIRatio);
             Stop = Convert.ToDecimal(lines[lineofininterval]);
+            clsTimer.Interval = (int)Stop;
             INintervallabelcount.Text = "(" + Stop + "ms)";
             
             VTP = Convert.ToDecimal(lines[lineofvtp]);
@@ -1260,62 +1266,23 @@ namespace FormappTest
                     PopulationI.RemoveAt(i); MOEI.RemoveAt(i);
                 };
             }
+            int lineoflastdistrict = lineoffirstdistrict + ED - 1;
             for (int i = lineoffirstdistrict; i <= lineoflastdistrict; i++)
             {
-                switch (lineoflastdistrict - i)
-                {
-                    case 0:
-                        string[] Entry0 = lines[i].Split(',');
-                        MOEI = Entry0.Select(decimal.Parse).ToList();
-                        break;
-                    case 1:
-                        string[] Entry1 = lines[i].Split(',');
-                        PopulationI = Entry1.Select(decimal.Parse).ToList();
-                        break;
-                    case 2:
-                        string[] Entry2 = lines[i].Split(',');
-                        BatchSI = Entry2.Select(decimal.Parse).ToList();
-                        break;
-                    case 3:
-                        string[] Entry3 = lines[i].Split(',');
-                        BatchQI = Entry3.Select(decimal.Parse).ToList();
-                        break;
-                    case 4:
-                        string[] Entry4 = lines[i].Split(',');
-                        E2 = Entry4.Select(decimal.Parse).ToList();
-                        break;
-                    case 5:
-                        string[] Entry5 = lines[i].Split(',');
-                        E1 = Entry5.Select(decimal.Parse).ToList();
-                        break;
-                    case 6:
-                        string[] Entry6 = lines[i].Split(',');
-                        CI2 = Entry6.Select(decimal.Parse).ToList();
-                        break;
-                    case 7:
-                        string[] Entry7 = lines[i].Split(',');
-                        CI1 = Entry7.Select(decimal.Parse).ToList();
-                        break;
-                    case 8:
-                        string[] Entry8 = lines[i].Split(',');
-                        CQ2 = Entry8.Select(decimal.Parse).ToList();
-                        break;
-                    case 9:
-                        string[] Entry9 = lines[i].Split(',');
-                        CQ1 = Entry9.Select(decimal.Parse).ToList();
-                        break;
-                    case 10:
-                        string[] Entry10 = lines[i].Split(',');
-                        PVI = Entry10.Select(decimal.Parse).ToList();
-                        break;
-                    case 11:
-                        string[] Entry11 = lines[i].Split(',');
-                        DName = Entry11.ToList();
-                        break;
-                    default:
-                        break;
-                }
-            }
+                string[] Entry = lines[i].Split(',');
+                DName[i - lineoffirstdistrict] = Entry[0];
+                PVI[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[1]);
+                CQ1[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[2]);
+                CQ2[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[3]);
+                CI1[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[4]);
+                CI2[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[5]);
+                E1[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[6]);
+                E2[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[7]);
+                BatchQI[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[8]);
+                BatchSI[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[9]);
+                PopulationI[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[10]);
+                MOEI[i - lineoffirstdistrict] = Convert.ToDecimal(Entry[11]);
+            }            
             SetupTableSize();
             Fillcontent();
             UpdateRuntimeCard();
@@ -1559,6 +1526,77 @@ namespace FormappTest
             lines = File.ReadAllLines(filePath);
             ExternalHelper();
 
+        }
+
+        private void writetxtbutton_Click(object sender, EventArgs e)
+        {
+            string filePath;
+            if (loadsettingtxtbox.Text.StartsWith("\"")) { filePath = loadsettingtxtbox.Text.Remove(0, 1); filePath = filePath.Remove(filePath.Length - 1, 1); }
+            else { filePath = loadsettingtxtbox.Text; }
+            olines[0] = "Election Simulation Report";
+            olines[1] = "";
+            olines[2] = "====System Setting===";
+            olines[3] = "QIInfluence:";
+            olines[4] = QIRatio.ToString();
+            olines[5] = "";
+            olines[6] = "In Interval:";
+            olines[7] = Stop.ToString();
+            olines[8] = "";
+            olines[9] = "VTP Variety:";
+            olines[10] = VTP.ToString();
+            olines[11] = "";
+            olines[12] = "BTB Variety";
+            olines[13] =  BatchVariety.ToString();
+            olines[14] = "";
+            olines[15] = "Tally Start:";
+            olines[16] = electionstart.ToString();
+            olines[17] = "";
+            olines[18] = "====Race Information===";
+            olines[19] = "Title";
+            olines[20] = RaceName.ToString();
+            olines[21] = "";
+            olines[22] = "Can1Name:";
+            olines[23] = varCan1name;
+            olines[24] = "";
+            olines[25] = "Can2Name:";
+            olines[26] = varCan2name;
+            olines[27] = "";
+            olines[28] = "Party1Name:";
+            olines[29] = DisplayParty1Label.Text;
+            olines[30] = "";
+            olines[31] = "Party2Name:";
+            olines[32] = DisplayParty2Label.Text;
+            olines[33] = "";
+            olines[34] = "Party1Color:";
+            olines[35] = "Red";
+            olines[36] = "";
+            olines[37] = "Party2Color:";
+            olines[38] = "Blue";
+            olines[39] = "";
+            olines[40] = "====Election Environment====";
+            olines[41] = "Total Districts:";
+            olines[42] = ED.ToString();
+            olines[43] = "(Name, PVI, C1Quality, C2, C1Investment, C2, C1 Enthusiasm, C2, Batch QTY, SPD, Voters, MOE)";
+            for (int i = 44; i < 44+ED; i++)
+            {
+                olines[i] = $"{DName[i - 44]},{PVI[i - 44]},{CQ1[i - 44]},{CQ2[i - 44]},{CI1[i - 44]},{CI2[i - 44]},{E1[i - 44]},{E2[i - 44]},{BatchQI[i - 44]},{BatchSI[i - 44]},{PopulationI[i - 44]},{MOEI[i - 44]}";
+            }
+            File.WriteAllLines(filePath,olines);
+        }
+
+        private void Settingtxthelp_Click(object sender, EventArgs e)
+        {
+            AdvancedHelp.Text = "You may load or save your settins to an external file.";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdvancedHelp.Text = "Determine how significant an extreme quality or investment\r\nwill impact on candidate's performance.";
+        }
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            QIRatio = (decimal)hScrollBar1.Value * 0.01M;
         }
     }
 }
