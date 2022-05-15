@@ -977,12 +977,12 @@ namespace FormappTest
                 $"====Likely====\r\n{varCan1name}: {Decimal.Round(lsd1, 2)} ~ {Decimal.Round(hsd1, 2)}% ({l1}~{m1})\r\n{varCan2name}: {Decimal.Round(lsd2, 2)} ~ {Decimal.Round(hsd2, 2)}% ({l2}~{m2})" +
                 $"\r\n\r\n{varCan1name} wins {win}% of times (n= {Convert.ToInt32(RUNTIME)}). \r\n";
             if (win > 97) { MassSIMBox.Text += $"Race Rating: Solid {varCan1name}"; }
-            else if (win > 90) { MassSIMBox.Text += $"Race Rating: Likely {varCan1name}"; }
-            else if (win > 80) { MassSIMBox.Text += $"Race Rating: Lean {varCan1name}"; }
-            else if (win > 60) { MassSIMBox.Text += $"Race Rating: Tilt {varCan1name}"; }
-            else if (win > 40) { MassSIMBox.Text += $"Race Rating: Toss Up"; }
-            else if (win > 20) { MassSIMBox.Text += $"Race Rating: Tilt {varCan2name}"; }
-            else if (win > 10) { MassSIMBox.Text += $"Race Rating: Lean {varCan2name}"; }
+            else if (win > 92) { MassSIMBox.Text += $"Race Rating: Likely {varCan1name}"; }
+            else if (win > 79) { MassSIMBox.Text += $"Race Rating: Lean {varCan1name}"; }
+            else if (win > 68) { MassSIMBox.Text += $"Race Rating: Tilt {varCan1name}"; }
+            else if (win > 32) { MassSIMBox.Text += $"Race Rating: Toss Up"; }
+            else if (win > 21) { MassSIMBox.Text += $"Race Rating: Tilt {varCan2name}"; }
+            else if (win > 8) { MassSIMBox.Text += $"Race Rating: Lean {varCan2name}"; }
             else if (win > 3) { MassSIMBox.Text += $"Race Rating: Likely {varCan2name}"; }
             else { MassSIMBox.Text += $"Race Rating: Solid {varCan2name}"; }
             massavg = Decimal.Round(avg1, 2) - Decimal.Round(avg2, 2);
