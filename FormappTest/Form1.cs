@@ -12,9 +12,9 @@ using System.IO;
 
 namespace FormappTest
 {
-    public partial class Form1 : Form
+    public partial class natenvbox : Form
     {
-        public Form1()
+        public natenvbox()
         {
             InitializeComponent();
             // 設定ChartArea
@@ -50,6 +50,7 @@ namespace FormappTest
         decimal currentpctdiff = 0M;
         decimal massavg = 0;
         double electionstart = 19.0;
+        decimal NATPVI = 0.0M;
         static decimal RUNTIME = 100000;
         double BatchVariety = 1.0;
         int finished = 0;
@@ -100,13 +101,13 @@ namespace FormappTest
             {
                 livevotechart.Series[0].Points.AddXY(actualin, currentpctdiff);
                 DataPoint Last = livevotechart.Series[0].Points.Last();
-                livevotechart.Series[0].Points[livevotechart.Series[0].Points.IndexOf(Last)].Color = Color.Blue;
+                livevotechart.Series[0].Points[livevotechart.Series[0].Points.IndexOf(Last)].Color = Can2Name.BackColor;
             }
             if (currentpctdiff >= 0)
             {
                 livevotechart.Series[0].Points.AddXY(actualin, currentpctdiff);
                 DataPoint Last = livevotechart.Series[0].Points.Last();
-                livevotechart.Series[0].Points[livevotechart.Series[0].Points.IndexOf(Last)].Color = Color.Red;
+                livevotechart.Series[0].Points[livevotechart.Series[0].Points.IndexOf(Last)].Color = Can1Name.BackColor;
             }
             livevotechart.Series[0].Points.AddXY(actualin, currentpctdiff);
         }
@@ -222,6 +223,7 @@ namespace FormappTest
                 CloneTextBox(j);
             }
             Fillcontent();
+            tableLayoutPanel4.Width -= 5;
         }
         public void Fillcontent()
         {
@@ -697,8 +699,8 @@ namespace FormappTest
         {
             for (int i = 0; i < Convert.ToInt32(RUNTIME); i++)
             {
-                decimal tempC1 = (decimal)((50 + (double)AVGPVI / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCQ1), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCI1)))));
-                decimal tempC2 = (decimal)((50 - (double)AVGPVI / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCQ2), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCI2)))));
+                decimal tempC1 = (decimal)((50 +(double)NATPVI/2 + (double)AVGPVI / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCQ1), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCI1)))));
+                decimal tempC2 = (decimal)((50 - (double)NATPVI / 2 - (double)AVGPVI / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCQ2), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)AVGCI2)))));
                 decimal remainder = 100.0M - tempC1 - tempC2;
                 decimal thirdPCT = (remainder) * (1M - (0.015M * AVGE1 - 0.5M)) * (1M - (0.015M * AVGE2 - 0.5M));
                 decimal C1EntBonus = (remainder - thirdPCT) * (AVGE1 / (AVGE1 + AVGE2));
@@ -753,8 +755,8 @@ namespace FormappTest
         {
             for (int i = 0; i < ED; i++)
             {
-                decimal tempC1 = (decimal)((50 + ((double)GetPVI(i + 1)) / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCQ1(i + 1)), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCI1(i + 1))))));
-                decimal tempC2 = (decimal)((50 - ((double)GetPVI(i + 1)) / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCQ2(i + 1)), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCI2(i + 1))))));
+                decimal tempC1 = (decimal)((50 + (double)NATPVI / 2 + ((double)GetPVI(i + 1)) / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCQ1(i + 1)), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCI1(i + 1))))));
+                decimal tempC2 = (decimal)((50- (double)NATPVI / 2 - ((double)GetPVI(i + 1)) / 2) * (Math.Pow((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCQ2(i + 1)), 1 / ((double)QIRatio + (0.01 * (1 - (double)QIRatio) * (double)GetCI2(i + 1))))));
                 decimal remainder = 100.0M - tempC1 - tempC2;
                 decimal thirdpct = (remainder) * (1M - (0.015M * GetE1(i + 1) - 0.5M)) * (1M - (0.015M * GetE2(i + 1) - 0.5M));
                 decimal C1EntBonus = (remainder - thirdpct) * (GetE1(i + 1) / (GetE1(i + 1) + (GetE2(i + 1))));
@@ -924,7 +926,7 @@ namespace FormappTest
             {
                 AVGMOE += (MOEI[i] * PopulationI[i] / TotalPopulation);
             }
-            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%; Population: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)}\r\n\r\n===Ability===\r\nCan. Quality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%" +
+            RunConditionBox.Text = $"PVI: {Math.Round(AVGPVI, 2, MidpointRounding.AwayFromZero)}%; Population: {Math.Round(TotalPopulation, 2, MidpointRounding.AwayFromZero)}; Nat.Environment: {NATPVI}%\r\n\r\n===Ability===\r\nCan. Quality: {Math.Round(AVGCQ1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCQ2, 2, MidpointRounding.AwayFromZero)}%" +
                 $"; Investment: {Math.Round(AVGCI1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGCI2, 2, MidpointRounding.AwayFromZero)}%" +
                 $"; Enthusiasm: {Math.Round(AVGE1, 2, MidpointRounding.AwayFromZero)}% - {Math.Round(AVGE2, 2, MidpointRounding.AwayFromZero)}%\r\n\r\n===Vote Tally===\r\n" +
                 $"Batch Quantity: {Math.Round(BatchQ, 2, MidpointRounding.AwayFromZero)}; Speed: {Math.Round(BatchS, 2, MidpointRounding.AwayFromZero)}; MOE: {Math.Round(AVGMOE, 2, MidpointRounding.AwayFromZero)}%\r\n";
@@ -1039,6 +1041,7 @@ namespace FormappTest
                 }
                 actualin /= PopulationI.Sum();
                 INPCT.Text = "In: " + String.Format("{0:0.00}", actualin) + "%";
+                progressBar1.Value = (int)Math.Floor(actualin);
                 timeelapsed += 1;
                 ElectionTime.Text = ShowTime(timeelapsed.ToString());
                 TallyDistrictByDistrict();
@@ -1051,7 +1054,7 @@ namespace FormappTest
         }
         public void TallyDistrictByDistrict()
         {
-            if (DBDBoardClock > 3000M)
+            if (DBDBoardClock > 4000M)
             {
                 infobox.Text = "";
                 for (int i = 0; i < 3; i++)
@@ -1062,7 +1065,7 @@ namespace FormappTest
                     DBDBoardInfoserial++;
                     if (DBDBoardInfoserial == ED) { DBDBoardInfoserial = 0; break; }
                 }
-                DBDBoardClock -= 3000M;
+                DBDBoardClock -= 4000M;
             }
         }
         public void LiveUpdate(decimal district, decimal lower1, decimal higher1, decimal lower2, decimal higher2, decimal lower3, decimal higher3)
@@ -1136,13 +1139,15 @@ namespace FormappTest
             int lineofcan1color = 35;
             int lineofcan2color = 38;
             int lineoftotaldistrict = 42;
-            int lineoffirstdistrict = 44;
+            int lineofNATPVI = 45;
+            int lineoffirstdistrict = 48;
 
             QIRatio = Convert.ToDecimal(lines[lineofqiratio]);
             hScrollBar1.Value = (int)(QIRatio);
             Stop = Convert.ToDecimal(lines[lineofininterval]);
             clsTimer.Interval = (int)Stop;
             INintervallabelcount.Text = "(" + Stop + "ms)";
+            NATPVI = Convert.ToDecimal(lines[lineofNATPVI]);
             
             VTP = Convert.ToDecimal(lines[lineofvtp]);
             VTPlabelcount.Text = "(" + VTP + ")";
@@ -1576,10 +1581,14 @@ namespace FormappTest
             olines[40] = "====Election Environment====";
             olines[41] = "Total Districts:";
             olines[42] = ED.ToString();
-            olines[43] = "(Name, PVI, C1Quality, C2, C1Investment, C2, C1 Enthusiasm, C2, Batch QTY, SPD, Voters, MOE)";
-            for (int i = 44; i < 44+ED; i++)
+            olines[43] = "";
+            olines[44] = "National Environment:";
+            olines[45] = NATPVI.ToString();
+            olines[46] = "";
+            olines[47] = "(Name, PVI, C1Quality, C2, C1Investment, C2, C1 Enthusiasm, C2, Batch QTY, SPD, Voters, MOE)";
+            for (int i = 47; i < 47+ED; i++)
             {
-                olines[i] = $"{DName[i - 44]},{PVI[i - 44]},{CQ1[i - 44]},{CQ2[i - 44]},{CI1[i - 44]},{CI2[i - 44]},{E1[i - 44]},{E2[i - 44]},{BatchQI[i - 44]},{BatchSI[i - 44]},{PopulationI[i - 44]},{MOEI[i - 44]}";
+                olines[i] = $"{DName[i - 47]},{PVI[i - 47]},{CQ1[i - 47]},{CQ2[i - 47]},{CI1[i - 47]},{CI2[i - 47]},{E1[i - 47]},{E2[i - 47]},{BatchQI[i - 47]},{BatchSI[i - 47]},{PopulationI[i - 47]},{MOEI[i - 47]}";
             }
             File.WriteAllLines(filePath,olines);
         }
@@ -1597,6 +1606,430 @@ namespace FormappTest
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             QIRatio = (decimal)hScrollBar1.Value * 0.01M;
+        }
+
+        private void natenvbtn_Click(object sender, EventArgs e)
+        {
+            NATPVI = Convert.ToDecimal(NATPVIBOX.Text);
+            UpdateRuntimeCard();
+        }
+
+        private void c1p_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 1:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp += 1.0;
+                            if (temp > 100) { temp = 100; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c1m_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 1:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp -= 1.0;
+                            if (temp < 0) { temp = 0; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c2p_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 2:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp += 1.0;
+                            if (temp > 100) { temp = 100; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c2m_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 2:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp -= 1.0;
+                            if (temp < 0) { temp = 0; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c3p_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 3:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp += 1.0;
+                            if (temp > 100) { temp = 100; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c4p_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 4:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp += 1.0;
+                            if (temp > 100) { temp = 100; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c5p_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 5:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp += 1.0;
+                            if (temp > 100) { temp = 100; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c6p_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 6:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp += 1.0;
+                            if (temp > 100) { temp = 100; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c7p_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 7:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp += 1.0;
+                            if (temp > 100) { temp = 100; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c8p_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 8:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp += 1.0;
+                            if (temp > 100) { temp = 100; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c9p_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 9:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp += 1.0;
+                            if (temp > 100) { temp = 100; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c10p_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 10:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp += 10000.0;
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c3m_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 3:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp -= 1.0;
+                            if (temp < 0) { temp = 0; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c4m_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 4:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp -= 1.0;
+                            if (temp < 0) { temp = 0; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c5m_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 5:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp -= 1.0;
+                            if (temp < 0) { temp = 0; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c6m_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 6:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp -= 1.0;
+                            if (temp < 0) { temp = 0; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c7m_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 7:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp -= 1.0;
+                            if (temp < 0) { temp = 0; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c8m_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 8:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp -= 1.0;
+                            if (temp < 0) { temp = 0; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c9m_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 9:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp -= 1.0;
+                            if (temp < 0) { temp = 0; }
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+        }
+
+        private void c10m_Click(object sender, EventArgs e)
+        {
+            for (int k = 12; k < (ED + 1) * 12; k++)
+                switch (k % 12)
+                {
+                    case 10:
+                        {
+                            double temp;
+                            temp = Convert.ToDouble(SetupTable.Controls.Find(k.ToString(), true)[0].Text);
+                            temp -= 10000.0;
+                            SetupTable.Controls.Find(k.ToString(), true)[0].Text = temp.ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
         }
     }
 }
